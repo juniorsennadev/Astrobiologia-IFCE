@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark" data-resolved-theme="dark" data-contrast="normal" data-font-scale="100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://vlibras.gov.br https://cdn.jsdelivr.net https://unpkg.com https://www.instagram.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com https://vlibras.gov.br https://unpkg.com https://cdn.jsdelivr.net 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://vlibras.gov.br data:; img-src 'self' data: blob: https://*.fbcdn.net https://*.cdninstagram.com https://www.instagram.com https://portal.ifce.edu.br https://*.ifce.edu.br https://server.arcgisonline.com https://services.arcgisonline.com https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com https://unpkg.com https://vlibras.gov.br https://*.gov.br; connect-src 'self' https://vlibras.gov.br https://*.vlibras.gov.br wss://*.vlibras.gov.br https://server.arcgisonline.com https://services.arcgisonline.com https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com; frame-src https://vlibras.gov.br https://www.instagram.com; object-src 'none'; base-uri 'self';">
+
+  <title>XXIV EANE — IFAL Campus Satuba (AL) &amp; Sede EANE 2029 | Laboratório de Astrobiologia IFCE Acaraú</title>
+  <meta name="description" content="Dossiê da participação da comitiva do Laboratório de Astrobiologia e Clube de Astronomia (@cav.ifa) do IFCE Campus Acaraú no XXIV Encontro de Astronomia do Nordeste (EANE), em Satuba, Alagoas, onde Acaraú foi eleita sede do EANE 2029.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="icon" type="image/png" href="../assets/logo-lab-branca.png">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <nav class="skip-links" aria-label="Atalhos de acessibilidade">
+    <a href="#conteudo-evento" class="skip-link" accesskey="1">Ir para o relato do evento [1]</a>
+    <a href="../index.html#viagens-nordeste-brasil" class="skip-link" accesskey="2">Voltar ao mapa principal [2]</a>
+  </nav>
+
+  <div class="gov-utility-bar" role="region" aria-label="Barra institucional e controles de acessibilidade">
+    <div class="container utility-bar__inner">
+      <div class="utility-bar__brand">
+        <span class="ifce-sigla" aria-hidden="true">IFCE</span>
+        <span class="utility-bar__divider" aria-hidden="true">/</span>
+        <span class="utility-bar__campus">Instituto Federal do Ceará — <strong>Campus Acaraú</strong></span>
+        <span class="utility-bar__coords mono-tag">DOSSIÊ DE MISSÃO CIENTÍFICA</span>
+      </div>
+
+      <div class="utility-bar__actions">
+        <div class="a11y-controls" role="group" aria-label="Preferências de leitura, tema e acessibilidade">
+          <div class="theme-switcher" role="group" aria-label="Alternar modo de cor (Sistema, Claro ou Escuro)">
+            <button type="button" class="a11y-btn theme-btn" data-theme-option="system" aria-pressed="false" title="Seguir tema do sistema">
+              <span aria-hidden="true">◒</span>
+              <span>Sistema</span>
+            </button>
+            <button type="button" class="a11y-btn theme-btn" data-theme-option="light" aria-pressed="false" title="Ativar modo claro">
+              <span aria-hidden="true">☀</span>
+              <span>Claro</span>
+            </button>
+            <button type="button" class="a11y-btn theme-btn is-active" data-theme-option="dark" aria-pressed="true" title="Ativar modo escuro (Padrão)">
+              <span aria-hidden="true">☾</span>
+              <span>Escuro</span>
+            </button>
+          </div>
+          <span class="utility-bar__divider" aria-hidden="true">|</span>
+          <button type="button" id="btn-font-decrease" class="a11y-btn" aria-label="Diminuir tamanho da fonte">A−</button>
+          <button type="button" id="btn-font-reset" class="a11y-btn" aria-label="Restaurar tamanho original da fonte">A</button>
+          <button type="button" id="btn-font-increase" class="a11y-btn" aria-label="Aumentar tamanho da fonte">A+</button>
+          <span class="utility-bar__divider" aria-hidden="true">|</span>
+          <button type="button" id="btn-contrast" class="a11y-btn a11y-btn--contrast" aria-pressed="false">
+            <span class="contrast-icon" aria-hidden="true">◐</span>
+            <span>Alto Contraste</span>
+          </button>
+        </div>
+
+        <div class="utility-bar__socials">
+          <a href="https://www.instagram.com/astrobiologiaifce/" target="_blank" rel="noopener noreferrer" class="utility-social-link">@astrobiologiaifce ↗</a>
+          <a href="https://www.instagram.com/cav.ifa" target="_blank" rel="noopener noreferrer" class="utility-social-link">@cav.ifa ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header" id="topo">
+    <div class="container site-header__inner">
+      <a href="../index.html" class="brand-lockup" aria-label="Voltar à página inicial do Laboratório de Astrobiologia do IFCE Campus Acaraú">
+        <div class="brand-emblem" aria-hidden="true">
+          <img src="../assets/logo-lab-branca.png" alt="" class="brand-logo brand-logo--dark" width="46" height="43">
+          <img src="../assets/logo-lab-preta.png" alt="" class="brand-logo brand-logo--light" width="46" height="43">
+        </div>
+        <div class="brand-text">
+          <span class="brand-kicker">Laboratório de Pesquisa &amp; Extensão</span>
+          <span class="brand-title">Astrobiologia <span class="brand-title--sub">IFCE Acaraú</span></span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação da página de evento">
+        <ul class="main-nav__list">
+          <li><a href="../index.html#viagens-nordeste-brasil" class="main-nav__link">← Voltar ao Mapa Geográfico</a></li>
+          <li><a href="../index.html#legado-lateb" class="main-nav__link">Herança LaTEB</a></li>
+          <li><a href="../index.html#acervo-pesquisa" class="main-nav__link">Publicações</a></li>
+          <li><a href="../index.html#contato" class="main-nav__link main-nav__link--cta">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="breadcrumb-bar">
+    <div class="container breadcrumb-nav">
+      <a href="../index.html#viagens-nordeste-brasil" class="breadcrumb-back">← Voltar ao Mapa Interativo de Viagens e Congressos</a>
+      <span class="breadcrumb-trail">Pelo Nordeste e Brasil / Satuba &amp; Maceió – AL / XXIV EANE</span>
+    </div>
+  </div>
+
+  <main id="conteudo-evento">
+    <section class="event-hero">
+      <div class="container">
+        <div class="event-hero__meta">
+          <span class="mono-tag event-hero__badge">COMITIVA NORDESTE // XXIV EANE</span>
+          <span class="mono-tag">04 a 06 de Junho de 2026 · Satuba / Maceió, AL</span>
+          <span class="mono-tag">COORDENADAS: 09°33'46"S 35°49'26"W</span>
+        </div>
+        <h1 class="event-hero__title">
+          XXIV EANE — Encontro de Astronomia do Nordeste no IFAL Campus Satuba
+        </h1>
+        <p class="event-hero__lead">
+          Segunda participação consecutiva da delegação de estudantes e professores dos cursos de Licenciatura em Física e Ciências Biológicas do IFCE <em>Campus</em> Acaraú no maior encontro regional de astronomia do Nordeste, realizado em Alagoas.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-block section-block--bordered">
+      <div class="container event-dossier-layout">
+        <article class="event-article-body">
+          <h2>A Missão Científica em Alagoas e a Conquista do EANE 2029</h2>
+          <p>
+            Entre os dias 4 e 6 de junho de 2026, a comitiva do <strong>Laboratório de Astrobiologia do IFCE Campus Acaraú</strong> e do <strong>Clube de Astronomia (<code>@cav.ifa</code>)</strong> esteve presente no <strong>Instituto Federal de Alagoas (IFAL) – Campus Satuba</strong>, na Região Metropolitana de Maceió, para participar do <strong>XXIV Encontro de Astronomia do Nordeste (EANE)</strong>.
+          </p>
+          <p>
+            Coordenada pelo <strong>Prof. Me. Jorge Roberto Pereira da Silva</strong> (em sinergia com o <strong>Prof. Dr. João Garcia Alves Filho</strong>), a delegação contou com os estudantes <strong>Jeferson, Luma, Vitória, Ana Clara e Ailton</strong> (Licenciatura em Física) e <strong>Junior e Luzia</strong> (Licenciatura em Ciências Biológicas). Na plenária oficial do evento, a defesa da comitiva conquistou a aprovação histórica de <strong>Acaraú como sede oficial do EANE em 2029</strong>.
+          </p>
+
+          <figure class="eneastro-featured-figure" style="margin: 1.5rem 0 2rem;">
+            <div class="eneastro-featured-figure__img-wrap">
+              <img
+                src="https://portal.ifce.edu.br/media/images/EANE_Site.width-500.png"
+                data-fallback-src="../assets/instagram/eane-satuba-comitiva.png"
+                referrerpolicy="no-referrer"
+                loading="lazy"
+                alt="Apresentação de trabalho da comitiva do IFCE Campus Acaraú no XXIV EANE no IFAL Campus Satuba"
+                class="ig-indexed-img"
+              >
+              <span class="ig-source-pill mono-tag">PORTAL IFCE // @astrobiologiaifce</span>
+            </div>
+            <figcaption class="eneastro-featured-figure__caption">
+              <strong>Comitiva IFCE Acaraú em Satuba-AL:</strong> Apresentação de trabalho dos estudantes de Física e Biologia no XXIV EANE, evento em que o município de Acaraú foi eleito sede oficial do EANE 2029.
+            </figcaption>
+          </figure>
+
+          <h2>Trabalhos e Pesquisas Apresentados em Satuba</h2>
+          <div class="event-works-list">
+            <div class="event-work-item">
+              <span class="mono-tag">INSTRUMENTAÇÃO &amp; ASTROBIOLOGIA NO ENSINO</span>
+              <h3>Modelagem Didática de Fotossíntese sob Espectros Estelares com Arduino e LEDs</h3>
+              <p>
+                Apresentação de protótipos experimentais desenvolvidos para demonstrar como diferentes faixas espectrais influenciam a atividade fotossintética, conectando conceitos de física óptica, bioquímica vegetal e zonas de habitabilidade estelar.
+              </p>
+            </div>
+
+            <div class="event-work-item">
+              <span class="mono-tag">BIOGEOCIÊNCIAS &amp; EXTREMÓFILOS</span>
+              <h3>Pesquisas em Astrobiologia e Ambientes Análogos no Norte Cearense</h3>
+              <p>
+                Compartilhamento dos avanços obtidos pelo laboratório no estudo de microrganismos resistentes e no uso de ferramentas de bioinformática (herdadas do LaTEB) como ponte para a iniciação científica no ensino superior e básico.
+              </p>
+            </div>
+
+            <div class="event-work-item">
+              <span class="mono-tag">EXTENSÃO &amp; POPULARIZAÇÃO (@CAV.IFA)</span>
+              <h3>Ações de Interiorização do Ensino de Astronomia no Baixo Acaraú</h3>
+              <p>
+                Relato das experiências de observação do céu, oficinas itinerantes em escolas públicas e monitoramento de meteoros conduzidos pelo Clube de Astronomia do campus.
+              </p>
+            </div>
+          </div>
+
+          <h2>Impacto na Formação Discente</h2>
+          <p>
+            A viagem ao XXIV EANE proporcionou aos estudantes de Acaraú o contato direto com astrônomos profissionais, planetaristas e grupos de pesquisa de todos os estados nordestinos, fortalecendo a preparação para a realização de eventos sediados no próprio Ceará, como o ENEASTRO.
+          </p>
+        </article>
+
+        <aside class="event-sidebar-card" aria-label="Localização geográfica exata do evento">
+          <div class="specimen-card__header">
+            <span class="mono-code">GEOLOCALIZAÇÃO DO EVENTO</span>
+            <span class="specimen-badge">IFAL Satuba · Alagoas</span>
+          </div>
+          <div id="venue-mini-map" class="venue-mini-map"
+               data-lat="-9.5628"
+               data-lng="-35.8239"
+               data-zoom="13"
+               data-label="IFAL Satuba · XXIV EANE"
+               role="region"
+               aria-label="Mapa geográfico do IFAL Campus Satuba em Alagoas"></div>
+          <div class="event-sidebar-card__body">
+            <div class="specimen-row">
+              <span class="specimen-key">Instituição Anfitriã</span>
+              <span class="specimen-val">Instituto Federal de Alagoas (IFAL) — Campus Satuba (Satuba / Região Metropolitana de Maceió – AL)</span>
+            </div>
+            <div class="specimen-row">
+              <span class="specimen-key">Delegação IFCE Acaraú</span>
+              <span class="specimen-val">Docentes e Estudantes de Licenciatura em Física e Ciências Biológicas</span>
+            </div>
+            <div class="specimen-row">
+              <span class="specimen-key">Período</span>
+              <span class="specimen-val">04 a 06 de Junho de 2026</span>
+            </div>
+            <div style="margin-top: 1.25rem; display: flex; flex-direction: column; gap: 0.6rem;">
+              <a href="https://www.instagram.com/astrobiologiaifce/" target="_blank" rel="noopener noreferrer" class="btn btn--ochre">
+                Ver cobertura no @astrobiologiaifce ↗
+              </a>
+              <a href="../index.html#viagens-nordeste-brasil" class="btn btn--secondary">
+                ← Voltar ao Mapa do Brasil
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section-block section-block--tinted" aria-labelledby="outros-eventos-heading">
+      <div class="container">
+        <span class="section-index mono-tag">CONTINUAR EXPLORANDO O MAPA</span>
+        <h2 id="outros-eventos-heading" class="section-title" style="margin-bottom: 2rem;">Outras viagens e marcos científicos da equipe</h2>
+        <div class="other-events-grid">
+          <a href="sbastrobio-usp.html" class="map-point-card" style="border: 1px solid var(--border-subtle); background: var(--bg-surface);">
+            <div class="map-point-card__head">
+              <span class="mono-tag map-point-card__loc">SÃO PAULO · SP</span>
+              <span class="map-point-card__arrow">→</span>
+            </div>
+            <strong class="map-point-card__title">Reunião Oficial SBAstrobio (IO-USP)</strong>
+            <span class="map-point-card__sub">Apresentação nacional do laboratório na USP</span>
+          </a>
+
+          <a href="xxiii-eane-caico.html" class="map-point-card" style="border: 1px solid var(--border-subtle); background: var(--bg-surface);">
+            <div class="map-point-card__head">
+              <span class="mono-tag map-point-card__loc">CAICÓ · RN</span>
+              <span class="map-point-card__arrow">→</span>
+            </div>
+            <strong class="map-point-card__title">XXIII EANE — Seridó Potiguar</strong>
+            <span class="map-point-card__sub">Estreia histórica da delegação no EANE</span>
+          </a>
+
+          <a href="eneastro-acarau.html" class="map-point-card" style="border: 1px solid var(--border-subtle); background: var(--bg-surface);">
+            <div class="map-point-card__head">
+              <span class="mono-tag map-point-card__loc">ACARAÚ · CE (SEDE)</span>
+              <span class="map-point-card__arrow">→</span>
+            </div>
+            <strong class="map-point-card__title">I ENEASTRO, LaTEB &amp; Rede BRAMON</strong>
+            <span class="map-point-card__sub">Sede do laboratório e eventos no campus</span>
+          </a>
+
+          <a href="reitoria-fortaleza.html" class="map-point-card" style="border: 1px solid var(--border-subtle); background: var(--bg-surface);">
+            <div class="map-point-card__head">
+              <span class="mono-tag map-point-card__loc">FORTALEZA · CE</span>
+              <span class="map-point-card__arrow">→</span>
+            </div>
+            <strong class="map-point-card__title">Reitoria IFCE &amp; Projeto FINEP</strong>
+            <span class="map-point-card__sub">Expansão e infraestrutura de alto desempenho</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="padding-top: 0;">
+      <p class="footer-copy">© <span id="current-year">2026</span> Laboratório de Astrobiologia — IFCE Campus Acaraú.</p>
+      <a href="../index.html#viagens-nordeste-brasil" class="back-to-top">← Voltar ao Mapa Principal</a>
+    </div>
+  </footer>
+
+  <div vw class="enabled">
+    <div vw-access-button class="active" aria-label="Tradutor para Língua Brasileira de Sinais - VLibras"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      if (window.VLibras && typeof window.VLibras.Widget === 'function') {
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+      }
+    });
+  </script>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

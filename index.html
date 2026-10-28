@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark" data-resolved-theme="dark" data-contrast="normal" data-font-scale="100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://vlibras.gov.br https://cdn.jsdelivr.net https://unpkg.com https://www.instagram.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com https://vlibras.gov.br https://unpkg.com https://cdn.jsdelivr.net 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://vlibras.gov.br data:; img-src 'self' data: blob: https://*.fbcdn.net https://*.cdninstagram.com https://www.instagram.com https://portal.ifce.edu.br https://*.ifce.edu.br https://server.arcgisonline.com https://services.arcgisonline.com https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com https://unpkg.com https://vlibras.gov.br https://*.gov.br; connect-src 'self' https://vlibras.gov.br https://*.vlibras.gov.br wss://*.vlibras.gov.br https://server.arcgisonline.com https://services.arcgisonline.com https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com; frame-src https://vlibras.gov.br https://www.instagram.com; object-src 'none'; base-uri 'self';">
+
+  <title>Laboratório de Astrobiologia | IFCE Campus Acaraú — Pesquisa, LaTEB &amp; Clube de Astronomia</title>
+  <meta name="description" content="Portal científico e institucional do Laboratório de Astrobiologia do IFCE Campus Acaraú. Pesquisa em microrganismos extremófilos, bioinformática herdada do LaTEB, Clube de Astronomia (@cav.ifa) e presença científica pelo Nordeste e Brasil.">
+  <meta name="keywords" content="Astrobiologia, IFCE Acaraú, LaTEB, Bioinformática, Extremófilos, Caatinga, Clube de Astronomia, CAV IFA, EANE, ENEASTRO, SBAstrobio">
+  <meta name="author" content="Laboratório de Astrobiologia — IFCE Campus Acaraú">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Laboratório de Astrobiologia — IFCE Campus Acaraú">
+  <meta property="og:description" content="Do litoral e semiárido cearense à investigação da vida no cosmos. Bioinformática (LaTEB), Extremófilos e Clube de Astronomia (@cav.ifa).">
+
+  <!-- Google Fonts: Newsreader (Editorial Serif), Plus Jakarta Sans (Technical Humanist Sans), JetBrains Mono (Dados & Bioinformática) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+  <!-- Leaflet CSS (Mapa Geográfico Real) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+  <!-- Favicon Oficial do Laboratório -->
+  <link rel="icon" type="image/png" href="assets/logo-lab-branca.png">
+
+  <!-- Folha de Estilo Principal -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Dados Estruturados JSON-LD (Schema.org ResearchOrganization) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ResearchOrganization",
+    "name": "Laboratório de Astrobiologia do IFCE Campus Acaraú",
+    "alternateName": ["Astrobiologia IFCE Acaraú", "LaTEB — Laboratório de Tecnologias Educacionais e Bioinformática", "Clube de Astronomia CAV IFA"],
+    "email": "astrobiologia@acarau.ifce.edu.br",
+    "parentOrganization": {
+      "@type": "EducationalOrganization",
+      "name": "Instituto Federal de Educação, Ciência e Tecnologia do Ceará — Campus Acaraú"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Desembargador Armando de Sales Louzada, s/n - Monsenhor Edson Magalhães",
+      "addressLocality": "Acaraú",
+      "addressRegion": "CE",
+      "postalCode": "62580-000",
+      "addressCountry": "BR"
+    },
+    "sameAs": [
+      "https://www.instagram.com/astrobiologiaifce/",
+      "https://www.instagram.com/cav.ifa"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Links de Salto Rápido (Acessibilidade e Padrão eMAG) -->
+  <nav class="skip-links" aria-label="Atalhos de acessibilidade">
+    <a href="#conteudo-principal" class="skip-link" accesskey="1">Ir para o conteúdo principal [1]</a>
+    <a href="#navegacao-principal" class="skip-link" accesskey="2">Ir para o menu de navegação [2]</a>
+    <a href="#acervo-pesquisa" class="skip-link" accesskey="3">Ir para a busca de publicações [3]</a>
+    <a href="#rodape-institucional" class="skip-link" accesskey="4">Ir para o rodapé e contato [4]</a>
+  </nav>
+
+  <!-- Barra Institucional Superior (IFCE + Controles de Acessibilidade) -->
+  <div class="gov-utility-bar" role="region" aria-label="Barra institucional e controles de acessibilidade">
+    <div class="container utility-bar__inner">
+      <div class="utility-bar__brand">
+        <span class="ifce-sigla" aria-hidden="true">IFCE</span>
+        <span class="utility-bar__divider" aria-hidden="true">/</span>
+        <span class="utility-bar__campus">Instituto Federal do Ceará — <strong>Campus Acaraú</strong></span>
+        <span class="utility-bar__coords mono-tag" title="Coordenadas geográficas do Campus Acaraú">02°53'09"S 40°07'12"W</span>
+      </div>
+
+      <div class="utility-bar__actions">
+        <div class="a11y-controls" role="group" aria-label="Preferências de leitura, tema e acessibilidade">
+          <div class="theme-switcher" role="group" aria-label="Alternar modo de cor (Sistema, Claro ou Escuro)">
+            <button type="button" class="a11y-btn theme-btn" data-theme-option="system" aria-pressed="false" title="Seguir tema do sistema">
+              <span aria-hidden="true">◒</span>
+              <span>Sistema</span>
+            </button>
+            <button type="button" class="a11y-btn theme-btn" data-theme-option="light" aria-pressed="false" title="Ativar modo claro">
+              <span aria-hidden="true">☀</span>
+              <span>Claro</span>
+            </button>
+            <button type="button" class="a11y-btn theme-btn is-active" data-theme-option="dark" aria-pressed="true" title="Ativar modo escuro (Padrão)">
+              <span aria-hidden="true">☾</span>
+              <span>Escuro</span>
+            </button>
+          </div>
+          <span class="utility-bar__divider" aria-hidden="true">|</span>
+          <button type="button" id="btn-font-decrease" class="a11y-btn" title="Diminuir tamanho da fonte" aria-label="Diminuir tamanho da fonte">A−</button>
+          <button type="button" id="btn-font-reset" class="a11y-btn" title="Tamanho padrão da fonte" aria-label="Restaurar tamanho original da fonte">A</button>
+          <button type="button" id="btn-font-increase" class="a11y-btn" title="Aumentar tamanho da fonte" aria-label="Aumentar tamanho da fonte">A+</button>
+          <span class="utility-bar__divider" aria-hidden="true">|</span>
+          <button type="button" id="btn-contrast" class="a11y-btn a11y-btn--contrast" aria-pressed="false" title="Alternar modo de alto contraste">
+            <span class="contrast-icon" aria-hidden="true">◐</span>
+            <span>Alto Contraste</span>
+          </button>
+        </div>
+
+        <div class="utility-bar__socials">
+          <a href="https://www.instagram.com/astrobiologiaifce/" target="_blank" rel="noopener noreferrer" class="utility-social-link" aria-label="Instagram do Laboratório de Astrobiologia (@astrobiologiaifce)">
+            @astrobiologiaifce ↗
+          </a>
+          <a href="https://www.instagram.com/cav.ifa" target="_blank" rel="noopener noreferrer" class="utility-social-link" aria-label="Instagram do Clube de Astronomia (@cav.ifa)">
+            @cav.ifa ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cabeçalho Principal -->
+  <header class="site-header" id="topo">
+    <div class="container site-header__inner">
+      <a href="#topo" class="brand-lockup" aria-label="Laboratório de Astrobiologia do IFCE Campus Acaraú — Página inicial">
+        <div class="brand-emblem" aria-hidden="true">
+          <img src="assets/logo-lab-branca.png" alt="" class="brand-logo brand-logo--dark" width="46" height="43">
+          <img src="assets/logo-lab-preta.png" alt="" class="brand-logo brand-logo--light" width="46" height="43">
+        </div>
+        <div class="brand-text">
+          <span class="brand-kicker">Laboratório de Pesquisa &amp; Extensão</span>
+          <span class="brand-title">Astrobiologia <span class="brand-title--sub">IFCE Acaraú</span></span>
+        </div>
+      </a>
+
+      <button type="button" class="mobile-nav-toggle" id="mobile-nav-toggle" aria-expanded="false" aria-controls="navegacao-principal" aria-label="Abrir menu de navegação">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <nav class="main-nav" id="navegacao-principal" aria-label="Navegação principal">
+        <ul class="main-nav__list">
+          <li><a href="#sobre-laboratorio" class="main-nav__link">O Laboratório</a></li>
+          <li><a href="#legado-lateb" class="main-nav__link">Herança LaTEB &amp; Bioinformática</a></li>
+          <li><a href="#viagens-nordeste-brasil" class="main-nav__link">Pelo Nordeste e Brasil</a></li>
+          <li><a href="#marco-eneastro" class="main-nav__link">I ENEASTRO &amp; Instagram</a></li>
+          <li><a href="#acervo-pesquisa" class="main-nav__link">Publicações</a></li>
+          <li><a href="#clube-astronomia" class="main-nav__link">Clube @cav.ifa</a></li>
+          <li><a href="#contato" class="main-nav__link main-nav__link--cta">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main id="conteudo-principal">
+
+    <!-- 1. HERO SECTION EDITORIAL CIENTÍFICA -->
+    <section class="hero-editorial" aria-labelledby="hero-heading">
+      <div class="container">
+        <!-- Metadados de Cabeçalho Editorial -->
+        <div class="editorial-meta-strip">
+          <div class="meta-item">
+            <span class="meta-label">UNIDADE ACADÊMICA</span>
+            <span class="meta-value">Ciências Biológicas &amp; Física — IFCE Acaraú</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">NÚCLEO COMPUTACIONAL</span>
+            <span class="meta-value">Acervo &amp; Infraestrutura LaTEB / FINEP</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">ARTICULAÇÃO NACIONAL</span>
+            <span class="meta-value">SBAstrobio · EANE · Rede BRAMON</span>
+          </div>
+        </div>
+
+        <div class="hero-grid">
+          <div class="hero-content">
+            <p class="eyebrow-tag">
+              <span class="status-dot" aria-hidden="true"></span>
+              Pioneirismo em Astrobiologia no Estado do Ceará
+            </p>
+            <h1 id="hero-heading" class="hero-title">
+              Do litoral e semiárido cearense à investigação da <em>vida no cosmos</em>.
+            </h1>
+            <p class="hero-lead">
+              O <strong>Laboratório de Astrobiologia do IFCE Campus Acaraú</strong> articula Biologia, Física, Química, Computação e Astronomia para investigar microrganismos extremófilos da Caatinga e de zonas costeiras, construir modelos em bioinformática herdados do <strong>LaTEB</strong> e popularizar a ciência junto ao Clube de Astronomia (<strong>@cav.ifa</strong>).
+            </p>
+
+            <div class="hero-actions">
+              <a href="#marco-eneastro" class="btn btn--primary">
+                I ENEASTRO &amp; Acervo Instagram
+              </a>
+              <a href="#viagens-nordeste-brasil" class="btn btn--secondary">
+                Mapa de Viagens e Congressos
+              </a>
+              <a href="#legado-lateb" class="btn btn--secondary">
+                Bioinformática &amp; LaTEB
+              </a>
+            </div>
+
+            <!-- Indicadores Científicos Sóbrios -->
+            <dl class="hero-metrics" aria-label="Indicadores do laboratório">
+              <div class="metric-cell">
+                <dt class="metric-label">Pioneirismo Estadual</dt>
+                <dd class="metric-number">1º Lab</dd>
+                <dd class="metric-note">de Astrobiologia do Ceará apresentado na SBAstrobio (USP)</dd>
+              </div>
+              <div class="metric-cell">
+                <dt class="metric-label">1º Evento do Grupo Atual</dt>
+                <dd class="metric-number">I ENEASTRO</dd>
+                <dd class="metric-note">Tema "Vida e Universo" (14 a 17/10) · Apoio CAPES &amp; FINEP</dd>
+              </div>
+              <div class="metric-cell">
+                <dt class="metric-label">Presença Nacional</dt>
+                <dd class="metric-number">NE + BR</dd>
+                <dd class="metric-note">SP (USP), AL (Satuba — Sede EANE 2029), RN (Caicó) e CE</dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- Painel Editorial Direito: Diagrama de Campo & Coordenadas de Pesquisa -->
+          <aside class="hero-specimen-card" aria-label="Resumo técnico das frentes de estudo">
+            <div class="specimen-card__header">
+              <span class="mono-code">REGISTRO TÉCNICO // ACARAÚ-CE</span>
+              <span class="specimen-badge">Ambientes Análogos &amp; In Silico</span>
+            </div>
+
+            <div class="specimen-brand-banner">
+              <div class="specimen-brand-banner__logo">
+                <img src="assets/logo-lab-branca.png" alt="Emblema Oficial do Laboratório de Astrobiologia do IFCE Campus Acaraú (Versão Modo Escuro)" class="brand-logo brand-logo--dark specimen-logo-img" width="68" height="63">
+                <img src="assets/logo-lab-preta.png" alt="Emblema Oficial do Laboratório de Astrobiologia do IFCE Campus Acaraú (Versão Modo Claro)" class="brand-logo brand-logo--light specimen-logo-img" width="68" height="63">
+              </div>
+              <div class="specimen-brand-banner__info">
+                <span class="mono-tag specimen-brand-banner__kicker">IDENTIDADE OFICIAL DO LABORATÓRIO</span>
+                <strong class="specimen-brand-banner__title">Dupla Hélice &amp; Órbita Planetária</strong>
+                <span class="specimen-brand-banner__desc">A convergência entre Biologia Molecular (LaTEB) e Astrofísica (@cav.ifa) no IFCE Acaraú.</span>
+              </div>
+            </div>
+
+            <div class="specimen-visual">
+              <svg viewBox="0 0 420 250" class="specimen-svg" role="img" aria-label="Representação técnica conectando ambientes extremos do Ceará (radiação UV da Caatinga e hipersalinidade costeira), análise filogenética em bioinformática e observação planetária">
+                <defs>
+                  <pattern id="grid-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="currentColor" stroke-width="0.4" opacity="0.18"/>
+                  </pattern>
+                </defs>
+                <rect width="420" height="250" fill="url(#grid-pattern)"/>
+
+                <!-- Eixo 1: Ecossistema Costeiro & Caatinga -->
+                <g transform="translate(24, 30)">
+                  <rect x="0" y="0" width="110" height="190" rx="4" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+                  <text x="12" y="22" font-family="JetBrains Mono, monospace" font-size="9" fill="currentColor" opacity="0.75">01. CAMPO</text>
+                  <circle cx="55" cy="85" r="28" fill="none" stroke="#C87A4B" stroke-width="1.5"/>
+                  <circle cx="55" cy="85" r="18" fill="none" stroke="#C87A4B" stroke-width="1" stroke-dasharray="3 2"/>
+                  <path d="M43 85 C48 77, 62 77, 67 85 C62 93, 48 93, 43 85 Z" fill="#C87A4B" opacity="0.3"/>
+                  <text x="12" y="142" font-family="Plus Jakarta Sans, sans-serif" font-weight="600" font-size="10.5" fill="currentColor">Extremófilos</text>
+                  <text x="12" y="157" font-family="JetBrains Mono, monospace" font-size="8.5" fill="currentColor" opacity="0.75">Alta UV &amp; NaCl</text>
+                  <text x="12" y="171" font-family="JetBrains Mono, monospace" font-size="8.5" fill="currentColor" opacity="0.75">Caatinga / Salinas</text>
+                </g>
+
+                <!-- Seta Conectora 1 -> 2 -->
+                <path d="M136 125 L153 125" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 2"/>
+
+                <!-- Eixo 2: Bioinformática (LaTEB) -->
+                <g transform="translate(155, 30)">
+                  <rect x="0" y="0" width="110" height="190" rx="4" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+                  <text x="12" y="22" font-family="JetBrains Mono, monospace" font-size="9" fill="currentColor" opacity="0.75">02. IN SILICO</text>
+                  <!-- Árvore Filogenética estilizada -->
+                  <path d="M22 85 H42 M42 65 V105 M42 65 H65 M42 105 H58 M58 95 V115 M58 95 H82 M58 115 H82 M65 55 V75 M65 55 H85 M65 75 H85" stroke="#2A8558" stroke-width="1.6" fill="none"/>
+                  <circle cx="85" cy="55" r="2.5" fill="#2A8558"/>
+                  <circle cx="85" cy="75" r="2.5" fill="#2A8558"/>
+                  <circle cx="82" cy="95" r="2.5" fill="#2A8558"/>
+                  <circle cx="82" cy="115" r="2.5" fill="#2A8558"/>
+                  <text x="12" y="142" font-family="Plus Jakarta Sans, sans-serif" font-weight="600" font-size="10.5" fill="currentColor">Bioinformática</text>
+                  <text x="12" y="157" font-family="JetBrains Mono, monospace" font-size="8.5" fill="currentColor" opacity="0.75">Filogenia &amp; 3D</text>
+                  <text x="12" y="171" font-family="JetBrains Mono, monospace" font-size="8.5" fill="currentColor" opacity="0.75">Legado LaTEB</text>
+                </g>
+
+                <!-- Seta Conectora 2 -> 3 -->
+                <path d="M267 125 L284 125" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 2"/>
+
+                <!-- Eixo 3: Astrobiologia & Observação -->
+                <g transform="translate(286, 30)">
+                  <rect x="0" y="0" width="110" height="190" rx="4" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+                  <text x="12" y="22" font-family="JetBrains Mono, monospace" font-size="9" fill="currentColor" opacity="0.75">03. COSMOS</text>
+                  <ellipse cx="55" cy="85" rx="34" ry="14" transform="rotate(-22 55 85)" fill="none" stroke="currentColor" stroke-width="1.4"/>
+                  <circle cx="55" cy="85" r="8" fill="currentColor" opacity="0.85"/>
+                  <circle cx="82" cy="74" r="3" fill="#C87A4B"/>
+                  <text x="12" y="142" font-family="Plus Jakarta Sans, sans-serif" font-weight="600" font-size="10.5" fill="currentColor">Biogeociências</text>
+                  <text x="12" y="157" font-family="JetBrains Mono, monospace" font-size="8.5" fill="currentColor" opacity="0.75">Análogos Planetários</text>
+                  <text x="12" y="171" font-family="JetBrains Mono, monospace" font-size="8.5" fill="currentColor" opacity="0.75">BRAMON &amp; @cav.ifa</text>
+                </g>
+              </svg>
+            </div>
+
+            <div class="specimen-card__details">
+              <div class="specimen-row">
+                <span class="specimen-key">Coordenação Científica</span>
+                <span class="specimen-val">Prof. Dr. João Garcia Alves Filho · Prof. Jorge Roberto</span>
+              </div>
+              <div class="specimen-row">
+                <span class="specimen-key">Ecossistemas Estudados</span>
+                <span class="specimen-val">Caatinga, Salinas Costeiras e Manguezais do Baixo Acaraú</span>
+              </div>
+              <div class="specimen-row">
+                <span class="specimen-key">Infraestrutura Computacional</span>
+                <span class="specimen-val">Estações de Alto Desempenho (Projeto Biologando em Acaraú / FINEP)</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SOBRE O LABORATÓRIO & PILARES INTERDISCIPLINARES -->
+    <section id="sobre-laboratorio" class="section-block section-block--bordered" aria-labelledby="sobre-heading">
+      <div class="container">
+        <div class="section-header-grid">
+          <div class="section-kicker-col">
+            <span class="section-index mono-tag">SEÇÃO 01 // IDENTIDADE</span>
+            <h2 id="sobre-heading" class="section-title">Ciência interdisciplinar enraizada no Norte-Nordeste</h2>
+          </div>
+          <div class="section-intro-col">
+            <p class="section-lead">
+              O Laboratório de Astrobiologia do IFCE <em>Campus</em> Acaraú nasceu da convergência entre a pesquisa em biodiversidade e bioinformática das Ciências Biológicas e a instrumentação e astrofísica da Licenciatura em Física. Nosso propósito é investigar os limites físico-químicos da vida na Terra como chave para compreender sua possível distribuição no Universo.
+            </p>
+          </div>
+        </div>
+
+        <div class="pillars-grid">
+          <article class="pillar-card">
+            <div class="pillar-card__meta">
+              <span class="mono-tag">FRENTE I</span>
+              <span class="pillar-domain">Microbiologia &amp; Ambientes Extremos</span>
+            </div>
+            <h3 class="pillar-card__title">Extremófilos da Caatinga e do Litoral</h3>
+            <p class="pillar-card__text">
+              O semiárido cearense e as regiões hipersalinas costeiras de Acaraú oferecem condições naturais de alta incidência de radiação ultravioleta (UV), dessecação sazonal e salinidade severa. Investigamos os mecanismos moleculares de reparo de DNA e resistência osmótica de microrganismos nativos como modelos de habitabilidade planetária.
+            </p>
+            <ul class="pillar-card__tags" aria-label="Temas da Frente I">
+              <li>Radiorresistência UV</li>
+              <li>Halófilos Costeiros</li>
+              <li>Análogos Marcianos</li>
+            </ul>
+          </article>
+
+          <article class="pillar-card">
+            <div class="pillar-card__meta">
+              <span class="mono-tag">FRENTE II</span>
+              <span class="pillar-domain">Biologia Computacional (Herança LaTEB)</span>
+            </div>
+            <h3 class="pillar-card__title">Bioinformática e Evolução Molecular</h3>
+            <p class="pillar-card__text">
+              Herdando toda a tradição metodológica do <strong>LaTEB (Laboratório de Tecnologias Educacionais e Bioinformática)</strong>, executamos alinhamento de sequências, anotação funcional de genomas, reconstrução filogenética e modelagem estrutural 3D de proteínas chave para o metabolismo primitivo e adaptação extrema.
+            </p>
+            <ul class="pillar-card__tags" aria-label="Temas da Frente II">
+              <li>Inferência Filogenética</li>
+              <li>Docagem Molecular 3D</li>
+              <li>Genômica Comparativa</li>
+            </ul>
+          </article>
+
+          <article class="pillar-card">
+            <div class="pillar-card__meta">
+              <span class="mono-tag">FRENTE III</span>
+              <span class="pillar-domain">Física, Astronomia &amp; Educação</span>
+            </div>
+            <h3 class="pillar-card__title">Instrumentação, Meteoros e Ensino</h3>
+            <p class="pillar-card__text">
+              Em sinergia com o Clube de Astronomia (<strong>@cav.ifa</strong>) e a rede brasileira <strong>BRAMON</strong>, operamos monitoramento de meteoros, desenvolvemos aparatos didáticos com microcontroladores (como experimentos de fotossíntese sob espectros estelares simulados via Arduino/LEDs) e promovemos formação docente.
+            </p>
+            <ul class="pillar-card__tags" aria-label="Temas da Frente III">
+              <li>Monitoramento BRAMON</li>
+              <li>Instrumentação Arduino</li>
+              <li>Divulgação Científica</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. O LEGADO DO LaTEB & PAINEL INTERATIVO DE BIOINFORMÁTICA -->
+    <section id="legado-lateb" class="section-block section-block--dark" aria-labelledby="lateb-heading">
+      <div class="container">
+        <div class="section-header-grid">
+          <div class="section-kicker-col">
+            <span class="section-index mono-tag">SEÇÃO 02 // HERANÇA CIENTÍFICA</span>
+            <h2 id="lateb-heading" class="section-title">Do LaTEB à Astrobiologia: a espinha dorsal em Bioinformática</h2>
+          </div>
+          <div class="section-intro-col">
+            <p class="section-lead">
+              Antes de consolidar o primeiro laboratório de Astrobiologia do Ceará, nossa equipe construiu uma sólida trajetória no <strong>LaTEB (Laboratório de Tecnologias Educacionais e Bioinformática)</strong> do IFCE Acaraú. Essa herança garante rigor computacional às nossas análises de evolução molecular e ao desenvolvimento de recursos didáticos abertos.
+            </p>
+          </div>
+        </div>
+
+        <!-- Linha de Evolução Institucional LaTEB -> Astrobiologia -->
+        <div class="heritage-timeline" role="list" aria-label="Evolução histórica do LaTEB até o Laboratório de Astrobiologia">
+          <div class="heritage-step" role="listitem">
+            <span class="heritage-step__phase mono-tag">FASE 01 · FUNDAÇÃO LaTEB</span>
+            <h3 class="heritage-step__title">Bioinformática Aplicada e Tecnologias Educacionais</h3>
+            <p class="heritage-step__desc">
+              Estruturação das linhas de alinhamento de sequências biológicas, bancos de dados genômicos, produção de e-books didáticos, sequências de ensino investigativas e suporte aos estudantes da rede pública do Baixo Acaraú (incluindo aulões preparatórios para o ENEM).
+            </p>
+          </div>
+
+          <div class="heritage-step" role="listitem">
+            <span class="heritage-step__phase mono-tag">FASE 02 · INTEGRAÇÃO FÍSICA &amp; ASTRONOMIA</span>
+            <h3 class="heritage-step__title">Monitoramento BRAMON e Modelagem Experimental</h3>
+            <p class="heritage-step__desc">
+              Aproximação entre os grupos de Biologia e Física do campus: instalação de estação de monitoramento de meteoros (parceria BRAMON), criação do Clube de Astronomia (<strong>@cav.ifa</strong>) e desenvolvimento de protótipos com Arduino para simular processos fotossintéticos e astrofísicos.
+            </p>
+          </div>
+
+          <div class="heritage-step" role="listitem">
+            <span class="heritage-step__phase mono-tag">FASE 03 · CONSOLIDAÇÃO NACIONAL</span>
+            <h3 class="heritage-step__title">Laboratório de Astrobiologia &amp; Infraestrutura FINEP</h3>
+            <p class="heritage-step__desc">
+              Apresentação oficial na Reunião da <strong>SBAstrobio (USP)</strong> e expansão com computadores de alto desempenho (via projeto <em>Biologando em Acaraú</em> / FINEP) para simulações tridimensionais e filogenia de extremófilos da Caatinga e costa cearense.
+            </p>
+          </div>
+        </div>
+
+        <!-- Demonstrador Interativo de Bioinformática (Herança LaTEB) -->
+        <div class="bioinfo-workbench" aria-labelledby="workbench-title">
+          <div class="workbench-header">
+            <div>
+              <span class="mono-tag workbench-kicker">BANCADA COMPUTACIONAL INTERATIVA // ACERVO LaTEB</span>
+              <h3 id="workbench-title" class="workbench-title">Inspeção de Alvos Moleculares e Projetos do LaTEB</h3>
+            </div>
+            <p class="workbench-subtitle">
+              Selecione um dos modelos de estudo abaixo para inspecionar como combinamos bioinformática estrutural, evolução molecular e tecnologias educacionais no cotidiano do laboratório:
+            </p>
+          </div>
+
+          <div class="workbench-tabs" role="tablist" aria-label="Modelos de pesquisa em Bioinformática e Tecnologias Educacionais">
+            <button type="button" class="workbench-tab is-active" role="tab" aria-selected="true" aria-controls="panel-bioinfo" id="tab-uv" data-target="uv">
+              <span class="tab-code">MOD-01</span>
+              <span class="tab-name">Reparo de DNA sob Radiação UV (Fotoliase)</span>
+            </button>
+            <button type="button" class="workbench-tab" role="tab" aria-selected="false" aria-controls="panel-bioinfo" id="tab-halo" data-target="halo">
+              <span class="tab-code">MOD-02</span>
+              <span class="tab-name">Adaptação Hipersalina (Bacteriorrodopsina)</span>
+            </button>
+            <button type="button" class="workbench-tab" role="tab" aria-selected="false" aria-controls="panel-bioinfo" id="tab-edu" data-target="edu">
+              <span class="tab-code">MOD-03</span>
+              <span class="tab-name">Fotossíntese &amp; Espectros Estelares (Rubisco + Arduino)</span>
+            </button>
+          </div>
+
+          <div id="panel-bioinfo" class="workbench-panel" role="tabpanel" aria-labelledby="tab-uv" aria-live="polite">
+            <div class="workbench-grid">
+              <div class="workbench-sequence-box">
+                <div class="sequence-box__top">
+                  <span class="mono-tag" id="bio-locus-id">LOCUS: PHRB_EXTREMO_CE // 478 aa</span>
+                  <span class="sequence-method" id="bio-pipeline-tag">Pipeline: BLASTp → MAFFT → IQ-TREE → Modelagem 3D</span>
+                </div>
+                <pre class="sequence-code" id="bio-fasta-view" tabindex="0" aria-label="Alinhamento de sequência conservada"><code>&gt;Deinococcus_sp_Ref      [Motivo Conservado de Ligação ao Cofator FAD]
+412  T G Y P F I D A N M R E L V A T G W N R N H V R M V A S F  440
+&gt;Isolado_Caatinga_Model  [Análise Homologia Estrutural — LaTEB/IFCE]
+412  T G Y P F I D A N M R E L V A T G W N R N H V R M V A S F  440
+     * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+     [Região catalítica de reparo de dímeros de pirimidina induzidos por UV]</code></pre>
+                <div class="sequence-metrics">
+                  <div class="seq-stat">
+                    <span class="seq-stat__label">Ferramentas Utilizadas</span>
+                    <span class="seq-stat__val" id="bio-tools">MEGA / IQ-TREE / AutoDock Vina / PyMOL</span>
+                  </div>
+                  <div class="seq-stat">
+                    <span class="seq-stat__label">Eixo Formativo</span>
+                    <span class="seq-stat__val" id="bio-education">Iniciação Científica &amp; Práticas de Licenciatura</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="workbench-explanation">
+                <span class="mono-tag" id="bio-category">ASTROBIOLOGIA &amp; GENÔMICA EVOLUTIVA</span>
+                <h4 class="workbench-item-title" id="bio-title">Análise Filogenética e Estrutural de Fotoliases em Microrganismos Resistentes à Radiação UV</h4>
+                <p class="workbench-item-desc" id="bio-description">
+                  Microrganismos expostos à intensa insolação do semiárido e de salinas costeiras dependem de enzimas altamente eficientes, como as fotoliases de DNA, para reverter danos causados pela radiação ultravioleta. Por meio das rotinas de bioinformática consolidadas no LaTEB, realizamos alinhamentos múltiplos, inferência de árvores filogenéticas e docagem molecular para comparar a conservação evolutiva dessas proteínas frente a ambientes análogos planetários.
+                </p>
+                <div class="workbench-deliverables">
+                  <h5 class="deliverables-heading">Entregas Científicas e Educacionais Relacionadas:</h5>
+                  <ul class="deliverables-list" id="bio-deliverables">
+                    <li>Reconstrução filogenética e análise de domínios conservados em procariotos extremófilos.</li>
+                    <li>Modelagem molecular tridimensional em estações de trabalho de alto desempenho do campus.</li>
+                    <li>Transposição didática em e-books e oficinas de bioinformática para estudantes do ensino médio e graduação.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. PELO NORDESTE E BRASIL: MAPA GEOGRÁFICO REAL, MODAL DE INSPEÇÃO E PÁGINAS DEDICADAS -->
+    <section id="viagens-nordeste-brasil" class="section-block section-block--bordered" aria-labelledby="viagens-heading">
+      <div class="container">
+        <div class="section-header-grid">
+          <div class="section-kicker-col">
+            <span class="section-index mono-tag">SEÇÃO 03 // ROTEIRO CIENTÍFICO GEORREFERENCIADO</span>
+            <h2 id="viagens-heading" class="section-title">Pelo Nordeste e Brasil: viagens acadêmicas e congressos</h2>
+          </div>
+          <div class="section-intro-col">
+            <p class="section-lead">
+              A ciência produzida no IFCE <em>Campus</em> Acaraú atravessa fronteiras estaduais. <strong>Passe o mouse sobre cada ponto demarcado no mapa real abaixo</strong> para abrir o modal com o resumo do que foi realizado no local, e <strong>clique no ponto</strong> para ir direto à página dedicada ao evento.
+            </p>
+          </div>
+        </div>
+
+        <!-- Moldura do Mapa Geográfico Real + Modal Flutuante de Hover -->
+        <div class="real-map-showcase">
+          <div class="real-map-toolbar">
+            <div class="real-map-toolbar__left">
+              <span class="mono-tag">MAPA CARTOGRÁFICO INTERATIVO // ORIGEM: ACARAÚ-CE (02°53'09"S 40°07'12"W)</span>
+              <span class="map-legend">
+                <span class="legend-dot legend-dot--origin"></span> Sede IFCE Acaraú
+                <span class="legend-dot legend-dot--dest"></span> Evento / Congresso (Passe o mouse para ver · Clique para abrir a página)
+              </span>
+            </div>
+
+            <div class="real-map-toolbar__controls" role="group" aria-label="Recortes de visualização do mapa">
+              <button type="button" class="map-view-btn is-active" data-map-view="brasil">Visão Brasil</button>
+              <button type="button" class="map-view-btn" data-map-view="nordeste">Foco Nordeste</button>
+              <button type="button" class="map-view-btn" data-map-view="ceara">Sede Ceará</button>
+            </div>
+          </div>
+
+          <div class="real-map-stage">
+            <!-- Container Leaflet do Mapa Real -->
+            <div id="real-brazil-map" class="real-brazil-map" role="region" aria-label="Mapa geográfico real com os pontos de atuação científica do Laboratório de Astrobiologia do IFCE Acaraú"></div>
+
+            <!-- Modal de Inspeção Geográfica (Abre ao passar o mouse sobre qualquer ponto demarcado) -->
+            <aside id="map-hover-modal" class="map-hover-modal" role="dialog" aria-modal="false" aria-labelledby="hover-modal-title" aria-hidden="true">
+              <div class="map-hover-modal__top">
+                <span class="mono-tag map-hover-modal__badge" id="hover-modal-code">MISSÃO NACIONAL // SP-USP</span>
+                <button type="button" class="map-hover-modal__close" id="hover-modal-close" aria-label="Fechar resumo do local">×</button>
+              </div>
+
+              <p class="map-hover-modal__date mono-tag" id="hover-modal-date">Novembro de 2025 · São Paulo, SP</p>
+              <h3 class="map-hover-modal__title" id="hover-modal-title">
+                Reunião da Sociedade Brasileira de Astrobiologia (SBAstrobio) — USP
+              </h3>
+              <p class="map-hover-modal__venue" id="hover-modal-venue">
+                Instituto Oceanográfico da USP (Cidade Universitária)
+              </p>
+
+              <p class="map-hover-modal__summary" id="hover-modal-summary">
+                Apresentação nacional do projeto do primeiro Laboratório de Astrobiologia do Estado do Ceará pelo Prof. Dr. João Garcia Alves Filho, destacando estudos com extremófilos da Caatinga e zonas costeiras aliados à bioinformática do LaTEB.
+              </p>
+
+              <div class="map-hover-modal__highlights-wrap">
+                <h4 class="map-hover-modal__subhead mono-tag">O QUE FOI REALIZADO NESTE LOCAL:</h4>
+                <ul class="map-hover-modal__list" id="hover-modal-list">
+                  <li>Apresentação da linha de pesquisa em microrganismos extremófilos da Caatinga e salinas.</li>
+                  <li>Demonstração da infraestrutura de bioinformática herdada do LaTEB.</li>
+                </ul>
+              </div>
+
+              <div class="map-hover-modal__footer">
+                <span class="mono-tag map-hover-modal__coords" id="hover-modal-coords">23°33'38"S 46°43'53"W</span>
+                <a href="eventos/sbastrobio-usp.html" id="hover-modal-link" class="btn btn--ochre map-hover-modal__cta">
+                  Ir para a página do evento →
+                </a>
+              </div>
+            </aside>
+          </div>
+
+          <!-- Cartões de Acesso Rápido às Páginas Dedicadas de Cada Ponto Geográfico -->
+          <div class="map-QuickLinks-bar" aria-label="Acesso direto às páginas dedicadas de cada evento">
+            <a href="eventos/sbastrobio-usp.html" class="map-point-card" data-point-id="sp">
+              <div class="map-point-card__head">
+                <span class="mono-tag map-point-card__loc">SÃO PAULO · SP</span>
+                <span class="map-point-card__arrow" aria-hidden="true">→</span>
+              </div>
+              <strong class="map-point-card__title">Reunião Oficial SBAstrobio (IO-USP)</strong>
+              <span class="map-point-card__sub">Clique para abrir a página dedicada</span>
+            </a>
+
+            <a href="eventos/xxiv-eane-satuba.html" class="map-point-card" data-point-id="al">
+              <div class="map-point-card__head">
+                <span class="mono-tag map-point-card__loc">SATUBA / MACEIÓ · AL</span>
+                <span class="map-point-card__arrow" aria-hidden="true">→</span>
+              </div>
+              <strong class="map-point-card__title">XXIV EANE — IFAL Campus Satuba</strong>
+              <span class="map-point-card__sub">Clique para abrir a página dedicada</span>
+            </a>
+
+            <a href="eventos/xxiii-eane-caico.html" class="map-point-card" data-point-id="rn">
+              <div class="map-point-card__head">
+                <span class="mono-tag map-point-card__loc">CAICÓ · RN</span>
+                <span class="map-point-card__arrow" aria-hidden="true">→</span>
+              </div>
+              <strong class="map-point-card__title">XXIII EANE — Encontro do Nordeste</strong>
+              <span class="map-point-card__sub">Clique para abrir a página dedicada</span>
+            </a>
+
+            <a href="eventos/eneastro-acarau.html" class="map-point-card" data-point-id="acarau">
+              <div class="map-point-card__head">
+                <span class="mono-tag map-point-card__loc">ACARAÚ · CE (SEDE)</span>
+                <span class="map-point-card__arrow" aria-hidden="true">→</span>
+              </div>
+              <strong class="map-point-card__title">I ENEASTRO, LaTEB &amp; Rede BRAMON</strong>
+              <span class="map-point-card__sub">Clique para abrir a página dedicada</span>
+            </a>
+
+            <a href="eventos/reitoria-fortaleza.html" class="map-point-card" data-point-id="fortaleza">
+              <div class="map-point-card__head">
+                <span class="mono-tag map-point-card__loc">FORTALEZA · CE</span>
+                <span class="map-point-card__arrow" aria-hidden="true">→</span>
+              </div>
+              <strong class="map-point-card__title">Reitoria IFCE &amp; Projeto FINEP</strong>
+              <span class="map-point-card__sub">Clique para abrir a página dedicada</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.5 MARCO HISTÓRICO: I ENEASTRO ("NOSSO PRIMEIRO EVENTO COM O GRUPO ATUAL") & ACERVO INDEXADO DO INSTAGRAM -->
+    <section id="marco-eneastro" class="section-block section-block--bordered" aria-labelledby="eneastro-heading">
+      <div class="container">
+        <div class="section-header-grid">
+          <div class="section-kicker-col">
+            <span class="section-index mono-tag">SEÇÃO 04 // MARCO HISTÓRICO DO GRUPO ATUAL</span>
+            <h2 id="eneastro-heading" class="section-title">I ENEASTRO: nosso primeiro grande evento com a formação atual do grupo</h2>
+          </div>
+          <div class="section-intro-col">
+            <p class="section-lead">
+              Realizado de <strong>14 a 17 de outubro de 2026</strong> no <strong>IFCE <em>Campus</em> Acaraú</strong> sob o tema central <strong>&ldquo;Vida e Universo&rdquo;</strong>, o <strong>I Encontro de Ensino de Astronomia do Ceará (I ENEASTRO)</strong> — integrado à <strong>VIII Semana da Biologia</strong> e ao <strong>Encontro do PIBID</strong> — marca historicamente o <strong>primeiro evento científico e de extensão concebido, organizado e executado pelo nosso grupo atual</strong> do Laboratório de Astrobiologia (<code>@astrobiologiaifce</code>) e Clube de Astronomia (<code>@cav.ifa</code>).
+            </p>
+          </div>
+        </div>
+
+        <!-- Dossiê Destaque do I ENEASTRO -->
+        <div class="eneastro-spotlight">
+          <div class="eneastro-spotlight__main">
+            <div class="eneastro-spotlight__badges">
+              <span class="mono-tag eneastro-badge eneastro-badge--primary">1º EVENTO DO GRUPO ATUAL // 14 A 17 OUT 2026</span>
+              <span class="mono-tag eneastro-badge">TEMA: &ldquo;VIDA E UNIVERSO&rdquo;</span>
+              <span class="mono-tag eneastro-badge">APOIO: CAPES (PAEP-EB) · BIOLOGANDO EM ACARAÚ (FAIFCE / FINEP)</span>
+            </div>
+
+            <h3 class="eneastro-spotlight__title">
+              A consolidação da aliança entre Ciências Biológicas e Física no Litoral Oeste do Ceará
+            </h3>
+            <p class="eneastro-spotlight__text">
+              Sob a coordenação geral do <strong>Prof. Dr. João Garcia Alves Filho</strong> (Ciências Biológicas / LaTEB / Astrobiologia) e do <strong>Prof. Me. Jorge Roberto Pereira da Silva</strong> (Física / Ensino de Astronomia), e com protagonismo direto dos licenciandos, bolsistas e egressos que formam nossa equipe atual, o <strong>I ENEASTRO</strong> transformou o <em>Campus</em> Acaraú no epicentro estadual do diálogo entre Astrobiologia, Educação Astronômica e Divulgação Científica.
+            </p>
+            <p class="eneastro-spotlight__text">
+              A mobilização envolveu desde articulações presenciais na <strong>Secretaria de Educação de Acaraú</strong> (integrando as escolas públicas da rede municipal) e entrevistas nos estúdios da <strong>Rádio Difusora FM 92.5</strong> até quatro dias intensos de conferências nacionais, minicursos, sessões de planetário móvel, oficinas do PIBID e observação telescópica aberta à comunidade.
+            </p>
+
+            <!-- Eixos Reais da Programação do I ENEASTRO -->
+            <div class="eneastro-pillars-grid">
+              <div class="eneastro-pillar-item">
+                <span class="mono-tag eneastro-pillar-item__kicker">EIXO I · ASTROBIOLOGIA &amp; METEORÍTICA</span>
+                <h4>SBAstrobio &amp; Origem da Vida</h4>
+                <p>
+                  Conferências com a <strong>Prof.ª Dra. Evelyn Sanchez</strong> (UFVJM / Presidente da Sociedade Brasileira de Astrobiologia — SBAstrobio) e com a pesquisadora <strong>Tatiane Peters</strong> (UFRJ / Helmholtz Zentrum München) sobre <em>&ldquo;Meteoritos e Origem da Vida&rdquo;</em>.
+                </p>
+              </div>
+
+              <div class="eneastro-pillar-item">
+                <span class="mono-tag eneastro-pillar-item__kicker">EIXO II · ASTRONOMIA &amp; ASTROFOTOGRAFIA</span>
+                <h4>Redes Astronômicas no Ceará</h4>
+                <p>
+                  Palestras com o <strong>Prof. Heliomárzio Moreira</strong> (RENOEN/IFCE — <em>&ldquo;Astronomia e Astrofotografia&rdquo;</em>), <strong>Prof. Saulo Machado Filho</strong> (GAEA / Asteroid Day — <em>&ldquo;Associações Astronômicas no Ceará: Passado, Presente e Futuro&rdquo;</em>), <strong>Prof. Emerson Almeida</strong> (UVA), <strong>Prof. Nunes</strong> (IFCE Cedro) e <strong>Prof. Daniel</strong>.
+                </p>
+              </div>
+
+              <div class="eneastro-pillar-item">
+                <span class="mono-tag eneastro-pillar-item__kicker">EIXO III · PROTAGONISMO DO GRUPO &amp; PLANETÁRIO</span>
+                <h4>Discentes, Egressos, PIBID &amp; Planetário ECO</h4>
+                <p>
+                  Vivências com os egressos e discentes <strong>Orlando, Isaac e Mirla</strong> (Clube Voyager / <code>@ceucurioso</code> / Show da Física), oficina de fotometria de estrelas variáveis (UBA/AAVSO) com <strong>Eurimar</strong>, sessões imersivas do <strong>Planetário ECO</strong> e noite de observação com o <strong><code>@cav.ifa</code></strong>.
+                </p>
+              </div>
+            </div>
+
+            <div class="eneastro-spotlight__actions">
+              <a href="eventos/eneastro-acarau.html" class="btn btn--primary">
+                Abrir Dossiê Completo do I ENEASTRO →
+              </a>
+              <a href="https://www.instagram.com/p/Dez2-_mhnaY/" target="_blank" rel="noopener noreferrer" class="btn btn--secondary">
+                Ver Registro Oficial no @astrobiologiaifce ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Coluna Visual Direita: Foto Emblemática dos Coordenadores no Palco do I ENEASTRO + Card Oficial -->
+          <aside class="eneastro-spotlight__media" aria-label="Registros fotográficos do I ENEASTRO indexados do Instagram">
+            <figure class="eneastro-featured-figure">
+              <div class="eneastro-featured-figure__img-wrap">
+                <img
+                  src="https://instagram.fjdo10-1.fna.fbcdn.net/v/t51.82787-15/861099370_17913404703517631_8477906602227229468_n.jpg?stp=dst-jpg_e35_tt6&amp;_nc_cat=105&amp;_nc_map=urlgen_bucketless&amp;ig_cache_key=NDAxMzc5MzUxNjMyODQ4MjQ1Ng%3D%3D.3-ccb7-5&amp;ccb=7-5&amp;_nc_sid=58cdad&amp;efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMzA3MS5zZHIucmVndWxhcl9waG90by5DMyJ9&amp;_nc_ohc=uA2w0Mk5ry4Q7kNvwGCgjLK&amp;_nc_oc=AdodhqaeYwSFbCp-2QR-qOaYw_WaKgskCOLXJHuBFW3HZbqc84fKYm0ymjZF0aJy7s4&amp;_nc_zt=23&amp;_nc_ht=instagram.fjdo10-1.fna&amp;_nc_gid=UTNcIoGkOgmlCWTS-h7QeQ&amp;_nc_ss=7e60f&amp;oh=00_AQT_0WpzdtVayJM0zsY7fJBr-6UNhqQofoYTHK0X-tQ1eQ&amp;oe=6AE80954"
+                  data-fallback-src="assets/instagram/eneastro-grupo-01.jpg"
+                  referrerpolicy="no-referrer"
+                  loading="lazy"
+                  alt="Coordenadores Prof. Me. Jorge Roberto (camisa Organizador ENEASTRO) e Prof. Dr. João Garcia Alves Filho (crachá ENEASTRO) em abraço comemorativo no palco do auditório do IFCE Campus Acaraú durante o I ENEASTRO"
+                  class="ig-indexed-img"
+                >
+                <span class="ig-source-pill mono-tag">INDEXADO DO INSTAGRAM // @astrobiologiaifce</span>
+              </div>
+              <figcaption class="eneastro-featured-figure__caption">
+                <strong>Marco de União Científica:</strong> Prof. Me. Jorge Roberto (Física / Organizador ENEASTRO) e Prof. Dr. João Garcia Alves Filho (Biologia / LaTEB / Astrobiologia) no palco do auditório do IFCE Acaraú celebrando a realização do <strong>I ENEASTRO</strong> com o grupo atual.
+                <a href="https://www.instagram.com/p/Dez2-_mhnaY/" target="_blank" rel="noopener noreferrer" class="ig-caption-link">Post original no Instagram ↗</a>
+              </figcaption>
+            </figure>
+
+            <div class="eneastro-mini-pair">
+              <figure class="eneastro-mini-card">
+                <img
+                  src="https://instagram.fjdo1-1.fna.fbcdn.net/v/t51.82787-15/839064948_18384171868235588_8718437259616020299_n.webp?_nc_cat=109&amp;_nc_map=urlgen_bucketless&amp;ig_cache_key=NDAwMjM3OTM4ODQ5NjY3MDg4MA%3D%3D.3-ccb7-5&amp;ccb=7-5&amp;_nc_sid=58cdad&amp;efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&amp;_nc_ohc=ANbsnuHtbZwQ7kNvwG-QimA&amp;_nc_oc=Ado9EZG9jHJ08qdPP0ZJPr8O0lPO8bhi25eXUZBXKUiHRbvVP7r7iXOSqgH0ZwwbylU&amp;_nc_zt=23&amp;_nc_ht=instagram.fjdo1-1.fna&amp;_nc_gid=khbGaoqB741Rmrc-R5q6tw&amp;_nc_ss=7860f&amp;oh=00_AQRRhhyJmB8LNui1EGbtvJpvB7fHMOp6Xh-wEIIPFT6mHg&amp;oe=6AE81F6C"
+                  data-fallback-src="assets/instagram/eneastro-card-oficial.webp"
+                  referrerpolicy="no-referrer"
+                  loading="lazy"
+                  alt="Card oficial do I ENEASTRO (14 a 17 de outubro de 2026) com selos do IFCE Campus Acaraú, Laboratório de Astrobiologia, Biologando em Acaraú (FINEP) e CAPES"
+                  class="ig-indexed-img"
+                >
+                <figcaption>
+                  <span class="mono-tag">@ifceacarau · @astrobiologiaifce</span>
+                  <a href="https://www.instagram.com/p/DeLT_K4jCeN/" target="_blank" rel="noopener noreferrer">Identidade oficial I ENEASTRO (CAPES &amp; FINEP) ↗</a>
+                </figcaption>
+              </figure>
+
+              <figure class="eneastro-mini-card">
+                <img
+                  src="https://instagram.fjdo10-1.fna.fbcdn.net/v/t51.82787-15/825269743_17909385879517631_2154084097858175582_n.jpg?stp=dst-jpg_e35_tt6&amp;_nc_cat=104&amp;_nc_map=urlgen_bucketless&amp;ig_cache_key=Mzk5NDgzNjkxMjUwOTI1NTEyNA%3D%3D.3-ccb7-5&amp;ccb=7-5&amp;_nc_sid=58cdad&amp;efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMzA3Mi5zZHIucmVndWxhcl9waG90by5DMyJ9&amp;_nc_ohc=gz9eyuBE7CsQ7kNvwEmfnVI&amp;_nc_oc=Adqnf-nNFMZg3O5BoyT4svrxJ0H6lFyrvt-KJV04TyvzRvi3NACEPpJeEH3gu85UKRw&amp;_nc_zt=23&amp;_nc_ht=instagram.fjdo10-1.fna&amp;_nc_gid=0nbz9q0As3WpopgE-RwP6w&amp;_nc_ss=7860f&amp;oh=00_AQSnHARB2admzU7nwKvW75C99ffYhMGzIN2yIIHaUPmJ_g&amp;oe=6AE81240"
+                  data-fallback-src="assets/instagram/eneastro-planetario-eco.jpg"
+                  referrerpolicy="no-referrer"
+                  loading="lazy"
+                  alt="Sessões do Planetário ECO no I ENEASTRO e VIII Semana da Biologia no IFCE Campus Acaraú"
+                  class="ig-indexed-img"
+                >
+                <figcaption>
+                  <span class="mono-tag">@astrobiologiaifce · Planetário ECO</span>
+                  <a href="https://www.instagram.com/p/DdwgwGhu33U/" target="_blank" rel="noopener noreferrer">Imersão astronômica na Semana da Biologia ↗</a>
+                </figcaption>
+              </figure>
+            </div>
+          </aside>
+        </div>
+
+        <!-- GALERIA FOTOGRÁFICA INDEXADA DIRETO DO INSTAGRAM E PORTAL IFCE -->
+        <div class="ig-feed-block" aria-labelledby="ig-gallery-heading">
+          <div class="ig-feed-header">
+            <div>
+              <span class="mono-tag ig-feed-kicker">INDEXAÇÃO VISUAL DIRETA // @astrobiologiaifce · @cav.ifa · @ifceacarau</span>
+              <h3 id="ig-gallery-heading" class="ig-feed-title">Acervo Fotográfico Indexado do Instagram &amp; Registros Oficiais</h3>
+              <p class="ig-feed-subtitle">
+                Imagens indexadas diretamente das publicações oficiais do laboratório no Instagram (com espelhamento local de segurança), documentando o <strong>I ENEASTRO</strong>, os projetos aprovados no <strong>LaTEB/CNPq</strong>, as comitivas no <strong>EANE</strong> e as articulações na <strong>Reitoria do IFCE</strong>.
+              </p>
+            </div>
+
+            <div class="ig-filter-bar" role="group" aria-label="Filtrar registros fotográficos do Instagram">
+              <button type="button" class="filter-pill ig-filter-btn is-active" data-ig-filter="all" aria-pressed="true">Todos os Registros (9)</button>
+              <button type="button" class="filter-pill ig-filter-btn" data-ig-filter="eneastro" aria-pressed="false">I ENEASTRO (1º Evento do Grupo)</button>
+              <button type="button" class="filter-pill ig-filter-btn" data-ig-filter="pesquisa" aria-pressed="false">Laboratório, LaTEB &amp; Projetos</button>
+              <button type="button" class="filter-pill ig-filter-btn" data-ig-filter="missoes" aria-pressed="false">XXIV EANE &amp; Reitoria IFCE</button>
+            </div>
+          </div>
+
+          <div class="ig-photo-grid" id="ig-photo-grid" aria-live="polite">
+            <!-- Card 1: Coordenadores no palco do I ENEASTRO -->
+            <article class="ig-photo-card" data-ig-category="eneastro">
+              <a href="https://www.instagram.com/p/Dez2-_mhnaY/" target="_blank" rel="noopener noreferrer" class="ig-photo-card__media" aria-label="Abrir publicação no Instagram: Coordenadores no palco do I ENEASTRO">
+                <img
+                  src="https://instagram.fjdo10-1.fna.fbcdn.net/v/t51.82787-15/861099370_17913404703517631_8477906602227229468_n.jpg?stp=dst-jpg_e35_tt6&amp;_nc_cat=105&amp;_nc_map=urlgen_bucketless&amp;ig_cache_key=NDAxMzc5MzUxNjMyODQ4MjQ1Ng%3D%3D.3-ccb7-5&amp;ccb=7-5&amp;_nc_sid=58cdad&amp;efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMzA3MS5zZHIucmVndWxhcl9waG90by5DMyJ9&amp;_nc_ohc=uA2w0Mk5ry4Q7kNvwGCgjLK&amp;_nc_oc=AdodhqaeYwSFbCp-2QR-qOaYw_WaKgskCOLXJHuBFW3HZbqc84fKYm0ymjZF0aJy7s4&amp;_nc_zt=23&amp;_nc_ht=instagram.fjdo10-1.fna&amp;_nc_gid=UTNcIoGkOgmlCWTS-h7QeQ&amp;_nc_ss=7e60f&amp;oh=00_AQT_0WpzdtVayJM0zsY7fJBr-6UNhqQofoYTHK0X-tQ1eQ&amp;oe=6AE80954"
+                  data-fallback-src="assets/instagram/eneastro-grupo-01.jpg"
+                  referrerpolicy="no-referrer"
+                  loading="lazy"
+                  alt="Prof. Me. Jorge Roberto e Prof. Dr. João Garcia Alves Filho no palco do I ENEASTRO no IFCE Campus Acaraú"
+                  class="ig-indexed-img"
+                >
+                <span class="ig-photo-card__tag mono-tag">I ENEASTRO · PALCO PRINCIPAL</span>
+              </a>
+              <div class="ig-photo-card__body">
+                <div class="ig-photo-card__meta">
+                  <span class="mono-tag">@astrobiologiaifce</span>
+                  <span class="mono-tag">Outubro 2026 · Acaraú-CE</span>
+                </div>
+                <h4 class="ig-photo-card__title">Coordenação Reunida no I ENEASTRO: Nosso Primeiro Evento com o Grupo Atual</h4>
+                <p class="ig-photo-card__desc">
+                  Prof. Me. Jorge Roberto e Prof. Dr. João Garcia Alves Filho celebram no auditório do IFCE Acaraú o êxito do I Encontro de Ensino de Astronomia do Ceará junto aos estudantes de Física e Biologia.
+                </p>
+                <a href="https://www.instagram.com/p/Dez2-_mhnaY/" target="_blank" rel="noopener noreferrer" class="ig-photo-card__link">Ver post original no Instagram (/p/Dez2-_mhnaY/) ↗</a>
+              </div>
+            </article>
+
+            <!-- Card 2: Palestra Prof. Saulo Machado Filho no I ENEASTRO -->
+            <article class="ig-photo-card" data-ig-category="eneastro">
+              <a href="https://www.instagram.com/p/Det3mhQRv9b/" target="_blank" rel="noopener noreferrer" class="ig-photo-card__media" aria-label="Abrir publicação no Instagram: Palestra Associações Astronômicas no Ceará no I ENEASTRO">
+                <img
+                  src="https://instagram.fjdo1-1.fna.fbcdn.net/v/t51.82787-15/858257432_17913046656517631_2753171312522595604_n.jpg?stp=dst-jpg_e35_tt6&amp;_nc_cat=100&amp;_nc_map=urlgen_bucketless&amp;ig_cache_key=NDAxMjEwNzM4MjY2MTc3NTE5NQ%3D%3D.3-ccb7-5&amp;ccb=7-5&amp;_nc_sid=58cdad&amp;efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMzA3Mi5zZHIucmVndWxhcl9waG90by5DMyJ9&amp;_nc_ohc=gaVsKYCsV5AQ7kNvwGH-k2W&amp;_nc_oc=AdqXzdWjhjdkxBCiZqGO_EZLtq9iZyFRbM6RrtiuB1HxoI_skY19aJrKaYQxaqpr6pk&amp;_nc_zt=23&amp;_nc_ht=instagram.fjdo1-1.fna&amp;_nc_gid=zF-KkMVlfZ524jyLBfMl1Q&amp;_nc_ss=7e60f&amp;oh=00_AQTpvGpsuNdY1I9wrBqJYLysUgIXvVXaIuwuPIJoayNRSA&amp;oe=6AE81EE2"
+                  data-fallback-src="assets/instagram/eneastro-grupo-02.jpg"
+                  referrerpolicy="no-referrer"
+                  loading="lazy"
+                  alt="Palestra Associações Astronômicas no Ceará: Passado, Presente e Futuro no auditório do I ENEASTRO"
+                  class="ig-indexed-img"
+                >
+                <span class="ig-photo-card__tag mono-tag">I ENEASTRO · CONFERÊNCIA</span>
+              </a>
+              <div class="ig-photo-card__body">
+                <div class="ig-photo-card__meta">
+                  <span class="mono-tag">@astrobiologiaifce</span>
+                  <span class="mono-tag">14–17 Out 2026 · Acaraú-CE</span>
+                </div>
+                <h4 class="ig-photo-card__title">&ldquo;Associações Astronômicas no Ceará: Passado, Presente e Futuro&rdquo;</h4>
+                <p class="ig-photo-card__desc">
+                  Conferência ministrada pelo Prof. Saulo Machado Filho (GAEA / Coordenador Nacional do Asteroid Day) no auditório do IFCE Acaraú durante o I ENEASTRO.
+                </p>
+                <a href="https://www.instagram.com/p/Det3mhQRv9b/" target="_blank" rel="noopener noreferrer" class="ig-photo-card__link">Ver post original no Instagram (/p/Det3mhQRv9b/) ↗</a>
+              </div>
+            </article>
+
+            <!-- Card 3: Palestra Prof. Heliomárzio Moreira (Astronomia e Astrofotografia) -->
+            <article class="ig-photo-card" data-ig-category="eneastro">
+              <a href="https://portal.ifce.edu.br/campus/acarau/noticias/campus-de-acarau-realiza-i-encontro-de-ensino-de-astronomia-do-ceara/" target="_blank" rel="noopener noreferrer" class="ig-photo-card__media" aria-label="Abrir notícia oficial do IFCE: Palestra sobre Astronomia e Astrofotografia no I ENEASTRO">
+                <img
+                  src="https://portal.ifce.edu.br/media/images/Palestra_sobre_Astronomia_e_Astrofotografia_no.width-500.jpg"
+                  data-fallback-src="assets/instagram/eneastro-palestra-astrofotografia.jpg"
+                  referrerpolicy="no-referrer"
+                  loading="lazy"
+                  alt="Prof. Heliomárzio Moreira ministrando palestra sobre Astronomia e Astrofotografia no I ENEASTRO no IFCE Campus Acaraú"
+                  class="ig-indexed-img"
+                >
+                <span class="ig-photo-card__tag mono-tag">I ENEASTRO · ASTROFOTOGRAFIA</span>
+              </a>
+              <div class="ig-photo-card__body">
+                <div class="ig-photo-card__meta">
+                  <span class="mono-tag">Portal IFCE · @astrobiologiaifce</span>
+                  <span class="mono-tag">Outubro 2026 · Acaraú-CE</span>
+                </div>
+                <h4 class="ig-photo-card__title">Palestra de Astronomia e Astrofotografia com o Prof. Heliomárzio Moreira</h4>
+                <p class="ig-photo-card__desc">
+                  Auditório lotado por estudantes do IFCE e de escolas públicas de Acaraú acompanhando as técnicas de captura de objetos de céu profundo e astrofotografia científica.
+                </p>
+                <a href="https://portal.ifce.edu.br/campus/acarau/noticias/campus-de-acarau-realiza-i-encontro-de-ensino-de-astronomia-do-ceara/" target="_blank" rel="noopener noreferrer" class="ig-photo-card__link">Ver cobertura oficial no Portal IFCE ↗</a>
+              </div>
+            </article>
+
+            <!-- Card 4: Divulgação do I ENEASTRO na Rádio Difusora FM 92.5 -->
+            <article class="ig-photo-card" data-ig-category="eneastro">
+              <a href="https://www.instagram.com/p/Dee1fjgFHPL/" target="_blank" rel="noopener noreferrer" class="ig-photo-card__media" aria-label="Abrir publicação no Instagram: Divulgação do I ENEASTRO na Rádio Difusora FM 92.5">
+                <img
+                  src="https://instagram.fjdo1-2.fna.fbcdn.net/v/t51.82787-15/851273449_17912087172517631_8981382897332847169_n.jpg?stp=dst-jpg_e35_tt6&amp;_nc_cat=111&amp;_nc_map=urlgen_bucketless&amp;ig_cache_key=NDAwNzg3NTM1MDg3MTM2MDY3Mw%3D%3D.3-ccb7-5&amp;ccb=7-5&amp;_nc_sid=58cdad&amp;efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMzI3My5zZHIucmVndWxhcl9waG90by5DMyJ9&amp;_nc_ohc=KR56b0VaPH0Q7kNvwEDK3Oe&amp;_nc_oc=AdoQWF4BrO1pt2_NCw_99ZarHS1JRH9F0nceYNyyJKH3BLzM5v7TKPoRZlZ4-QfMpCo&amp;_nc_zt=23&amp;_nc_ht=instagram.fjdo1-2.fna&amp;_nc_gid=TTXz1hzY0uRVm41Gpc8odQ&amp;_nc_ss=7860f&amp;oh=00_AQT6MEN8pzJCABa662rAUJwkFt8dxSV37Zd1oIg0fPCFHQ&amp;oe=6AE804FD"
+                  data-fallback-src="assets/instagram/eneastro-radio-difusora.jpg"
+                  referrerpolicy="no-referrer"
+                  loading="lazy"
+                  alt="Coordenadores Prof. Jorge Roberto e Prof. Dr. João Garcia Alves Filho nos estúdios da Rádio Difusora FM 92.5 divulgando o I ENEASTRO"
+                  class="ig-indexed-img"
+                >
+                <span class="ig-photo-card__tag mono-tag">I ENEASTRO · RÁDIO DIFUSORA 92.5</span>
+              </a>
+              <div class="ig-photo-card__body">
+                <div class="ig-photo-card__meta">
+                  <span class="mono-tag">@astrobiologiaifce</span>
+                  <span class="mono-tag">Outubro 2026 · Acaraú-CE</span>
+                </div>
+                <h4 class="ig-photo-card__title">Popularização Científica no Rádio: Convite ao Baixo Acaraú na Difusora FM 92.5</h4>
+                <p class="ig-photo-card__desc">
+                  Entrevista dos coordenadores do laboratório apresentando a programação do I ENEASTRO (&ldquo;Vida e Universo&rdquo;) e o apoio da CAPES (PAEP-EB) e do projeto Biologando em Acaraú (FINEP).
+                </p>
+                <a href="https://www.instagram.com/p/Dee1fjgFHPL/" target="_blank" rel="noopener noreferrer" class="ig-photo-card__link">Ver post original no Instagram (/p/Dee1fjgFHPL/) ↗</a>
+              </div>
+            </article>
+
+            <!-- Card 5: Articulação do I ENEASTRO na Secretaria de Educação de Acaraú -->
+            <article class="ig-photo-card" data-ig-category="eneastro">
+              <a href="https://www.instagram.com/p/DeewZnUsKAr/" target="_blank" rel="noopener noreferrer" class="ig-photo-card__media" aria-label="Abrir publicação no Instagram: Reunião na Secretaria de Educação de Acaraú para o I ENEASTRO">
+                <img
+                  src="https://instagram.fjdo1-1.fna.fbcdn.net/v/t51.82787-15/848892537_17912081898517631_8611520950658217165_n.jpg?stp=dst-jpg_e35_tt6&amp;_nc_cat=103&amp;_nc_map=urlgen_bucketless&amp;ig_cache_key=NDAwNzg1MzU4NDg0ODgyMjMxNQ%3D%3D.3-ccb7-5&amp;ccb=7-5&amp;_nc_sid=58cdad&amp;efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMzI3NC5zZHIucmVndWxhcl9waG90by5DMyJ9&amp;_nc_ohc=DRrQ7bXYyNYQ7kNvwGDYHOP&amp;_nc_oc=AdqGcj7u1AR5EiUAJ_u20J-1iI0fnR2IF-rVI_4Mzey36wKx27G00Og7BC3JjIW4X_4&amp;_nc_zt=23&amp;_nc_ht=instagram.fjdo1-1.fna&amp;_nc_gid=vZrC9BD3moP5EXVz_6SdDg&amp;_nc_ss=7e60f&amp;oh=00_AQR64IsvuteHS-jxtkwduPREPFzJWyDb278vibikBWiABw&amp;oe=6AE80159"
+                  data-fallback-src="assets/instagram/eneastro-secretaria-educacao.jpg"
+                  referrerpolicy="no-referrer"
+                  loading="lazy"
+                  alt="Reunião na Secretaria de Educação de Acaraú com a Prof.ª Maiara Melo, Prof. Dr. João Garcia e Prof. Jorge Roberto"
+                  class="ig-indexed-img"
+                >
+                <span class="ig-photo-card__tag mono-tag">I ENEASTRO · REDE PÚBLICA</span>
+              </a>
+              <div class="ig-photo-card__body">
+                <div class="ig-photo-card__meta">
+                  <span class="mono-tag">@astrobiologiaifce</span>
+                  <span class="mono-tag">Outubro 2026 · Acaraú-CE</span>
+                </div>
+                <h4 class="ig-photo-card__title">Articulação com a Secretaria Municipal de Educação de Acaraú</h4>
+                <p class="ig-photo-card__desc">
+                  Encontro institucional com a Prof.ª Maiara Melo entregando o convite oficial do I ENEASTRO para professores e estudantes das escolas públicas do município.
+                </p>
+                <a href="https://www.instagram.com/p/DeewZnUsKAr/" target="_blank" rel="noopener noreferrer" class="ig-photo-card__link">Ver post original no Instagram (/p/DeewZnUsKAr/) ↗</a>
+              </div>
+            </article>
+
+            <!-- Card 6: Projetos Aprovados LaTEB / CNPq / PIBIC / PIBITI -->
+            <article class="ig-photo-card" data-ig-category="pesquisa">
+              <a href="https://www.instagram.com/p/DMt0jtuI5sN/" target="_blank" rel="noopener noreferrer" class="ig-photo-card__media" aria-label="Abrir publicação no Instagram: 4 Projetos aprovados no LaTEB e Observatório (PIBIC, PIBIC Jr, PIBITI)">
+                <img
+                  src="https://instagram.fjdo1-2.fna.fbcdn.net/v/t51.82787-15/620860256_17913558387126587_7129186107659961284_n.jpg?stp=dst-jpg_e35_tt6&amp;_nc_cat=101&amp;_nc_map=urlgen_bucketless&amp;ig_cache_key=MzY4NzgzNDgyMjU3OTAzNDg5Mw%3D%3D.3-ccb7-5&amp;ccb=7-5&amp;_nc_sid=58cdad&amp;efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&amp;_nc_ohc=Ka_OOzNQkbYQ7kNvwFiu1Uo&amp;_nc_oc=Adp_Jz9Z0mPNO9lxmCB-VWp7M3kk0OSbGVHC5XB_5b9GyKSAfmH8dlz1Rn9xjtMYYxE&amp;_nc_zt=23&amp;_nc_ht=instagram.fjdo1-2.fna&amp;_nc_gid=6_rXABSvAGota5dqxnLfsg&amp;_nc_ss=7860f&amp;oh=00_AQTE696N_IBAoM5EtsjZGvJeUhnwExP4WVCZAkhahcAbdg&amp;oe=6AE80028"
+                  data-fallback-src="assets/instagram/lateb-cnpq-observatorio.jpg"
+                  referrerpolicy="no-referrer"
+                  loading="lazy"
+                  alt="Projetos aprovados do LaTEB e Observatório de Astronomia do IFCE Acaraú com bolsas CNPq e IFCE"
+                  class="ig-indexed-img"
+                >
+                <span class="ig-photo-card__tag mono-tag">HERANÇA LaTEB · CNPq &amp; IFCE</span>
+              </a>
+              <div class="ig-photo-card__body">
+                <div class="ig-photo-card__meta">
+                  <span class="mono-tag">@prof_joao_garcia · LaTEB</span>
+                  <span class="mono-tag">Editais PIBIC / PIBITI</span>
+                </div>
+                <h4 class="ig-photo-card__title">4 Projetos Aprovados: Exoplanetas em Python (ESI), Meteoros BRAMON e Divulgação</h4>
+                <p class="ig-photo-card__desc">
+                  Pesquisas aprovadas com bolsas CNPq e IFCE: algoritmo Python para seleção de exoplanetas pelo Índice de Similaridade com a Terra (ESI), monitoramento de meteoros no litoral oeste, HQs sobre o Sistema Solar e representatividade feminina na Biologia.
+                </p>
+                <a href="https://www.instagram.com/p/DMt0jtuI5sN/" target="_blank" rel="noopener noreferrer" class="ig-photo-card__link">Ver post original no Instagram (/p/DMt0jtuI5sN/) ↗</a>
+              </div>
+            </article>
+
+            <!-- Card 7: Laboratório de Astrobiologia & Futuras Cientistas (Arduino e Fotossíntese) -->
+            <article class="ig-photo-card" data-ig-category="pesquisa">
+              <a href="https://portal.ifce.edu.br/campus/acarau/noticias/estudantes-e-professor-de-acarau-participam-de-projeto-de-astrobiologia/" target="_blank" rel="noopener noreferrer" class="ig-photo-card__media" aria-label="Abrir notícia oficial do IFCE: Projeto Explorando a fotossíntese com Arduino e LEDs no Laboratório">
+                <img
+                  src="https://portal.ifce.edu.br/media/images/laboratorio.width-500.png"
+                  data-fallback-src="assets/instagram/lab-astrobiologia-arduino.png"
+                  referrerpolicy="no-referrer"
+                  loading="lazy"
+                  alt="Prof. Dr. João Garcia, Prof.ª Camila Bim e estudantes no projeto Explorando a fotossíntese com Arduino e LEDs"
+                  class="ig-indexed-img"
+                >
+                <span class="ig-photo-card__tag mono-tag">ASTROBIOLOGIA · ARDUINO &amp; LEDS</span>
+              </a>
+              <div class="ig-photo-card__body">
+                <div class="ig-photo-card__meta">
+                  <span class="mono-tag">Portal IFCE · Futuras Cientistas</span>
+                  <span class="mono-tag">Acaraú · CE</span>
+                </div>
+                <h4 class="ig-photo-card__title">&ldquo;Explorando a Fotossíntese com Arduino e LEDs&rdquo; — Mulheres na Ciência</h4>
+                <p class="ig-photo-card__desc">
+                  Prof. Dr. João Garcia Alves Filho, Prof.ª Camila Bim e cinco estudantes da rede pública e do IFCE desenvolvendo simulações de espectros luminosos e astrobiologia experimental.
+                </p>
+                <a href="https://portal.ifce.edu.br/campus/acarau/noticias/estudantes-e-professor-de-acarau-participam-de-projeto-de-astrobiologia/" target="_blank" rel="noopener noreferrer" class="ig-photo-card__link">Ver reportagem oficial no Portal IFCE ↗</a>
+              </div>
+            </article>
+
+            <!-- Card 8: Reunião Institucional na Reitoria do IFCE em Fortaleza -->
+            <article class="ig-photo-card" data-ig-category="missoes">
+              <a href="https://www.instagram.com/p/DdRovNVPnVv/" target="_blank" rel="noopener noreferrer" class="ig-photo-card__media" aria-label="Abrir publicação no Instagram: Reunião na Reitoria do IFCE em Fortaleza com o Reitor Wally Menezes">
+                <img
+                  src="https://instagram.fjdo10-2.fna.fbcdn.net/v/t51.82787-15/810900363_17907610200517631_101672761431433101_n.jpg?stp=dst-jpg_e35_tt6&amp;_nc_cat=104&amp;_nc_map=urlgen_bucketless&amp;ig_cache_key=Mzk4NjE0NjMxMTE5MDUwODkxMQ%3D%3D.3-ccb7-5&amp;ccb=7-5&amp;_nc_sid=58cdad&amp;efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMzI3NC5zZHIucmVndWxhcl9waG90by5DMyJ9&amp;_nc_ohc=6gVhddBSV9oQ7kNvwGGQiqo&amp;_nc_oc=Adr_3vGLzKC3T3LIkOKdHB4CA5p9qOFYPS2OZ63ZCQ5ALoBkuQoVApIRuVGakBGSjQE&amp;_nc_zt=23&amp;_nc_ht=instagram.fjdo10-2.fna&amp;_nc_gid=opnF4NaCeu7hlxfYbVZIcA&amp;_nc_ss=7860f&amp;oh=00_AQTHJ7njZdI0Y06BqbEOGUPJ-4cMSbk-D46XoqdNNWxbSQ&amp;oe=6AE82023"
+                  data-fallback-src="assets/instagram/reitoria-ifce-fortaleza.jpg"
+                  referrerpolicy="no-referrer"
+                  loading="lazy"
+                  alt="Reunião na Reitoria do IFCE em Fortaleza com o Reitor Prof. Wally Menezes, Pró-Reitora Prof.ª Joélia Marques, Diretor Prof. Rubens, Prof. Jorge Roberto e Prof. Dr. João Garcia"
+                  class="ig-indexed-img"
+                >
+                <span class="ig-photo-card__tag mono-tag">FORTALEZA · REITORIA IFCE</span>
+              </a>
+              <div class="ig-photo-card__body">
+                <div class="ig-photo-card__meta">
+                  <span class="mono-tag">@astrobiologiaifce</span>
+                  <span class="mono-tag">14 Set 2026 · Fortaleza-CE</span>
+                </div>
+                <h4 class="ig-photo-card__title">Articulação na Reitoria do IFCE com o Reitor Prof. Wally Menezes e PRPI</h4>
+                <p class="ig-photo-card__desc">
+                  Encontro oficial em Fortaleza reunindo o Reitor Prof. Wally Menezes, a Pró-Reitora de Pesquisa Prof.ª Joélia Marques, o Diretor-Geral Prof. Rubens, o Prof. Jorge Roberto e o Prof. Dr. João Garcia para consolidação do laboratório e apoio ao I ENEASTRO.
+                </p>
+                <a href="https://www.instagram.com/p/DdRovNVPnVv/" target="_blank" rel="noopener noreferrer" class="ig-photo-card__link">Ver post original no Instagram (/p/DdRovNVPnVv/) ↗</a>
+              </div>
+            </article>
+
+            <!-- Card 9: Comitiva do IFCE Acaraú no XXIV EANE em Satuba-AL (Conquista do EANE 2029) -->
+            <article class="ig-photo-card" data-ig-category="missoes">
+              <a href="https://portal.ifce.edu.br/campus/acarau/noticias/estudantes-e-professor-apresentam-trabalhos-em-evento-de-astronomia/" target="_blank" rel="noopener noreferrer" class="ig-photo-card__media" aria-label="Abrir notícia oficial do IFCE: Comitiva de Acaraú apresenta trabalhos no XXIV EANE em Satuba-AL">
+                <img
+                  src="https://portal.ifce.edu.br/media/images/EANE_Site.width-500.png"
+                  data-fallback-src="assets/instagram/eane-satuba-comitiva.png"
+                  referrerpolicy="no-referrer"
+                  loading="lazy"
+                  alt="Estudantes e docente do IFCE Campus Acaraú apresentando trabalhos no XXIV EANE no IFAL Campus Satuba em Alagoas"
+                  class="ig-indexed-img"
+                >
+                <span class="ig-photo-card__tag mono-tag">SATUBA-AL · XXIV EANE</span>
+              </a>
+              <div class="ig-photo-card__body">
+                <div class="ig-photo-card__meta">
+                  <span class="mono-tag">Portal IFCE · @cav.ifa</span>
+                  <span class="mono-tag">Junho 2026 · Satuba-AL</span>
+                </div>
+                <h4 class="ig-photo-card__title">Comitiva de Física e Biologia no XXIV EANE &amp; Acaraú Eleita Sede do EANE 2029</h4>
+                <p class="ig-photo-card__desc">
+                  Delegação com o Prof. Jorge Roberto e os estudantes Jeferson, Luma, Vitória, Ana Clara, Ailton (Física), Junior e Luzia (Biologia) no IFAL Satuba, onde conquistaram a aprovação de Acaraú como sede oficial do EANE 2029.
+                </p>
+                <a href="https://portal.ifce.edu.br/campus/acarau/noticias/estudantes-e-professor-apresentam-trabalhos-em-evento-de-astronomia/" target="_blank" rel="noopener noreferrer" class="ig-photo-card__link">Ver reportagem oficial no Portal IFCE ↗</a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. ACERVO DE PUBLICAÇÕES, TRABALHOS E PRODUÇÃO TÉCNICA -->
+    <section id="acervo-pesquisa" class="section-block section-block--tinted" aria-labelledby="acervo-heading">
+      <div class="container">
+        <div class="section-header-grid">
+          <div class="section-kicker-col">
+            <span class="section-index mono-tag">SEÇÃO 05 // PRODUÇÃO CIENTÍFICA</span>
+            <h2 id="acervo-heading" class="section-title">Trabalhos publicados, congressos e acervo LaTEB</h2>
+          </div>
+          <div class="section-intro-col">
+            <p class="section-lead">
+              Explore o catálogo de trabalhos apresentados em eventos regionais e nacionais (EANE, SBAstrobio, ENEASTRO, Semana da Biologia), projetos aprovados com fomento CNPq/FINEP, estudos de bioinformática herdados do <strong>LaTEB</strong> e produções de tecnologia educacional.
+            </p>
+          </div>
+        </div>
+
+        <!-- Barra de Filtro e Busca Segura -->
+        <div class="catalog-controls" role="region" aria-label="Filtros do acervo de publicações">
+          <div class="catalog-filter-pills" role="group" aria-label="Filtrar por área temática">
+            <button type="button" class="filter-pill is-active" data-filter="all" aria-pressed="true">Todos os Trabalhos (10)</button>
+            <button type="button" class="filter-pill" data-filter="astrobiologia" aria-pressed="false">Astrobiologia &amp; Extremófilos</button>
+            <button type="button" class="filter-pill" data-filter="lateb" aria-pressed="false">Bioinformática &amp; Legado LaTEB</button>
+            <button type="button" class="filter-pill" data-filter="astronomia" aria-pressed="false">Astronomia &amp; Ensino (@cav.ifa)</button>
+          </div>
+
+          <div class="catalog-search-wrap">
+            <label for="publication-search" class="sr-only">Buscar trabalho por título, cidade ou palavra-chave</label>
+            <input type="search" id="publication-search" class="catalog-search-input" placeholder="Buscar por tema, cidade (ex: USP, Satuba, Caicó, LaTEB)..." autocomplete="off">
+          </div>
+        </div>
+
+        <!-- Grade de Publicações (Renderizada com segurança e também presente no HTML para SEO/Acessibilidade/VLibras) -->
+        <div id="publications-grid" class="publications-grid" aria-live="polite">
+          <article class="pub-card">
+            <div class="pub-card__top">
+              <span class="pub-card__cat">Astrobiologia &amp; Extremófilos</span>
+              <span class="pub-card__venue">Reunião Oficial SBAstrobio · IO-USP</span>
+            </div>
+            <h3 class="pub-card__title">Implementação do Laboratório de Astrobiologia no IFCE Campus Acaraú: Extremófilos da Caatinga e Zonas Costeiras sob Abordagem In Silico</h3>
+            <p class="pub-card__abstract">Apresentação institucional e científica na Universidade de São Paulo detalhando o pioneirismo do laboratório no Ceará, voltado à prospecção e análise evolutiva de microrganismos adaptados a altos índices de radiação UV e salinidade.</p>
+            <div class="pub-card__footer">
+              <span>Alves Filho, J. G.; Equipe Lab. Astrobiologia IFCE Acaraú</span>
+              <span class="pub-card__location">São Paulo · SP</span>
+            </div>
+          </article>
+
+          <article class="pub-card">
+            <div class="pub-card__top">
+              <span class="pub-card__cat">Astrobiologia &amp; Ensino</span>
+              <span class="pub-card__venue">XXIV EANE · IFAL Satuba</span>
+            </div>
+            <h3 class="pub-card__title">Modelagem Didática de Fotossíntese e Habitabilidade com Arduino e LEDs: Conectando Física e Biologia na Astrobiologia</h3>
+            <p class="pub-card__abstract">Desenvolvimento de aparato experimental controlado por microcontrolador para simular espectros luminosos e avaliar respostas fotossintéticas, promovendo a aprendizagem ativa de conceitos astrobiológicos na licenciatura e ensino médio.</p>
+            <div class="pub-card__footer">
+              <span>Discentes de Física e Biologia; Roberto, J.; Alves Filho, J. G.</span>
+              <span class="pub-card__location">Satuba / Maceió · AL</span>
+            </div>
+          </article>
+
+          <article class="pub-card">
+            <div class="pub-card__top">
+              <span class="pub-card__cat">Bioinformática &amp; Legado LaTEB</span>
+              <span class="pub-card__venue">Acervo Científico LaTEB · IFCE</span>
+            </div>
+            <h3 class="pub-card__title">Inferência Filogenética, Alinhamento de Sequências e Docagem Molecular 3D Aplicados ao Estudo de Adaptação Microbiana</h3>
+            <p class="pub-card__abstract">Pipeline computacional estruturado no Laboratório de Tecnologias Educacionais e Bioinformática (LaTEB) para anotação funcional de genes, predição tridimensional de proteínas e análise de conservação evolutiva.</p>
+            <div class="pub-card__footer">
+              <span>Alves Filho, J. G.; Grupo de Pesquisa LaTEB / IFCE Acaraú</span>
+              <span class="pub-card__location">Acaraú · CE</span>
+            </div>
+          </article>
+
+          <article class="pub-card">
+            <div class="pub-card__top">
+              <span class="pub-card__cat">Astrobiologia &amp; Astroquímica</span>
+              <span class="pub-card__venue">XXIII EANE · Seridó</span>
+            </div>
+            <h3 class="pub-card__title">Astrobiologia e Bioinformática no Norte Cearense: Perspectivas de Pesquisa Interdisciplinar e Divulgação Científica no IFCE Acaraú</h3>
+            <p class="pub-card__abstract">Trabalho apresentado na vigésima terceira edição do Encontro de Astronomia do Nordeste, articulando os fundamentos da origem da vida, evolução molecular e estratégias de interiorização da pesquisa astronômica.</p>
+            <div class="pub-card__footer">
+              <span>Comitiva IFCE Acaraú; Alves Filho, J. G.; Roberto, J.</span>
+              <span class="pub-card__location">Caicó · RN</span>
+            </div>
+          </article>
+        </div>
+
+        <p id="publications-empty" class="publications-empty" hidden>
+          Nenhum trabalho encontrado para os termos pesquisados. Tente buscar por "Bioinformática", "EANE", "USP", "Extremófilos" ou "LaTEB".
+        </p>
+      </div>
+    </section>
+
+    <!-- 6. CLUBE DE ASTRONOMIA (@cav.ifa) & EXTENSÃO COMUNITÁRIA -->
+    <section id="clube-astronomia" class="section-block section-block--cosmos" aria-labelledby="cav-heading">
+      <div class="container">
+        <div class="cav-layout">
+          <div class="cav-intro">
+            <span class="section-index mono-tag">SEÇÃO 06 // EXTENSÃO &amp; POPULARIZAÇÃO DA CIÊNCIA</span>
+            <h2 id="cav-heading" class="section-title">Clube de Astronomia (<span class="mono-inline">@cav.ifa</span>)</h2>
+            <p class="cav-lead">
+              A pesquisa acadêmica só se completa quando dialoga com a sociedade. O <strong>Clube de Astronomia do IFCE Campus Acaraú (<code>@cav.ifa</code>)</strong> atua lado a lado com o Laboratório de Astrobiologia levando telescópios, oficinas de ciências espaciais e observações do céu noturno às escolas públicas e praças de todo o Baixo Acaraú.
+            </p>
+
+            <div class="cav-highlights">
+              <div class="cav-feature">
+                <span class="cav-feature__num mono-tag">01 // OBSERVAÇÃO</span>
+                <h3 class="cav-feature__title">Noites de Observação e Itinerância Escolar</h3>
+                <p class="cav-feature__desc">
+                  Sessões abertas de observação lunar, planetária e de objetos de céu profundo no campus e em escolas da rede pública de Acaraú, Cruz, Itarema e Marco.
+                </p>
+              </div>
+
+              <div class="cav-feature">
+                <span class="cav-feature__num mono-tag">02 // REDE BRAMON</span>
+                <h3 class="cav-feature__title">Monitoramento de Meteoros no Litoral Norte</h3>
+                <p class="cav-feature__desc">
+                  Operação de estação vinculada à <em>Brazilian Meteor Observation Network</em> (BRAMON), registrando bólidos e chuvas de meteoros para determinação de órbitas e estudos de matéria interplanetária.
+                </p>
+              </div>
+
+              <div class="cav-feature">
+                <span class="cav-feature__num mono-tag">03 // ENEASTRO</span>
+                <h3 class="cav-feature__title">Encontro de Ensino de Astronomia do Ceará</h3>
+                <p class="cav-feature__desc">
+                  Protagonismo na criação e organização do <strong>I ENEASTRO</strong> em Acaraú, articulado à Semana da Biologia e ao PIBID, capacitando estudantes e professores em educação astronômica.
+                </p>
+              </div>
+            </div>
+
+            <div class="cav-cta-row">
+              <a href="https://www.instagram.com/cav.ifa" target="_blank" rel="noopener noreferrer" class="btn btn--ochre">
+                Seguir @cav.ifa no Instagram ↗
+              </a>
+              <a href="https://www.instagram.com/astrobiologiaifce/" target="_blank" rel="noopener noreferrer" class="btn btn--outline-light">
+                Acompanhar @astrobiologiaifce ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Cartão de Efemérides e Atividades do Clube -->
+          <aside class="cav-logbook" aria-label="Caderno de campo do Clube de Astronomia">
+            <div class="logbook-header">
+              <span class="mono-tag">CADERNO DE CAMPO // EXTENSÃO IFCE ACARAÚ</span>
+              <span class="logbook-status">Atividades Permanentes</span>
+            </div>
+
+            <ul class="logbook-list">
+              <li class="logbook-entry">
+                <span class="logbook-entry__tag mono-tag">EVENTO REGIONAL</span>
+                <h4 class="logbook-entry__title">I ENEASTRO &amp; VIII Semana da Biologia</h4>
+                <p class="logbook-entry__text">
+                  Integração histórica entre ensino de astronomia, formação docente (PIBID) e ciências biológicas no IFCE Campus Acaraú.
+                </p>
+              </li>
+
+              <li class="logbook-entry">
+                <span class="logbook-entry__tag mono-tag">INSTRUMENTAÇÃO DIDÁTICA</span>
+                <h4 class="logbook-entry__title">Oficinas de Astrobiologia, Robótica e Fotossíntese</h4>
+                <p class="logbook-entry__text">
+                  Experimentos práticos com sensores, Arduino e espectros luminosos desenvolvidos por licenciandos em Física e Ciências Biológicas.
+                </p>
+              </li>
+
+              <li class="logbook-entry">
+                <span class="logbook-entry__tag mono-tag">DIVULGAÇÃO DIGITAL</span>
+                <h4 class="logbook-entry__title">Cobertura de Eventos e Efemérides Astronômicas</h4>
+                <p class="logbook-entry__text">
+                  Publicações educativas sobre eclipses, conjunções planetárias, missões espaciais e bastidores das viagens científicas da equipe.
+                </p>
+              </li>
+            </ul>
+
+            <div class="logbook-footer">
+              <span class="mono-tag">INSTAGRAM OFICIAL DO CLUBE:</span>
+              <a href="https://www.instagram.com/cav.ifa" target="_blank" rel="noopener noreferrer" class="logbook-handle">instagram.com/cav.ifa ↗</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. EQUIPE, INFRAESTRUTURA E COMO PARTICIPAR -->
+    <section id="contato" class="section-block section-block--bordered" aria-labelledby="contato-heading">
+      <div class="container">
+        <div class="section-header-grid">
+          <div class="section-kicker-col">
+            <span class="section-index mono-tag">SEÇÃO 07 // INSTITUCIONAL &amp; CONTATO</span>
+            <h2 id="contato-heading" class="section-title">Coordenação, infraestrutura e como ingressar</h2>
+          </div>
+          <div class="section-intro-col">
+            <p class="section-lead">
+              O Laboratório de Astrobiologia está aberto a estudantes de graduação e ensino técnico do IFCE <em>Campus</em> Acaraú interessados em iniciação científica, bioinformática e divulgação astronômica, bem como a parcerias com pesquisadores de outras instituições.
+            </p>
+          </div>
+        </div>
+
+        <div class="institutional-grid">
+          <div class="inst-card">
+            <span class="mono-tag inst-card__kicker">COORDENAÇÃO &amp; CORPO DOCENTE</span>
+            <h3 class="inst-card__title">Liderança Interdisciplinar</h3>
+            <ul class="faculty-list">
+              <li>
+                <strong>Prof. Dr. João Garcia Alves Filho</strong>
+                <span>Docente da área de Ciências Biológicas · Coordenador do LaTEB e do Laboratório de Astrobiologia · Pesquisador em Bioquímica, Bioinformática e Astrobiologia (Membro SBAstrobio).</span>
+              </li>
+              <li>
+                <strong>Prof. Jorge Roberto</strong>
+                <span>Docente da área de Física · Coordenador de ações em Ensino de Astronomia, Instrumentação Científica e projetos interdisciplinares no EANE e ENEASTRO.</span>
+              </li>
+              <li>
+                <strong>Discentes Pesquisadores &amp; Extensionistas</strong>
+                <span>Bolsistas e voluntários dos cursos de Licenciatura em Ciências Biológicas, Licenciatura em Física e cursos técnicos integrados do IFCE Acaraú.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="inst-card">
+            <span class="mono-tag inst-card__kicker">PARCERIAS &amp; FOMENTO</span>
+            <h3 class="inst-card__title">Rede de Cooperação</h3>
+            <ul class="faculty-list">
+              <li>
+                <strong>FINEP / Projeto Biologando em Acaraú</strong>
+                <span>Apoio financeiro e aquisição de estações computacionais de alto desempenho para modelagem 3D, simulações e bioinformática.</span>
+              </li>
+              <li>
+                <strong>Sociedade Brasileira de Astrobiologia (SBAstrobio)</strong>
+                <span>Articulação científica nacional e intercâmbio com grupos de pesquisa do país (incluindo apresentações no IO-USP).</span>
+              </li>
+              <li>
+                <strong>BRAMON &amp; Laboratórios do IFCE Acaraú</strong>
+                <span>Trabalho conjunto com a Rede Brasileira de Monitoramento de Meteoros e os laboratórios de Microbiologia, Biologia Ambiental e Física do campus.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="inst-card inst-card--contact">
+            <span class="mono-tag inst-card__kicker">CANAIS OFICIAIS</span>
+            <h3 class="inst-card__title">Fale com o Laboratório</h3>
+            <p class="inst-card__text">
+              Para propostas de cooperação científica, agendamento de visitas escolares com o Clube de Astronomia ou dúvidas sobre seleção de bolsistas:
+            </p>
+
+            <dl class="contact-details">
+              <div>
+                <dt>E-mail Institucional</dt>
+                <dd><a href="mailto:astrobiologia@acarau.ifce.edu.br">astrobiologia@acarau.ifce.edu.br</a></dd>
+              </div>
+              <div>
+                <dt>Laboratório no Instagram</dt>
+                <dd><a href="https://www.instagram.com/astrobiologiaifce/" target="_blank" rel="noopener noreferrer">@astrobiologiaifce ↗</a></dd>
+              </div>
+              <div>
+                <dt>Clube de Astronomia</dt>
+                <dd><a href="https://www.instagram.com/cav.ifa" target="_blank" rel="noopener noreferrer">@cav.ifa ↗</a></dd>
+              </div>
+              <div>
+                <dt>Endereço Físico</dt>
+                <dd>IFCE Campus Acaraú — Av. Des. Armando de Sales Louzada, s/n, Monsenhor Edson Magalhães, Acaraú – CE, CEP 62580-000</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé Institucional -->
+  <footer class="site-footer" id="rodape-institucional">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-col--brand">
+          <div class="footer-brand-row">
+            <img src="assets/logo-lab-branca.png" alt="Logo do Laboratório de Astrobiologia do IFCE Campus Acaraú" class="footer-logo-img" width="54" height="50">
+            <div>
+              <p class="footer-inst-tag mono-tag">INSTITUTO FEDERAL DO CEARÁ — CAMPUS ACARAÚ</p>
+              <h2 class="footer-title">Laboratório de Astrobiologia &amp; Acervo LaTEB</h2>
+            </div>
+          </div>
+          <p class="footer-desc">
+            Pesquisa pública, gratuita e de qualidade voltada à investigação da origem, evolução e distribuição da vida no Universo, bioinformática aplicada e popularização da astronomia no litoral oeste cearense.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-heading">Navegação Rápida</h3>
+          <ul class="footer-links">
+            <li><a href="#sobre-laboratorio">Sobre o Laboratório</a></li>
+            <li><a href="#legado-lateb">Herança LaTEB &amp; Bioinformática</a></li>
+            <li><a href="#viagens-nordeste-brasil">Viagens pelo Nordeste e Brasil</a></li>
+            <li><a href="#marco-eneastro">I ENEASTRO &amp; Acervo Instagram</a></li>
+            <li><a href="#acervo-pesquisa">Publicações e Congressos</a></li>
+            <li><a href="#clube-astronomia">Clube de Astronomia (@cav.ifa)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-heading">Redes e Portais Oficiais</h3>
+          <ul class="footer-links">
+            <li><a href="https://www.instagram.com/astrobiologiaifce/" target="_blank" rel="noopener noreferrer">Instagram @astrobiologiaifce ↗</a></li>
+            <li><a href="https://www.instagram.com/cav.ifa" target="_blank" rel="noopener noreferrer">Instagram @cav.ifa ↗</a></li>
+            <li><a href="https://ifce.edu.br/acarau" target="_blank" rel="noopener noreferrer">Portal IFCE Campus Acaraú ↗</a></li>
+            <li><a href="https://vlibras.gov.br" target="_blank" rel="noopener noreferrer">Acessibilidade em Libras (VLibras) ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          © <span id="current-year">2026</span> Laboratório de Astrobiologia — IFCE Campus Acaraú. Desenvolvido com padrões abertos, código seguro e diretrizes de acessibilidade WCAG 2.1 AA / eMAG.
+        </p>
+        <a href="#topo" class="back-to-top">Voltar ao topo ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Integração Oficial VLibras (Padrão Governo Federal / Acessibilidade em Libras) -->
+  <div vw class="enabled">
+    <div vw-access-button class="active" aria-label="Tradutor para Língua Brasileira de Sinais - VLibras"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      if (window.VLibras && typeof window.VLibras.Widget === 'function') {
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+      }
+    });
+  </script>
+
+  <!-- Leaflet JS (Mapa Geográfico Real) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+
+  <!-- Script Principal (Seguro, Modular) -->
+  <script src="js/main.js" defer></script>
+</body>
+</html>

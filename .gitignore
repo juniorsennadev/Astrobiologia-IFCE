@@ -1,0 +1,11 @@
+# Arquivos de Sistema Operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Diretório local da Vercel CLI
+.vercel/
+
+# Logs e arquivos temporários
+*.log
+*.tmp

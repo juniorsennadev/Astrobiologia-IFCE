@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark" data-resolved-theme="dark" data-contrast="normal" data-font-scale="100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://vlibras.gov.br https://cdn.jsdelivr.net https://unpkg.com https://www.instagram.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com https://vlibras.gov.br https://unpkg.com https://cdn.jsdelivr.net 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://vlibras.gov.br data:; img-src 'self' data: blob: https://*.fbcdn.net https://*.cdninstagram.com https://www.instagram.com https://portal.ifce.edu.br https://*.ifce.edu.br https://server.arcgisonline.com https://services.arcgisonline.com https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com https://unpkg.com https://vlibras.gov.br https://*.gov.br; connect-src 'self' https://vlibras.gov.br https://*.vlibras.gov.br wss://*.vlibras.gov.br https://server.arcgisonline.com https://services.arcgisonline.com https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com; frame-src https://vlibras.gov.br https://www.instagram.com; object-src 'none'; base-uri 'self';">
+
+  <title>Reitoria IFCE &amp; Projeto FINEP (Fortaleza – CE) | Laboratório de Astrobiologia</title>
+  <meta name="description" content="Articulações institucionais junto à Reitoria do IFCE em Fortaleza e fortalecimento da infraestrutura de alto desempenho do Laboratório de Astrobiologia via FINEP.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="icon" type="image/png" href="../assets/logo-lab-branca.png">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <nav class="skip-links" aria-label="Atalhos de acessibilidade">
+    <a href="#conteudo-evento" class="skip-link" accesskey="1">Ir para o relato do evento [1]</a>
+    <a href="../index.html#viagens-nordeste-brasil" class="skip-link" accesskey="2">Voltar ao mapa principal [2]</a>
+  </nav>
+
+  <div class="gov-utility-bar" role="region" aria-label="Barra institucional e controles de acessibilidade">
+    <div class="container utility-bar__inner">
+      <div class="utility-bar__brand">
+        <span class="ifce-sigla" aria-hidden="true">IFCE</span>
+        <span class="utility-bar__divider" aria-hidden="true">/</span>
+        <span class="utility-bar__campus">Instituto Federal do Ceará — <strong>Campus Acaraú</strong></span>
+        <span class="utility-bar__coords mono-tag">DOSSIÊ INSTITUCIONAL</span>
+      </div>
+
+      <div class="utility-bar__actions">
+        <div class="a11y-controls" role="group" aria-label="Preferências de leitura, tema e acessibilidade">
+          <div class="theme-switcher" role="group" aria-label="Alternar modo de cor (Sistema, Claro ou Escuro)">
+            <button type="button" class="a11y-btn theme-btn" data-theme-option="system" aria-pressed="false" title="Seguir tema do sistema">
+              <span aria-hidden="true">◒</span>
+              <span>Sistema</span>
+            </button>
+            <button type="button" class="a11y-btn theme-btn" data-theme-option="light" aria-pressed="false" title="Ativar modo claro">
+              <span aria-hidden="true">☀</span>
+              <span>Claro</span>
+            </button>
+            <button type="button" class="a11y-btn theme-btn is-active" data-theme-option="dark" aria-pressed="true" title="Ativar modo escuro (Padrão)">
+              <span aria-hidden="true">☾</span>
+              <span>Escuro</span>
+            </button>
+          </div>
+          <span class="utility-bar__divider" aria-hidden="true">|</span>
+          <button type="button" id="btn-font-decrease" class="a11y-btn" aria-label="Diminuir tamanho da fonte">A−</button>
+          <button type="button" id="btn-font-reset" class="a11y-btn" aria-label="Restaurar tamanho original da fonte">A</button>
+          <button type="button" id="btn-font-increase" class="a11y-btn" aria-label="Aumentar tamanho da fonte">A+</button>
+          <span class="utility-bar__divider" aria-hidden="true">|</span>
+          <button type="button" id="btn-contrast" class="a11y-btn a11y-btn--contrast" aria-pressed="false">
+            <span class="contrast-icon" aria-hidden="true">◐</span>
+            <span>Alto Contraste</span>
+          </button>
+        </div>
+
+        <div class="utility-bar__socials">
+          <a href="https://www.instagram.com/astrobiologiaifce/" target="_blank" rel="noopener noreferrer" class="utility-social-link">@astrobiologiaifce ↗</a>
+          <a href="https://www.instagram.com/cav.ifa" target="_blank" rel="noopener noreferrer" class="utility-social-link">@cav.ifa ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header" id="topo">
+    <div class="container site-header__inner">
+      <a href="../index.html" class="brand-lockup" aria-label="Voltar à página inicial do Laboratório de Astrobiologia do IFCE Campus Acaraú">
+        <div class="brand-emblem" aria-hidden="true">
+          <img src="../assets/logo-lab-branca.png" alt="" class="brand-logo brand-logo--dark" width="46" height="43">
+          <img src="../assets/logo-lab-preta.png" alt="" class="brand-logo brand-logo--light" width="46" height="43">
+        </div>
+        <div class="brand-text">
+          <span class="brand-kicker">Laboratório de Pesquisa &amp; Extensão</span>
+          <span class="brand-title">Astrobiologia <span class="brand-title--sub">IFCE Acaraú</span></span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação da página de evento">
+        <ul class="main-nav__list">
+          <li><a href="../index.html#viagens-nordeste-brasil" class="main-nav__link">← Voltar ao Mapa Geográfico</a></li>
+          <li><a href="../index.html#legado-lateb" class="main-nav__link">Herança LaTEB</a></li>
+          <li><a href="../index.html#acervo-pesquisa" class="main-nav__link">Publicações</a></li>
+          <li><a href="../index.html#contato" class="main-nav__link main-nav__link--cta">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="breadcrumb-bar">
+    <div class="container breadcrumb-nav">
+      <a href="../index.html#viagens-nordeste-brasil" class="breadcrumb-back">← Voltar ao Mapa Interativo de Viagens e Congressos</a>
+      <span class="breadcrumb-trail">Pelo Nordeste e Brasil / Fortaleza – CE / Reitoria IFCE &amp; Fomento FINEP</span>
+    </div>
+  </div>
+
+  <main id="conteudo-evento">
+    <section class="event-hero">
+      <div class="container">
+        <div class="event-hero__meta">
+          <span class="mono-tag event-hero__badge">ARTICULAÇÃO &amp; FOMENTO // FORTALEZA-CE</span>
+          <span class="mono-tag">2025 – 2026 · Fortaleza, CE</span>
+          <span class="mono-tag">COORDENADAS: 03°44'37"S 38°32'08"W</span>
+        </div>
+        <h1 class="event-hero__title">
+          Articulação na Reitoria do IFCE &amp; Expansão Computacional via FINEP
+        </h1>
+        <p class="event-hero__lead">
+          Missões institucionais na capital cearense voltadas ao fortalecimento da pesquisa em Astrobiologia e Bioinformática no <em>Campus</em> Acaraú, incluindo a aquisição de estações computacionais de alto desempenho por meio de parceria com a FINEP (Projeto <em>Biologando em Acaraú</em>).
+        </p>
+      </div>
+    </section>
+
+    <section class="section-block section-block--bordered">
+      <div class="container event-dossier-layout">
+        <article class="event-article-body">
+          <h2>Diálogo Institucional e Fomento à Pesquisa</h2>
+          <p>
+            A consolidação de um laboratório de fronteira no interior do estado exige articulação permanente junto às instâncias gestoras e agências de fomento. Em reunião oficial realizada em <strong>14 de setembro de 2026</strong> na <strong>Reitoria do Instituto Federal do Ceará (IFCE)</strong>, em Fortaleza, o Reitor <strong>Prof. Wally Menezes</strong> e a Pró-Reitora de Pesquisa, Pós-Graduação e Inovação (PRPI), <strong>Prof.ª Joélia Marques</strong>, receberam o Diretor-Geral do <em>Campus</em> Acaraú, <strong>Prof. Rubens</strong>, e os coordenadores do Laboratório de Astrobiologia, <strong>Prof. Me. Jorge Roberto Pereira da Silva</strong> e <strong>Prof. Dr. João Garcia Alves Filho</strong>.
+          </p>
+
+          <figure class="eneastro-featured-figure" style="margin: 1.5rem 0 2rem;">
+            <div class="eneastro-featured-figure__img-wrap">
+              <img
+                src="https://instagram.fjdo10-2.fna.fbcdn.net/v/t51.82787-15/810900363_17907610200517631_101672761431433101_n.jpg?stp=dst-jpg_e35_tt6&amp;_nc_cat=104&amp;_nc_map=urlgen_bucketless&amp;ig_cache_key=Mzk4NjE0NjMxMTE5MDUwODkxMQ%3D%3D.3-ccb7-5&amp;ccb=7-5&amp;_nc_sid=58cdad&amp;efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMzI3NC5zZHIucmVndWxhcl9waG90by5DMyJ9&amp;_nc_ohc=6gVhddBSV9oQ7kNvwGGQiqo&amp;_nc_oc=Adr_3vGLzKC3T3LIkOKdHB4CA5p9qOFYPS2OZ63ZCQ5ALoBkuQoVApIRuVGakBGSjQE&amp;_nc_zt=23&amp;_nc_ht=instagram.fjdo10-2.fna&amp;_nc_gid=opnF4NaCeu7hlxfYbVZIcA&amp;_nc_ss=7860f&amp;oh=00_AQTHJ7njZdI0Y06BqbEOGUPJ-4cMSbk-D46XoqdNNWxbSQ&amp;oe=6AE82023"
+                data-fallback-src="../assets/instagram/reitoria-ifce-fortaleza.jpg"
+                referrerpolicy="no-referrer"
+                loading="lazy"
+                alt="Reunião na Reitoria do IFCE em Fortaleza com o Reitor Prof. Wally Menezes, Pró-Reitora Prof.ª Joélia Marques, Diretor Prof. Rubens, Prof. Jorge Roberto e Prof. Dr. João Garcia"
+                class="ig-indexed-img"
+              >
+              <span class="ig-source-pill mono-tag">INDEXADO DO INSTAGRAM // @astrobiologiaifce</span>
+            </div>
+            <figcaption class="eneastro-featured-figure__caption">
+              <strong>Reunião Oficial na Reitoria do IFCE (Fortaleza-CE):</strong> Prof. Dr. João Garcia Alves Filho, Prof. Me. Jorge Roberto, Reitor Prof. Wally Menezes, Pró-Reitora Prof.ª Joélia Marques e Diretor-Geral Prof. Rubens articulando a consolidação do Laboratório de Astrobiologia e o apoio ao I ENEASTRO.
+              <a href="https://www.instagram.com/p/DdRovNVPnVv/" target="_blank" rel="noopener noreferrer" class="ig-caption-link">Post original no Instagram ↗</a>
+            </figcaption>
+          </figure>
+
+          <h2>Principais Conquistas e Entregas</h2>
+          <div class="event-works-list">
+            <div class="event-work-item">
+              <span class="mono-tag">INFRAESTRUTURA DE ALTO DESEMPENHO (FINEP)</span>
+              <h3>Aquisição de Estações de Trabalho para Simulações e Bioinformática</h3>
+              <p>
+                Por meio de financiamento aprovado junto à FINEP (vinculado a iniciativas como o projeto <em>Biologando em Acaraú</em>), o laboratório recebeu computadores de alta capacidade de processamento e placas gráficas dedicadas para modelagem tridimensional, simulações moleculares e análises evolutivas herdadas do LaTEB.
+              </p>
+            </div>
+
+            <div class="event-work-item">
+              <span class="mono-tag">COOPERAÇÃO INTERCAMPI</span>
+              <h3>Alinhamento com a Reitoria e Pró-Reitorias de Pesquisa e Extensão</h3>
+              <p>
+                Fortalecimento do suporte institucional para a participação de estudantes em congressos regionais e nacionais (como o EANE e a SBAstrobio) e para a realização de eventos científicos em Acaraú.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <aside class="event-sidebar-card" aria-label="Localização geográfica em Fortaleza">
+          <div class="specimen-card__header">
+            <span class="mono-code">GEOLOCALIZAÇÃO INSTITUCIONAL</span>
+            <span class="specimen-badge">Reitoria IFCE · Fortaleza</span>
+          </div>
+          <div id="venue-mini-map" class="venue-mini-map"
+               data-lat="-3.7436"
+               data-lng="-38.5356"
+               data-zoom="14"
+               data-label="Reitoria IFCE · Fortaleza"
+               role="region"
+               aria-label="Mapa geográfico da Reitoria do IFCE em Fortaleza"></div>
+          <div class="event-sidebar-card__body">
+            <div class="specimen-row">
+              <span class="specimen-key">Unidade Institucional</span>
+              <span class="specimen-val">Reitoria do Instituto Federal do Ceará (IFCE) — Fortaleza/CE</span>
+            </div>
+            <div class="specimen-row">
+              <span class="specimen-key">Fomento Principal</span>
+              <span class="specimen-val">FINEP / Projeto Biologando em Acaraú</span>
+            </div>
+            <div class="specimen-row">
+              <span class="specimen-key">Aplicação Direta</span>
+              <span class="specimen-val">Modelagem Molecular 3D, Bioinformática (LaTEB) e Simulações</span>
+            </div>
+            <div style="margin-top: 1.25rem; display: flex; flex-direction: column; gap: 0.6rem;">
+              <a href="https://www.instagram.com/astrobiologiaifce/" target="_blank" rel="noopener noreferrer" class="btn btn--ochre">
+                Ver cobertura no @astrobiologiaifce ↗
+              </a>
+              <a href="../index.html#viagens-nordeste-brasil" class="btn btn--secondary">
+                ← Voltar ao Mapa do Brasil
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section-block section-block--tinted" aria-labelledby="outros-eventos-heading">
+      <div class="container">
+        <span class="section-index mono-tag">CONTINUAR EXPLORANDO O MAPA</span>
+        <h2 id="outros-eventos-heading" class="section-title" style="margin-bottom: 2rem;">Outras viagens e marcos científicos da equipe</h2>
+        <div class="other-events-grid">
+          <a href="sbastrobio-usp.html" class="map-point-card" style="border: 1px solid var(--border-subtle); background: var(--bg-surface);">
+            <div class="map-point-card__head">
+              <span class="mono-tag map-point-card__loc">SÃO PAULO · SP</span>
+              <span class="map-point-card__arrow">→</span>
+            </div>
+            <strong class="map-point-card__title">Reunião Oficial SBAstrobio (IO-USP)</strong>
+            <span class="map-point-card__sub">Apresentação nacional do laboratório na USP</span>
+          </a>
+
+          <a href="xxiv-eane-satuba.html" class="map-point-card" style="border: 1px solid var(--border-subtle); background: var(--bg-surface);">
+            <div class="map-point-card__head">
+              <span class="mono-tag map-point-card__loc">SATUBA / MACEIÓ · AL</span>
+              <span class="map-point-card__arrow">→</span>
+            </div>
+            <strong class="map-point-card__title">XXIV EANE — IFAL Campus Satuba</strong>
+            <span class="map-point-card__sub">Comitiva de Física e Biologia em Alagoas</span>
+          </a>
+
+          <a href="xxiii-eane-caico.html" class="map-point-card" style="border: 1px solid var(--border-subtle); background: var(--bg-surface);">
+            <div class="map-point-card__head">
+              <span class="mono-tag map-point-card__loc">CAICÓ · RN</span>
+              <span class="map-point-card__arrow">→</span>
+            </div>
+            <strong class="map-point-card__title">XXIII EANE — Seridó Potiguar</strong>
+            <span class="map-point-card__sub">Estreia histórica da delegação no EANE</span>
+          </a>
+
+          <a href="eneastro-acarau.html" class="map-point-card" style="border: 1px solid var(--border-subtle); background: var(--bg-surface);">
+            <div class="map-point-card__head">
+              <span class="mono-tag map-point-card__loc">ACARAÚ · CE (SEDE)</span>
+              <span class="map-point-card__arrow">→</span>
+            </div>
+            <strong class="map-point-card__title">I ENEASTRO, LaTEB &amp; Rede BRAMON</strong>
+            <span class="map-point-card__sub">Sede do laboratório e eventos no campus</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="padding-top: 0;">
+      <p class="footer-copy">© <span id="current-year">2026</span> Laboratório de Astrobiologia — IFCE Campus Acaraú.</p>
+      <a href="../index.html#viagens-nordeste-brasil" class="back-to-top">← Voltar ao Mapa Principal</a>
+    </div>
+  </footer>
+
+  <div vw class="enabled">
+    <div vw-access-button class="active" aria-label="Tradutor para Língua Brasileira de Sinais - VLibras"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      if (window.VLibras && typeof window.VLibras.Widget === 'function') {
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+      }
+    });
+  </script>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+  <script src="../js/main.js" defer></script>
+</body>
+</html>
