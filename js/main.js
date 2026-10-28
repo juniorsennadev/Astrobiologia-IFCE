@@ -17,184 +17,152 @@
   /** Modelos da Bancada Computacional LaTEB & Astrobiologia */
   const BIOINFO_MODELS = Object.freeze({
     uv: {
-      locusId: 'LOCUS: PHRB_EXTREMO_CE // 478 aa',
-      pipeline: 'Pipeline: BLASTp → MAFFT → IQ-TREE → Modelagem 3D',
-      fasta: [
-        '>Deinococcus_sp_Ref      [Motivo Conservado de Ligação ao Cofator FAD]',
-        '412  T G Y P F I D A N M R E L V A T G W N R N H V R M V A S F  440',
-        '>Isolado_Caatinga_Model  [Análise Homologia Estrutural — LaTEB/IFCE]',
-        '412  T G Y P F I D A N M R E L V A T G W N R N H V R M V A S F  440',
-        '     * * * * * * * * * * * * * * * * * * * * * * * * * * * * *',
-        '     [Região catalítica de reparo de dímeros de pirimidina induzidos por UV]'
-      ].join('\n'),
-      tools: 'MEGA / IQ-TREE / AutoDock Vina / PyMOL',
-      education: 'Iniciação Científica & Práticas de Licenciatura',
-      category: 'ASTROBIOLOGIA & GENÔMICA EVOLUTIVA',
-      title: 'Análise Filogenética e Estrutural de Fotoliases em Microrganismos Resistentes à Radiação UV',
+      tools: 'MEGA · IQ-TREE · AutoDock Vina · PyMOL',
+      education: 'Iniciação Científica e Licenciatura',
+      category: 'Astrobiologia e Genômica Evolutiva',
+      title: 'Análise de Fotoliases em Microrganismos Resistentes à Radiação UV',
       description:
-        'Microrganismos expostos à intensa insolação do semiárido e de salinas costeiras dependem de enzimas altamente eficientes, como as fotoliases de DNA, para reverter danos causados pela radiação ultravioleta. Por meio das rotinas de bioinformática consolidadas no LaTEB, realizamos alinhamentos múltiplos, inferência de árvores filogenéticas e docagem molecular para comparar a conservação evolutiva dessas proteínas frente a ambientes análogos planetários.',
+        'Microrganismos expostos ao sol forte do semiárido e de salinas costeiras dependem de enzimas como as fotoliases para reparar danos no DNA causados pela radiação ultravioleta. No laboratório, comparamos a estrutura tridimensional e a evolução dessas proteínas para entender como a vida resiste a ambientes extremos.',
       deliverables: [
-        'Reconstrução filogenética e análise de domínios conservados em procariotos extremófilos.',
-        'Modelagem molecular tridimensional em estações de trabalho de alto desempenho do campus.',
-        'Transposição didática em e-books e oficinas de bioinformática para estudantes do ensino médio e graduação.'
+        'Reconstrução de árvores filogenéticas e estudo de proteínas em microrganismos extremófilos.',
+        'Modelagem molecular 3D nas estações de trabalho do projeto Biologando em Acaraú (FINEP).',
+        'Produção de e-books e oficinas práticas de bioinformática para estudantes do ensino médio e licenciatura.'
       ]
     },
     halo: {
-      locusId: 'LOCUS: BOP_HALO_COSTAL // 262 aa',
-      pipeline: 'Pipeline: UniProtKB → Clustal Omega → AlphaFold/Modeller → Docagem',
-      fasta: [
-        '>Halobacterium_salinarum [Hélice Transmembrana C — Bolsão do Retinal]',
-        '082  R Y A D W L F T T P L L L L D L A L L V D A D Q G T I L A  110',
-        '>Halofilo_Salinas_CE     [Simulação de Estabilidade Osmótica — LaTEB]',
-        '082  R Y A D W L F T T P L L L V D L A L L V D A D Q G T I L A  110',
-        '     * * * * * * * * * * * * * : * * * * * * * * * * * * * * *',
-        '     [Resíduos Asp85 e Asp96 essenciais para o bombeamento de prótons]'
-      ].join('\n'),
-      tools: 'Clustal Omega / Modeller / ChimeraX / BioPython',
+      tools: 'Clustal Omega · Modeller · ChimeraX · BioPython',
       education: 'Pesquisa Aplicada em Ambientes Costeiros e Salinas',
-      category: 'BIOINFORMÁTICA ESTRUTURAL (HERANÇA LaTEB)',
-      title: 'Estabilidade Proteica e Bioenergética em Arqueias e Bactérias Halofílicas Costeiras',
+      category: 'Bioinformática Estrutural (Legado LaTEB)',
+      title: 'Estabilidade de Proteínas em Bactérias e Arqueias de Salinas Costeiras',
       description:
-        'Ambientes hipersalinos do litoral norte cearense funcionam como laboratórios naturais para compreender como a vida suporta baixa atividade de água e elevada força iônica — condições relevantes para oceanos subsuperficiais de luas geladas e paleolagos marcianos. Herdamos do LaTEB os protocolos de análise de carga superficial de proteínas halofílicas e bombas de prótons ativadas por luz.',
+        'As salinas do litoral norte cearense funcionam como laboratórios naturais para estudar como microrganismos sobrevivem à alta concentração de sal e baixa disponibilidade de água. A partir dos protocolos do LaTEB, analisamos no computador a estrutura de proteínas adaptadas a essas condições.',
       deliverables: [
-        'Mapeamento de resíduos ácidos superficiais responsáveis pela solvatação em alta concentração de NaCl.',
-        'Análise in silico de rodopsinas microbianas como biossinais espectroscópicos primitivos.',
-        'Formação de estudantes de Biologia em bancos de dados estruturais (PDB e NCBI).'
+        'Estudo da superfície de proteínas que mantêm sua função em ambientes com alta concentração de sal.',
+        'Análise computacional de pigmentos microbianos como potenciais biossinais.',
+        'Treinamento de estudantes de Biologia no uso dos bancos de dados públicos NCBI e PDB.'
       ]
     },
     edu: {
-      locusId: 'LOCUS: RBCL_SPECTRA_EDU // 475 aa + ARDUINO',
-      pipeline: 'Pipeline: Filogenia rbcL → Prototipagem Arduino/LEDs → Ensino Investigativo',
-      fasta: [
-        '>Synechococcus_Cyanobact [Sítio Ativo Rubisco — Fixação de Carbono]',
-        '195  G G L D F T K D D E N V N S Q P F M R W R D R F L F C A E  223',
-        '>Chlorella_Ensino_IFCE   [Modelo Didático LaTEB & Astrobiologia]',
-        '195  G G L D F T K D D E N V N S Q P F M R W R D R F L F C A E  223',
-        '     * * * * * * * * * * * * * * * * * * * * * * * * * * * * *',
-        '     [Integração entre evolução da fotossíntese e espectros luminosos]'
-      ].join('\n'),
-      tools: 'Arduino IDE / Espectrofotometria LED / NCBI / E-books LaTEB',
-      education: 'Licenciatura em Física, Biologia & PIBID',
-      category: 'TECNOLOGIAS EDUCACIONAIS & ENSINO DE CIÊNCIAS',
-      title: 'Modelagem Didática da Fotossíntese sob Diferentes Espectros Estelares com Arduino e Bioinformática',
+      tools: 'Arduino · Sensores e LEDs · Python (ESI) · E-books LaTEB',
+      education: 'Licenciatura em Física, Biologia e PIBID',
+      category: 'Tecnologias Educacionais e Ensino de Ciências',
+      title: 'Fotossíntese sob Diferentes Espectros de Luz com Arduino e Seleção de Exoplanetas',
       description:
-        'Unindo a tradição do LaTEB em tecnologias educacionais à instrumentação física, estudantes e professores desenvolvem aparatos experimentais com microcontroladores Arduino e matrizes de LEDs para investigar a resposta fotossintética em diferentes comprimentos de onda, conectando a evolução molecular da enzima Rubisco à habitabilidade ao redor de diferentes tipos estelares (como anãs vermelhas M e estrelas tipo G).',
+        'Unindo a tradição do LaTEB em ensino de ciências à instrumentação da Física, estudantes e professores montam experimentos com Arduino e LEDs para testar a fotossíntese em diferentes comprimentos de onda, além de desenvolver scripts em Python para cálculo do Índice de Similaridade com a Terra (ESI) em exoplanetas.',
       deliverables: [
-        'Protótipos de baixo custo com Arduino apresentados em encontros regionais como o EANE e o ENEASTRO.',
-        'E-books e guias didáticos abertos para professores da educação básica do Baixo Acaraú.',
-        'Aulões interdisciplinares e oficinas práticas integrando Biologia, Física e Computação.'
+        'Experimentos didáticos com Arduino apresentados no EANE e no I ENEASTRO.',
+        'Algoritmo em Python para triagem de exoplanetas (projeto PIBIC Jr CNPq).',
+        'Materiais didáticos abertos e oficinas para escolas públicas do Baixo Acaraú.'
       ]
     }
   });
 
   /**
    * Pontos Geográficos Reais para o Mapa (Leaflet)
-   * Ao passar o mouse (hover): abre modal detalhando o que foi realizado no local.
-   * Ao clicar: redireciona direto para a página dedicada do evento (`url`).
    */
   const GEO_EXPEDITIONS = Object.freeze([
     {
       id: 'acarau',
       isOrigin: true,
-      label: 'ACARAÚ · CE (SEDE)',
+      label: 'Acaraú · CE (Sede)',
       labelDir: 'left',
       lat: -2.8858,
       lng: -40.1200,
       coordsText: '02°53\'09"S 40°07\'12"W',
-      code: 'SEDE & 1º EVENTO DO GRUPO ATUAL // ACARAÚ-CE',
+      code: 'Sede · Acaraú-CE',
       date: 'I ENEASTRO: 14 a 17 Out 2026 · Atuação Permanente',
-      title: 'I ENEASTRO ("Vida e Universo" — 1º Evento do Grupo Atual), LaTEB & Rede BRAMON',
+      title: 'I ENEASTRO ("Vida e Universo"), LaTEB e Estação BRAMON',
       venue: 'IFCE Campus Acaraú — Litoral Oeste do Ceará',
       summary:
-        'Sede do Laboratório de Astrobiologia e palco do I ENEASTRO (14 a 17/10/2026, integrado à VIII Semana da Biologia e ao PIBID, com apoio CAPES PAEP-EB e FINEP), nosso primeiro grande evento organizado com a formação atual do grupo.',
+        'Sede do Laboratório de Astrobiologia e palco do I ENEASTRO (14 a 17/10/2026, integrado à VIII Semana da Biologia e ao PIBID, com apoio CAPES e FINEP), nosso primeiro grande evento organizado com o grupo atual.',
       highlights: [
-        'I ENEASTRO ("Vida e Universo"): conferências com a Presidente da SBAstrobio (Dra. Evelyn Sanchez), Tatiane Peters, Prof. Heliomárzio Moreira, Prof. Saulo Machado e Planetário ECO.',
-        'Bancada computacional herdada do LaTEB: filogenia, docagem molecular 3D e algoritmo Python para seleção de exoplanetas (ESI / PIBIC Jr CNPq).',
-        'Monitoramento de meteoros (BRAMON / PIBIC) e ações do Clube de Astronomia (@cav.ifa) nas escolas de Acaraú.'
+        'I ENEASTRO ("Vida e Universo"): palestras com Dra. Evelyn Sanchez (SBAstrobio), Tatiane Peters, Prof. Heliomárzio Moreira, Prof. Saulo Machado e Planetário ECO.',
+        'Pesquisa computacional no LaTEB: filogenia, modelagem 3D e algoritmo em Python para exoplanetas (PIBIC Jr CNPq).',
+        'Monitoramento de meteoros (BRAMON) e observações do Clube de Astronomia (@cav.ifa) nas escolas.'
       ],
       url: 'eventos/eneastro-acarau.html'
     },
     {
       id: 'sp',
       isOrigin: false,
-      label: 'SÃO PAULO · SP (USP)',
+      label: 'São Paulo · SP (USP)',
       labelDir: 'right',
       lat: -23.5606,
       lng: -46.7314,
       coordsText: '23°33\'38"S 46°43\'53"W',
-      code: 'MISSÃO NACIONAL // SP-USP',
+      code: 'São Paulo · USP',
       date: 'Novembro de 2025 · São Paulo, SP',
-      title: 'Reunião Oficial da Sociedade Brasileira de Astrobiologia (SBAstrobio) — USP',
-      venue: 'Instituto Oceanográfico da USP (IO-USP) · Cidade Universitária',
+      title: 'Reunião da Sociedade Brasileira de Astrobiologia (SBAstrobio) — USP',
+      venue: 'Instituto Oceanográfico da USP (Cidade Universitária)',
       summary:
-        'Em São Paulo, o Prof. Dr. João Garcia Alves Filho apresentou oficialmente à comunidade científica nacional o projeto de implementação do primeiro Laboratório de Astrobiologia do Estado do Ceará, sediado no IFCE Campus Acaraú.',
+        'Em São Paulo, o Prof. Dr. João Garcia Alves Filho apresentou à comunidade científica nacional o projeto de criação do primeiro Laboratório de Astrobiologia do Ceará, sediado no IFCE Campus Acaraú.',
       highlights: [
-        'Apresentação da pesquisa em microrganismos extremófilos da Caatinga e salinas costeiras resistentes a UV e NaCl.',
-        'Demonstração da infraestrutura computacional de bioinformática herdada do LaTEB.',
-        'Articulação de cooperação científica nacional com pesquisadores da USP e membros da SBAstrobio.'
+        'Apresentação das pesquisas com microrganismos da Caatinga e de salinas costeiras.',
+        'Demonstração da estrutura de bioinformática construída no LaTEB.',
+        'Diálogo e cooperação com pesquisadores da USP e da SBAstrobio.'
       ],
       url: 'eventos/sbastrobio-usp.html'
     },
     {
       id: 'al',
       isOrigin: false,
-      label: 'SATUBA / MACEIÓ · AL',
+      label: 'Satuba / Maceió · AL',
       labelDir: 'right',
       lat: -9.5628,
       lng: -35.8239,
       coordsText: '09°33\'46"S 35°49\'26"W',
-      code: 'COMITIVA NORDESTE // XXIV EANE',
+      code: 'Satuba · Alagoas',
       date: '04 a 06 de Junho de 2026 · Satuba, AL',
-      title: 'XXIV EANE — IFAL Campus Satuba & Conquista do EANE 2029 para Acaraú',
-      venue: 'Instituto Federal de Alagoas (IFAL) — Campus Satuba / Maceió-AL',
+      title: 'XXIV EANE — IFAL Satuba e Escolha de Acaraú como Sede do EANE 2029',
+      venue: 'Instituto Federal de Alagoas (IFAL) — Campus Satuba',
       summary:
-        'Participação da comitiva de estudantes de Física (Jeferson, Luma, Vitória, Ana Clara, Ailton) e Biologia (Junior e Luzia) com o Prof. Jorge Roberto no XXIV EANE, onde Acaraú foi eleita sede oficial do EANE 2029.',
+        'Viagem da comitiva de estudantes de Física (Jeferson, Luma, Vitória, Ana Clara, Ailton) e Biologia (Junior e Luzia) com o Prof. Jorge Roberto ao XXIV EANE, onde Acaraú foi eleita sede oficial do EANE 2029.',
       highlights: [
-        'Conquista histórica na plenária final: Acaraú aprovada como cidade-sede oficial do EANE 2029.',
-        'Apresentação de trabalhos sobre fotossíntese e habitabilidade planetária com Arduino/LEDs e ensino de astronomia.',
-        'Fortalecimento da rede de clubes de astronomia do Nordeste (@cav.ifa e @astrobiologiaifce).'
+        'Aprovação de Acaraú na plenária final como cidade-sede do EANE 2029.',
+        'Apresentação de trabalhos sobre fotossíntese com Arduino/LEDs e ensino de astronomia.',
+        'Integração com clubes de astronomia de todo o Nordeste.'
       ],
       url: 'eventos/xxiv-eane-satuba.html'
     },
     {
       id: 'rn',
       isOrigin: false,
-      label: 'CAICÓ · RN',
+      label: 'Caicó · RN',
       labelDir: 'left',
       lat: -6.4583,
       lng: -37.0978,
       coordsText: '06°27\'30"S 37°05\'52"W',
-      code: 'ESTREIA REGIONAL // XXIII EANE',
+      code: 'Caicó · Rio Grande do Norte',
       date: 'Edição 2025 · Caicó, RN',
-      title: 'XXIII EANE — Encontro de Astronomia do Nordeste no Seridó Potiguar',
-      venue: 'Caicó — Região do Seridó, Rio Grande do Norte (RN)',
+      title: 'XXIII EANE — Encontro de Astronomia do Nordeste no Seridó',
+      venue: 'Caicó — Região do Seridó, Rio Grande do Norte',
       summary:
-        'Marco histórico da primeira viagem da comitiva do Laboratório de Astrobiologia do IFCE Campus Acaraú ao EANE, apresentando os primeiros trabalhos na interface entre astrobiologia, astroquímica e bioinformática.',
+        'Primeira viagem da comitiva do laboratório ao Encontro de Astronomia do Nordeste, levando os primeiros trabalhos de astrobiologia, astroquímica e bioinformática feitos no campus.',
       highlights: [
-        'Estreia dos projetos de astrobiologia e astroquímica desenvolvidos por estudantes do campus Acaraú.',
-        'Compartilhamento de práticas de popularização científica em escolas públicas.',
-        'Articulação regional que inspirou a criação do I ENEASTRO no Ceará.'
+        'Apresentação dos projetos iniciais de astrobiologia e ensino de ciências.',
+        'Troca de experiências com professores e divulgadores científicos do Nordeste.',
+        'Mobilização que inspirou a criação do I ENEASTRO em Acaraú.'
       ],
       url: 'eventos/xxiii-eane-caico.html'
     },
     {
       id: 'fortaleza',
       isOrigin: false,
-      label: 'FORTALEZA · CE',
+      label: 'Fortaleza · CE',
       labelDir: 'right',
       lat: -3.7436,
       lng: -38.5356,
       coordsText: '03°44\'37"S 38°32\'08"W',
-      code: 'ARTICULAÇÃO & FOMENTO // FORTALEZA-CE',
+      code: 'Fortaleza · Reitoria IFCE',
       date: '14 de Setembro de 2026 · Fortaleza, CE',
-      title: 'Reunião Oficial na Reitoria do IFCE & Infraestrutura FINEP (Biologando em Acaraú)',
-      venue: 'Reitoria do Instituto Federal do Ceará (IFCE) — Fortaleza/CE',
+      title: 'Reunião na Reitoria do IFCE e Projeto Biologando em Acaraú (FINEP)',
+      venue: 'Reitoria do Instituto Federal do Ceará — Fortaleza/CE',
       summary:
-        'Reunião institucional com o Reitor Prof. Wally Menezes, a Pró-Reitora de Pesquisa Prof.ª Joélia Marques, o Diretor Prof. Rubens, o Prof. Jorge Roberto e o Prof. Dr. João Garcia para consolidação do laboratório e apoio ao I ENEASTRO.',
+        'Encontro com o Reitor Prof. Wally Menezes, a Pró-Reitora de Pesquisa Prof.ª Joélia Marques, o Diretor Prof. Rubens, o Prof. Jorge Roberto e o Prof. Dr. João Garcia para fortalecimento do laboratório e apoio ao I ENEASTRO.',
       highlights: [
-        'Encontro com o Reitor Prof. Wally Menezes e a Pró-Reitora Prof.ª Joélia Marques (PRPI) em Fortaleza.',
-        'Captação de estações de trabalho de alto desempenho via projeto Biologando em Acaraú (FAIFCE / FINEP).',
-        'Articulação institucional para realização do I ENEASTRO e expansão da pesquisa em astrobiologia.'
+        'Articulação institucional com o Reitor Prof. Wally Menezes e a PRPI.',
+        'Infraestrutura de computadores de alto desempenho via projeto Biologando em Acaraú (FINEP).',
+        'Apoio institucional para realização do I ENEASTRO no Campus Acaraú.'
       ],
       url: 'eventos/reitoria-fortaleza.html'
     }
@@ -362,14 +330,28 @@
 
     function syncBrandLogos(resolvedTheme, isHighContrast) {
       const showLightLogo = resolvedTheme === 'light' && !isHighContrast;
+
+      // Atualiza imagens únicas com atributo data-src-dark / data-src-light (garante que apenas 1 logo apareça por vez)
+      const themeLogos = document.querySelectorAll('.js-theme-logo');
+      themeLogos.forEach(function (img) {
+        const targetSrc = showLightLogo
+          ? img.getAttribute('data-src-light')
+          : img.getAttribute('data-src-dark');
+        if (targetSrc) {
+          img.setAttribute('src', targetSrc);
+        }
+      });
+
+      // Fallback caso alguma página tenha classes .brand-logo--dark / .brand-logo--light
       const darkLogos = document.querySelectorAll('.brand-logo--dark');
       const lightLogos = document.querySelectorAll('.brand-logo--light');
-
       darkLogos.forEach(function (img) {
         img.hidden = showLightLogo;
+        img.style.display = showLightLogo ? 'none' : 'block';
       });
       lightLogos.forEach(function (img) {
         img.hidden = !showLightLogo;
+        img.style.display = showLightLogo ? 'block' : 'none';
       });
 
       const favicon = document.querySelector('link[rel="icon"]');
