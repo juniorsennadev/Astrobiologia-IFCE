@@ -1334,20 +1334,42 @@ html[data-contrast="high"] .btn--ochre {
 
 .real-map-toolbar__controls {
   display: inline-flex;
-  gap: 0.4rem;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.map-toolbar-sep {
+  width: 1px;
+  height: 22px;
+  background-color: var(--border-subtle);
+  margin: 0 0.2rem;
 }
 
 .map-view-btn {
   background-color: var(--bg-surface);
   color: var(--text-primary);
   border: 1px solid var(--border-subtle);
-  padding: 0.35rem 0.75rem;
-  font-family: var(--font-mono);
-  font-size: 0.73rem;
+  padding: 0.42rem 0.85rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
   font-weight: 600;
-  border-radius: 2px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   transition: all 0.15s ease;
+}
+
+.map-satellite-btn {
+  border-color: var(--color-accent-ochre);
+}
+
+.map-satellite-btn.is-active {
+  background-color: var(--color-accent-ochre) !important;
+  border-color: var(--color-accent-ochre) !important;
+  color: #FFFFFF !important;
 }
 
 .map-view-btn:hover {
@@ -2601,10 +2623,13 @@ html[data-contrast="high"] .filter-pill.is-active {
 }
 
 .footer-brand-row {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.9rem;
   margin-bottom: 0.85rem;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 .footer-ifce-img {
@@ -2947,6 +2972,10 @@ div[vw-access-button] .access-button {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  .map-toolbar-sep {
+    display: none;
   }
 
   .map-view-btn {

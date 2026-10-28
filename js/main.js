@@ -596,7 +596,7 @@
     const elCoords = document.getElementById('hover-modal-coords');
     const elLink = document.getElementById('hover-modal-link');
     const quickCards = document.querySelectorAll('.map-point-card');
-    const viewButtons = document.querySelectorAll('.map-view-btn');
+    const viewButtons = document.querySelectorAll('.map-view-btn[data-map-view]');
 
     // Inicializa o mapa enquadrando o Brasil deslocado à esquerda do modal flutuante
     const map = L.map(mapContainer, {
@@ -607,17 +607,35 @@
       scrollWheelZoom: false
     });
 
-    // Camada Cartográfica Real (Esri ArcGIS World Topo Map — funciona 100% em file:// e http(s):// sem exigir API Key)
+    // Camadas Cartográficas Reais (Mapa Topográfico Padrão + Visão de Satélite com Rótulos Híbridos)
     const primaryTileUrl =
       'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}';
     const fallbackTileUrl =
       'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}';
+    const satelliteTileUrl =
+      'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
+    const satelliteLabelsUrl =
+      'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}';
 
     const baseLayer = L.tileLayer(primaryTileUrl, {
       attribution:
-        'Tiles &copy; Esri &mdash; IBGE, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, IGN, Kadaster NL, Ordnance Survey, METI, Esri China, and the GIS User Community',
+        'Tiles &copy; Esri &mdash; IBGE, USGS, NOAA, GIS User Community',
       maxZoom: 18
     }).addTo(map);
+
+    const satelliteLayer = L.tileLayer(satelliteTileUrl, {
+      attribution:
+        'Imagery &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community',
+      maxZoom: 18
+    });
+
+    const satelliteLabelsLayer = L.tileLayer(satelliteLabelsUrl, {
+      maxZoom: 18,
+      pane: 'overlayPane'
+    });
+
+    let isSatelliteActive = false;
+    let currentHoveredPointId = null;
 
     let switchedToFallback = false;
     baseLayer.on('tileerror', function () {
@@ -631,9 +649,53 @@
     const routePolylines = {};
     const markerElements = {};
 
+    function updateRouteColors(activePointId) {
+      const inactiveColor = isSatelliteActive ? '#63B3ED' : '#1B4B78';
+      const inactiveOpacity = isSatelliteActive ? 0.72 : 0.48;
+      const activeColor = isSatelliteActive ? '#F6AD55' : '#B85630';
+
+      Object.keys(routePolylines).forEach(function (key) {
+        const poly = routePolylines[key];
+        if (key === activePointId) {
+          poly.setStyle({ color: activeColor, weight: 3.5, opacity: 0.98, dashArray: null });
+          poly.bringToFront();
+        } else {
+          poly.setStyle({ color: inactiveColor, weight: 2, opacity: inactiveOpacity, dashArray: '6, 6' });
+        }
+      });
+    }
+
+    // Botão de Alternância para Visão de Satélite
+    const satelliteBtn = document.getElementById('map-satellite-toggle');
+    const satelliteLabel = document.getElementById('map-satellite-label');
+    if (satelliteBtn) {
+      satelliteBtn.addEventListener('click', function () {
+        isSatelliteActive = !isSatelliteActive;
+        satelliteBtn.classList.toggle('is-active', isSatelliteActive);
+        satelliteBtn.setAttribute('aria-pressed', String(isSatelliteActive));
+
+        if (satelliteLabel) {
+          satelliteLabel.textContent = isSatelliteActive ? 'Visão Satélite (Ativa)' : 'Visão Satélite';
+        }
+
+        if (isSatelliteActive) {
+          if (map.hasLayer(baseLayer)) map.removeLayer(baseLayer);
+          satelliteLayer.addTo(map);
+          satelliteLabelsLayer.addTo(map);
+        } else {
+          if (map.hasLayer(satelliteLayer)) map.removeLayer(satelliteLayer);
+          if (map.hasLayer(satelliteLabelsLayer)) map.removeLayer(satelliteLabelsLayer);
+          baseLayer.addTo(map);
+        }
+
+        updateRouteColors(currentHoveredPointId);
+      });
+    }
+
     // Função segura que popula e exibe o Modal ao passar o mouse (hover) sobre um ponto
     function openHoverModal(pointData) {
       if (!hoverModal || !pointData) return;
+      currentHoveredPointId = pointData.id;
 
       if (elCode) elCode.textContent = pointData.code;
       if (elDate) elDate.textContent = pointData.date;
@@ -656,15 +718,7 @@
       hoverModal.setAttribute('aria-hidden', 'false');
 
       // Destaca a linha de rota correspondente e o pino ativo
-      Object.keys(routePolylines).forEach(function (key) {
-        const poly = routePolylines[key];
-        if (key === pointData.id) {
-          poly.setStyle({ color: '#B85630', weight: 3.5, opacity: 0.95, dashArray: null });
-          poly.bringToFront();
-        } else {
-          poly.setStyle({ color: '#1B4B78', weight: 2, opacity: 0.48, dashArray: '6, 6' });
-        }
-      });
+      updateRouteColors(pointData.id);
 
       Object.keys(markerElements).forEach(function (key) {
         const el = markerElements[key];
@@ -843,13 +897,59 @@
       scrollWheelZoom: false
     });
 
-    L.tileLayer(
+    const miniBaseLayer = L.tileLayer(
       'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
       {
         attribution: 'Tiles &copy; Esri &mdash; OpenStreetMap contributors',
         maxZoom: 18
       }
     ).addTo(miniMap);
+
+    const miniSatLayer = L.tileLayer(
+      'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+      {
+        attribution: 'Imagery &copy; Esri',
+        maxZoom: 18
+      }
+    );
+
+    const miniSatLabels = L.tileLayer(
+      'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}',
+      {
+        maxZoom: 18,
+        pane: 'overlayPane'
+      }
+    );
+
+    // Controle de Visão de Satélite também no mini-mapa das páginas de eventos
+    const SatControl = L.Control.extend({
+      options: { position: 'topright' },
+      onAdd: function () {
+        const btn = L.DomUtil.create('button', 'map-view-btn map-satellite-btn');
+        btn.type = 'button';
+        btn.textContent = '🛰 Satélite';
+        btn.setAttribute('aria-pressed', 'false');
+        let satOn = false;
+        L.DomEvent.disableClickPropagation(btn);
+        btn.addEventListener('click', function () {
+          satOn = !satOn;
+          btn.classList.toggle('is-active', satOn);
+          btn.setAttribute('aria-pressed', String(satOn));
+          btn.textContent = satOn ? '🗺 Mapa' : '🛰 Satélite';
+          if (satOn) {
+            if (miniMap.hasLayer(miniBaseLayer)) miniMap.removeLayer(miniBaseLayer);
+            miniSatLayer.addTo(miniMap);
+            miniSatLabels.addTo(miniMap);
+          } else {
+            if (miniMap.hasLayer(miniSatLayer)) miniMap.removeLayer(miniSatLayer);
+            if (miniMap.hasLayer(miniSatLabels)) miniMap.removeLayer(miniSatLabels);
+            miniBaseLayer.addTo(miniMap);
+          }
+        });
+        return btn;
+      }
+    });
+    miniMap.addControl(new SatControl());
 
     const pinContainer = document.createElement('div');
     pinContainer.className = 'geo-pin geo-pin--dir-right';
@@ -1024,7 +1124,47 @@
   }
 
   /* ========================================================================
-     10. INICIALIZAÇÃO GERAL
+     10. ROLAGEM SUAVE AO CLICAR NAS LOGOS (IFCE / LAB) E BOTÃO VOLTAR AO TOPO
+     ======================================================================== */
+  function initScrollToTop() {
+    function scrollToPageTop(ev) {
+      ev.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (window.history && typeof window.history.replaceState === 'function') {
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+    }
+
+    // Todos os links que apontam para #topo (incluindo brand-lockup na home, rodapé e botão Voltar ao topo)
+    const topLinks = document.querySelectorAll('a[href="#topo"]');
+    topLinks.forEach(function (link) {
+      link.addEventListener('click', scrollToPageTop);
+    });
+
+    // Em páginas internas (eventos/*.html), se o usuário já rolou a página e clicar na logo, sobe para o topo primeiro
+    const brandLockups = document.querySelectorAll('.brand-lockup');
+    brandLockups.forEach(function (lockup) {
+      if (lockup.getAttribute('href') !== '#topo') {
+        lockup.addEventListener('click', function (ev) {
+          if (window.scrollY > 120) {
+            scrollToPageTop(ev);
+          }
+        });
+      }
+    });
+
+    // Clique nas logos do rodapé em páginas internas também sobe para o topo
+    const footerLogos = document.querySelectorAll('.footer-ifce-img, .footer-logo-img');
+    footerLogos.forEach(function (img) {
+      if (!img.closest('a')) {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', scrollToPageTop);
+      }
+    });
+  }
+
+  /* ========================================================================
+     11. INICIALIZAÇÃO GERAL
      ======================================================================== */
   document.addEventListener('DOMContentLoaded', function () {
     const yearEl = document.getElementById('current-year');
@@ -1034,6 +1174,7 @@
 
     initAccessibilityControls();
     initMobileNav();
+    initScrollToTop();
     initBioinformaticsWorkbench();
     initRealGeographicMap();
     initEventVenueMiniMap();

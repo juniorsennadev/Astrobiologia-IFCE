@@ -59,7 +59,7 @@
   }
   </script>
 </head>
-<body>
+<body id="topo">
   <!-- Atalhos de Acessibilidade -->
   <nav class="skip-links" aria-label="Atalhos de acessibilidade">
     <a href="#conteudo-principal" class="skip-link" accesskey="1">Ir para o conteúdo principal [1]</a>
@@ -69,7 +69,7 @@
   </nav>
 
   <!-- Cabeçalho Principal (Linha Única, Limpo e com 1 Logo de Cada acordo com o Tema) -->
-  <header class="site-header" id="topo">
+  <header class="site-header">
     <div class="container site-header__inner">
       <a href="#topo" class="brand-lockup" aria-label="Laboratório de Astrobiologia do IFCE Campus Acaraú — Início">
         <div class="brand-emblem">
@@ -450,6 +450,11 @@
               <button type="button" class="map-view-btn is-active" data-map-view="brasil">Brasil</button>
               <button type="button" class="map-view-btn" data-map-view="nordeste">Nordeste</button>
               <button type="button" class="map-view-btn" data-map-view="ceara">Ceará</button>
+              <span class="map-toolbar-sep" aria-hidden="true"></span>
+              <button type="button" class="map-view-btn map-satellite-btn" id="map-satellite-toggle" aria-pressed="false" title="Alternar entre Mapa Padrão e Visão de Satélite">
+                <span aria-hidden="true">🛰</span>
+                <span id="map-satellite-label">Visão Satélite</span>
+              </button>
             </div>
           </div>
 
@@ -903,7 +908,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col footer-col--brand">
-          <div class="footer-brand-row">
+          <a href="#topo" class="footer-brand-row" aria-label="Voltar ao topo da página">
             <img src="assets/logo-ifce-acarau-branca.png" alt="IFCE Campus Acaraú" class="footer-ifce-img" width="42" height="59">
             <span class="footer-brand-sep" aria-hidden="true"></span>
             <img src="assets/logo-lab-branca.png" alt="Laboratório de Astrobiologia" class="footer-logo-img" width="52" height="48">
@@ -911,7 +916,7 @@
               <p class="footer-inst-tag">Instituto Federal do Ceará — Campus Acaraú</p>
               <h2 class="footer-title">Laboratório de Astrobiologia</h2>
             </div>
-          </div>
+          </a>
           <p class="footer-desc">
             Ensino, pesquisa e extensão pública e gratuita no litoral oeste cearense, integrando o acervo do LaTEB e o Clube de Astronomia (@cav.ifa).
           </p>
