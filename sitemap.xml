@@ -6,27 +6,27 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://astrobiologia.vercel.app/eventos/eneastro-acarau.html</loc>
+    <loc>https://astrobiologia.vercel.app/eneastro-acarau</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://astrobiologia.vercel.app/eventos/sbastrobio-usp.html</loc>
+    <loc>https://astrobiologia.vercel.app/sbastrobio-usp</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://astrobiologia.vercel.app/eventos/xxiv-eane-satuba.html</loc>
+    <loc>https://astrobiologia.vercel.app/xxiv-eane-satuba</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://astrobiologia.vercel.app/eventos/xxiii-eane-caico.html</loc>
+    <loc>https://astrobiologia.vercel.app/xxiii-eane-caico</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://astrobiologia.vercel.app/eventos/reitoria-fortaleza.html</loc>
+    <loc>https://astrobiologia.vercel.app/reitoria-fortaleza</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

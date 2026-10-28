@@ -2,6 +2,45 @@
   "version": 2,
   "cleanUrls": false,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/eventos/:slug.html",
+      "destination": "/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/eventos/:slug",
+      "destination": "/:slug",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/eneastro-acarau",
+      "destination": "/eventos/eneastro-acarau.html"
+    },
+    {
+      "source": "/sbastrobio-usp",
+      "destination": "/eventos/sbastrobio-usp.html"
+    },
+    {
+      "source": "/xxiv-eane-satuba",
+      "destination": "/eventos/xxiv-eane-satuba.html"
+    },
+    {
+      "source": "/xxiii-eane-caico",
+      "destination": "/eventos/xxiii-eane-caico.html"
+    },
+    {
+      "source": "/reitoria-fortaleza",
+      "destination": "/eventos/reitoria-fortaleza.html"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

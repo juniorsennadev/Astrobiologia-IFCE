@@ -80,7 +80,7 @@
         'Pesquisa computacional no LaTEB: filogenia, modelagem 3D e algoritmo em Python para exoplanetas (PIBIC Jr CNPq).',
         'Monitoramento de meteoros (BRAMON) e observações do Clube de Astronomia (@cav.ifa) nas escolas.'
       ],
-      url: 'eventos/eneastro-acarau.html'
+      url: '/eneastro-acarau'
     },
     {
       id: 'sp',
@@ -101,7 +101,7 @@
         'Demonstração da estrutura de bioinformática construída no LaTEB.',
         'Diálogo e cooperação com pesquisadores da USP e da SBAstrobio.'
       ],
-      url: 'eventos/sbastrobio-usp.html'
+      url: '/sbastrobio-usp'
     },
     {
       id: 'al',
@@ -122,7 +122,7 @@
         'Apresentação de trabalhos sobre fotossíntese com Arduino/LEDs e ensino de astronomia.',
         'Integração com clubes de astronomia de todo o Nordeste.'
       ],
-      url: 'eventos/xxiv-eane-satuba.html'
+      url: '/xxiv-eane-satuba'
     },
     {
       id: 'rn',
@@ -143,7 +143,7 @@
         'Troca de experiências com professores e divulgadores científicos do Nordeste.',
         'Mobilização que inspirou a criação do I ENEASTRO em Acaraú.'
       ],
-      url: 'eventos/xxiii-eane-caico.html'
+      url: '/xxiii-eane-caico'
     },
     {
       id: 'fortaleza',
@@ -164,7 +164,7 @@
         'Infraestrutura de computadores de alto desempenho via projeto Biologando em Acaraú (FINEP).',
         'Apoio institucional para realização do I ENEASTRO no Campus Acaraú.'
       ],
-      url: 'eventos/reitoria-fortaleza.html'
+      url: '/reitoria-fortaleza'
     }
   ]);
 
@@ -1080,9 +1080,57 @@
   }
 
   /* ========================================================================
-     9. INDEXAÇÃO DIRETA DE IMAGENS DO INSTAGRAM + FALLBACK LOCAL E FILTROS
+     9. INDEXAÇÃO DIRETA DE IMAGENS DO INSTAGRAM + ÍCONES E FILTROS
      ======================================================================== */
   function initInstagramDirectGallery() {
+    function createInstagramSvgIcon() {
+      const svgNS = 'http://www.w3.org/2000/svg';
+      const svg = document.createElementNS(svgNS, 'svg');
+      svg.setAttribute('class', 'ig-icon');
+      svg.setAttribute('viewBox', '0 0 24 24');
+      svg.setAttribute('aria-hidden', 'true');
+
+      const rect = document.createElementNS(svgNS, 'rect');
+      rect.setAttribute('x', '2');
+      rect.setAttribute('y', '2');
+      rect.setAttribute('width', '20');
+      rect.setAttribute('height', '20');
+      rect.setAttribute('rx', '5');
+      rect.setAttribute('ry', '5');
+
+      const path = document.createElementNS(svgNS, 'path');
+      path.setAttribute('d', 'M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z');
+
+      const line = document.createElementNS(svgNS, 'line');
+      line.setAttribute('x1', '17.5');
+      line.setAttribute('y1', '6.5');
+      line.setAttribute('x2', '17.51');
+      line.setAttribute('y2', '6.5');
+
+      svg.append(rect, path, line);
+      return svg;
+    }
+
+    // Garante que todos os botões, cartões e links para o Instagram exibam o logo do Instagram
+    const igLinks = document.querySelectorAll('a[href*="instagram.com"]:not(.ig-photo-card__media)');
+    igLinks.forEach(function (link) {
+      if (link.querySelector('.ig-icon')) return;
+      const badgeTarget = link.querySelector('strong, .mono-tag');
+      if (badgeTarget) {
+        badgeTarget.prepend(createInstagramSvgIcon());
+      } else {
+        link.prepend(createInstagramSvgIcon());
+      }
+    });
+
+    // Adiciona o logo do Instagram também nas etiquetas das fotos que abrem posts no Instagram
+    const igMediaTags = document.querySelectorAll('.ig-photo-card__media[href*="instagram.com"] .ig-photo-card__tag');
+    igMediaTags.forEach(function (tag) {
+      if (!tag.querySelector('.ig-icon')) {
+        tag.prepend(createInstagramSvgIcon());
+      }
+    });
+
     const indexedImages = document.querySelectorAll('.ig-indexed-img');
     indexedImages.forEach(function (img) {
       function applyFallback() {
@@ -1124,9 +1172,29 @@
   }
 
   /* ========================================================================
-     10. ROLAGEM SUAVE AO CLICAR NAS LOGOS (IFCE / LAB) E BOTÃO VOLTAR AO TOPO
+     10. URLs LIMPAS (SEM /index.html OU #HASH) E ROLAGEM SUAVE AO TOPO / SEÇÕES
      ======================================================================== */
   function initScrollToTop() {
+    // Remove /index.html ou #hash residual da barra de endereços para manter a URL sempre limpa
+    if (window.history && typeof window.history.replaceState === 'function') {
+      const currentPath = window.location.pathname || '/';
+      if (currentPath.endsWith('/index.html') && window.location.protocol !== 'file:') {
+        const cleanPath = currentPath.replace(/\/index\.html$/, '/') || '/';
+        window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
+      }
+
+      if (window.location.hash && window.location.protocol !== 'file:') {
+        const targetId = window.location.hash.slice(1);
+        const targetEl = targetId ? document.getElementById(targetId) : null;
+        if (targetEl) {
+          window.setTimeout(function () {
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            window.history.replaceState(null, '', window.location.pathname + window.location.search);
+          }, 80);
+        }
+      }
+    }
+
     function scrollToPageTop(ev) {
       ev.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1141,7 +1209,24 @@
       link.addEventListener('click', scrollToPageTop);
     });
 
-    // Em páginas internas (eventos/*.html), se o usuário já rolou a página e clicar na logo, sobe para o topo primeiro
+    // Links de seções internas (#sobre-laboratorio, #viagens-nordeste-brasil, etc.) rolam suavemente sem poluir a URL com #...
+    const sectionLinks = document.querySelectorAll('a[href^="#"]:not([href="#topo"]):not([href="#"])');
+    sectionLinks.forEach(function (link) {
+      link.addEventListener('click', function (ev) {
+        const hash = link.getAttribute('href') || '';
+        const id = hash.slice(1);
+        const sectionEl = id ? document.getElementById(id) : null;
+        if (sectionEl) {
+          ev.preventDefault();
+          sectionEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (window.history && typeof window.history.replaceState === 'function') {
+            window.history.replaceState(null, '', window.location.pathname + window.location.search);
+          }
+        }
+      });
+    });
+
+    // Em páginas internas, se o usuário já rolou a página e clicar na logo, sobe para o topo primeiro; se já estiver no topo, vai para "/"
     const brandLockups = document.querySelectorAll('.brand-lockup');
     brandLockups.forEach(function (lockup) {
       if (lockup.getAttribute('href') !== '#topo') {
