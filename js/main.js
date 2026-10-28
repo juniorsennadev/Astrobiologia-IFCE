@@ -1131,6 +1131,115 @@
       }
     });
 
+    // Inicializa o carrossel interativo em cada publicação com múltiplas imagens (data-ig-slides)
+    const slideContainers = document.querySelectorAll('[data-ig-slides]');
+    slideContainers.forEach(function (container) {
+      const rawSlides = container.getAttribute('data-ig-slides') || '';
+      const slides = rawSlides
+        .split(',')
+        .map(function (s) { return s.trim(); })
+        .filter(Boolean);
+
+      if (slides.length <= 1) return;
+
+      const imgEl = container.querySelector('img');
+      if (!imgEl) return;
+
+      container.classList.add('ig-carousel');
+      let currentIndex = 0;
+
+      // Contador de slides (ex: 1 / 7)
+      const counterBadge = document.createElement('span');
+      counterBadge.className = 'ig-carousel__counter';
+      counterBadge.setAttribute('aria-live', 'polite');
+      counterBadge.textContent = '1 / ' + String(slides.length);
+
+      // Botões Anterior e Próxima
+      const prevBtn = document.createElement('button');
+      prevBtn.type = 'button';
+      prevBtn.className = 'ig-carousel__btn ig-carousel__btn--prev';
+      prevBtn.setAttribute('aria-label', 'Foto anterior desta publicação');
+      prevBtn.setAttribute('title', 'Foto anterior');
+      prevBtn.textContent = '‹';
+
+      const nextBtn = document.createElement('button');
+      nextBtn.type = 'button';
+      nextBtn.className = 'ig-carousel__btn ig-carousel__btn--next';
+      nextBtn.setAttribute('aria-label', 'Próxima foto desta publicação');
+      nextBtn.setAttribute('title', 'Próxima foto');
+      nextBtn.textContent = '›';
+
+      // Indicadores (bolinhas)
+      const dotsWrap = document.createElement('div');
+      dotsWrap.className = 'ig-carousel__dots';
+      const dotButtons = [];
+      const maxDots = Math.min(slides.length, 8);
+      for (let i = 0; i < maxDots; i++) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'ig-carousel__dot' + (i === 0 ? ' is-active' : '');
+        dot.setAttribute('aria-label', 'Ir para foto ' + String(i + 1));
+        dot.addEventListener('click', function (ev) {
+          ev.preventDefault();
+          ev.stopPropagation();
+          goToSlide(i);
+        });
+        dotButtons.push(dot);
+        dotsWrap.appendChild(dot);
+      }
+
+      function goToSlide(targetIdx) {
+        currentIndex = (targetIdx + slides.length) % slides.length;
+        imgEl.setAttribute('src', slides[currentIndex]);
+        counterBadge.textContent = String(currentIndex + 1) + ' / ' + String(slides.length);
+
+        const activeDotIdx = Math.min(currentIndex, maxDots - 1);
+        dotButtons.forEach(function (d, idx) {
+          d.classList.toggle('is-active', idx === activeDotIdx);
+        });
+
+        // Pré-carrega a próxima imagem do carrossel para transição instantânea
+        const nextIdx = (currentIndex + 1) % slides.length;
+        const preloadImg = new Image();
+        preloadImg.src = slides[nextIdx];
+      }
+
+      prevBtn.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
+        goToSlide(currentIndex - 1);
+      });
+
+      nextBtn.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
+        goToSlide(currentIndex + 1);
+      });
+
+      // Suporte a gesto de deslizar (swipe) em telas sensíveis ao toque
+      let touchStartX = null;
+      container.addEventListener('touchstart', function (ev) {
+        if (ev.touches && ev.touches.length === 1) {
+          touchStartX = ev.touches[0].clientX;
+        }
+      }, { passive: true });
+
+      container.addEventListener('touchend', function (ev) {
+        if (touchStartX === null || !ev.changedTouches || !ev.changedTouches.length) return;
+        const deltaX = ev.changedTouches[0].clientX - touchStartX;
+        touchStartX = null;
+        if (Math.abs(deltaX) > 40) {
+          if (deltaX < 0) {
+            goToSlide(currentIndex + 1);
+          } else {
+            goToSlide(currentIndex - 1);
+          }
+        }
+      }, { passive: true });
+
+      container.append(counterBadge, prevBtn, nextBtn, dotsWrap);
+    });
+
     const indexedImages = document.querySelectorAll('.ig-indexed-img');
     indexedImages.forEach(function (img) {
       function applyFallback() {

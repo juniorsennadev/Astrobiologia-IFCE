@@ -2095,8 +2095,17 @@ html[data-contrast="high"] .map-hover-modal__badge {
   flex-direction: column;
 }
 
+.eneastro-mini-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: var(--bg-abyss);
+}
+
 .eneastro-mini-card img {
   width: 100%;
+  height: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
@@ -2232,6 +2241,102 @@ html[data-contrast="high"] .map-hover-modal__badge {
   border-radius: 999px;
   font-size: 0.72rem;
   font-weight: 600;
+  z-index: 3;
+}
+
+/* Controles de Carrossel Multi-Imagens das Publicações do Instagram */
+.ig-carousel {
+  position: relative;
+  user-select: none;
+}
+
+.ig-carousel__counter {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  background-color: rgba(7, 13, 21, 0.86);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.18rem 0.52rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  z-index: 4;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+}
+
+.ig-carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(7, 13, 21, 0.82);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  font-size: 1.25rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  padding: 0 0 2px 0;
+  transition: background-color 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+  backdrop-filter: blur(4px);
+}
+
+.ig-carousel__btn:hover,
+.ig-carousel__btn:focus-visible {
+  background-color: var(--color-accent-ochre);
+  border-color: #FFFFFF;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.ig-carousel__btn--prev {
+  left: 0.55rem;
+}
+
+.ig-carousel__btn--next {
+  right: 0.55rem;
+}
+
+.ig-carousel__dots {
+  position: absolute;
+  bottom: 0.65rem;
+  right: 0.65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background-color: rgba(7, 13, 21, 0.72);
+  padding: 4px 7px;
+  border-radius: 999px;
+  z-index: 4;
+  max-width: 48%;
+  overflow: hidden;
+}
+
+.ig-carousel__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.42);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.ig-carousel__dot.is-active {
+  background-color: #FFFFFF;
+  transform: scale(1.25);
 }
 
 .ig-photo-card__body {
