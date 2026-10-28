@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://vlibras.gov.br https://cdn.jsdelivr.net https://unpkg.com https://www.instagram.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com https://vlibras.gov.br https://unpkg.com https://cdn.jsdelivr.net 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://vlibras.gov.br data:; img-src 'self' data: blob: https://*.fbcdn.net https://*.cdninstagram.com https://www.instagram.com https://portal.ifce.edu.br https://*.ifce.edu.br https://server.arcgisonline.com https://services.arcgisonline.com https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com https://unpkg.com https://vlibras.gov.br https://*.gov.br; connect-src 'self' https://vlibras.gov.br https://*.vlibras.gov.br wss://*.vlibras.gov.br https://server.arcgisonline.com https://services.arcgisonline.com https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com; frame-src https://vlibras.gov.br https://www.instagram.com; object-src 'none'; base-uri 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' blob: https://vlibras.gov.br https://*.vlibras.gov.br https://cdn.jsdelivr.net https://unpkg.com https://www.instagram.com 'unsafe-inline' 'unsafe-eval'; worker-src 'self' blob: https://vlibras.gov.br https://*.vlibras.gov.br; style-src 'self' https://fonts.googleapis.com https://vlibras.gov.br https://*.vlibras.gov.br https://unpkg.com https://cdn.jsdelivr.net 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://vlibras.gov.br https://*.vlibras.gov.br https://cdn.jsdelivr.net data:; img-src 'self' data: blob: https://*.fbcdn.net https://*.cdninstagram.com https://www.instagram.com https://portal.ifce.edu.br https://*.ifce.edu.br https://server.arcgisonline.com https://services.arcgisonline.com https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com https://unpkg.com https://cdn.jsdelivr.net https://vlibras.gov.br https://*.vlibras.gov.br https://*.gov.br; media-src 'self' data: blob: https://vlibras.gov.br https://*.vlibras.gov.br https://cdn.jsdelivr.net; connect-src 'self' blob: https://vlibras.gov.br https://*.vlibras.gov.br wss://*.vlibras.gov.br https://cdn.jsdelivr.net https://server.arcgisonline.com https://services.arcgisonline.com https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com; frame-src https://vlibras.gov.br https://*.vlibras.gov.br https://www.instagram.com; object-src 'none'; base-uri 'self';">
 
   <title>Laboratório de Astrobiologia | IFCE Campus Acaraú — Pesquisa, LaTEB &amp; Clube de Astronomia</title>
   <meta name="description" content="Portal científico e institucional do Laboratório de Astrobiologia do IFCE Campus Acaraú. Pesquisa em microrganismos extremófilos, bioinformática herdada do LaTEB, Clube de Astronomia (@cav.ifa) e presença científica pelo Nordeste e Brasil.">
@@ -68,91 +68,128 @@
     <a href="#rodape-institucional" class="skip-link" accesskey="4">Ir para o rodapé e contato [4]</a>
   </nav>
 
-  <!-- Barra Institucional Superior (IFCE + Controles de Acessibilidade) -->
-  <div class="gov-utility-bar" role="region" aria-label="Barra institucional e controles de acessibilidade">
-    <div class="container utility-bar__inner">
-      <div class="utility-bar__brand">
+  <!-- Cabeçalho Principal Otimizado (Linha Única + Botão de Barra Lateral ☰) -->
+  <header class="site-header" id="topo">
+    <div class="container site-header__inner">
+      <a href="#topo" class="brand-lockup" aria-label="Laboratório de Astrobiologia do IFCE Campus Acaraú — Página inicial">
+        <div class="brand-emblem" aria-hidden="true">
+          <img src="assets/logo-ifce-acarau-branca.png" alt="Logo IFCE Campus Acaraú" class="brand-logo brand-logo--ifce brand-logo--dark" width="32" height="45">
+          <img src="assets/logo-ifce-acarau-preta.png" alt="Logo IFCE Campus Acaraú" class="brand-logo brand-logo--ifce brand-logo--light" width="32" height="45">
+          <span class="brand-emblem__sep" aria-hidden="true"></span>
+          <img src="assets/logo-lab-branca.png" alt="Logo Laboratório de Astrobiologia" class="brand-logo brand-logo--dark" width="42" height="39">
+          <img src="assets/logo-lab-preta.png" alt="Logo Laboratório de Astrobiologia" class="brand-logo brand-logo--light" width="42" height="39">
+        </div>
+        <div class="brand-text">
+          <span class="brand-kicker">IFCE Campus Acaraú · Pesquisa &amp; Extensão</span>
+          <span class="brand-title">Astrobiologia <span class="brand-title--sub">IFCE Acaraú</span></span>
+        </div>
+      </a>
+
+      <div class="site-header__right">
+        <nav class="main-nav" id="navegacao-principal" aria-label="Navegação principal">
+          <ul class="main-nav__list">
+            <li><a href="#sobre-laboratorio" class="main-nav__link">Laboratório</a></li>
+            <li><a href="#legado-lateb" class="main-nav__link">LaTEB &amp; Bioinformática</a></li>
+            <li><a href="#viagens-nordeste-brasil" class="main-nav__link">Viagens &amp; Mapa</a></li>
+            <li><a href="#marco-eneastro" class="main-nav__link">I ENEASTRO</a></li>
+            <li><a href="#acervo-pesquisa" class="main-nav__link">Publicações</a></li>
+            <li><a href="#clube-astronomia" class="main-nav__link">Clube @cav.ifa</a></li>
+            <li><a href="#contato" class="main-nav__link main-nav__link--cta">Contato</a></li>
+          </ul>
+        </nav>
+
+        <button type="button" class="drawer-toggle-btn" id="mobile-nav-toggle" aria-expanded="false" aria-controls="options-drawer" aria-label="Abrir barra lateral de opções, tema e acessibilidade" title="Opções, Tema e Acessibilidade">
+          <span class="drawer-toggle-btn__bars" aria-hidden="true">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Barra Lateral (Drawer) de Opções, Tema, Acessibilidade e Atalhos Institucionais -->
+  <div class="options-drawer-backdrop" id="options-drawer-backdrop" hidden></div>
+  <aside class="options-drawer" id="options-drawer" role="dialog" aria-modal="false" aria-labelledby="options-drawer-title" aria-hidden="true">
+    <div class="options-drawer__header">
+      <div class="options-drawer__brand">
         <span class="ifce-sigla" aria-hidden="true">IFCE</span>
-        <span class="utility-bar__divider" aria-hidden="true">/</span>
-        <span class="utility-bar__campus">Instituto Federal do Ceará — <strong>Campus Acaraú</strong></span>
-        <span class="utility-bar__coords mono-tag" title="Coordenadas geográficas do Campus Acaraú">02°53'09"S 40°07'12"W</span>
+        <div>
+          <strong id="options-drawer-title" class="options-drawer__heading">Opções &amp; Acessibilidade</strong>
+          <span class="options-drawer__sub mono-tag">CAMPUS ACARAÚ · 02°53'09"S 40°07'12"W</span>
+        </div>
+      </div>
+      <button type="button" class="options-drawer__close" id="options-drawer-close" aria-label="Fechar barra lateral de opções">×</button>
+    </div>
+
+    <div class="options-drawer__body">
+      <!-- 1. Modo de Cor (Sistema, Claro, Escuro) -->
+      <div class="drawer-section">
+        <span class="drawer-section__label mono-tag">MODO DE APARÊNCIA (TEMA)</span>
+        <div class="theme-switcher drawer-theme-grid" role="group" aria-label="Alternar modo de cor (Sistema, Claro ou Escuro)">
+          <button type="button" class="a11y-btn theme-btn" data-theme-option="system" aria-pressed="false" title="Seguir tema do sistema">
+            <span aria-hidden="true">◒</span>
+            <span>Sistema</span>
+          </button>
+          <button type="button" class="a11y-btn theme-btn" data-theme-option="light" aria-pressed="false" title="Ativar modo claro">
+            <span aria-hidden="true">☀</span>
+            <span>Claro</span>
+          </button>
+          <button type="button" class="a11y-btn theme-btn is-active" data-theme-option="dark" aria-pressed="true" title="Ativar modo escuro (Padrão)">
+            <span aria-hidden="true">☾</span>
+            <span>Escuro</span>
+          </button>
+        </div>
       </div>
 
-      <div class="utility-bar__actions">
-        <div class="a11y-controls" role="group" aria-label="Preferências de leitura, tema e acessibilidade">
-          <div class="theme-switcher" role="group" aria-label="Alternar modo de cor (Sistema, Claro ou Escuro)">
-            <button type="button" class="a11y-btn theme-btn" data-theme-option="system" aria-pressed="false" title="Seguir tema do sistema">
-              <span aria-hidden="true">◒</span>
-              <span>Sistema</span>
-            </button>
-            <button type="button" class="a11y-btn theme-btn" data-theme-option="light" aria-pressed="false" title="Ativar modo claro">
-              <span aria-hidden="true">☀</span>
-              <span>Claro</span>
-            </button>
-            <button type="button" class="a11y-btn theme-btn is-active" data-theme-option="dark" aria-pressed="true" title="Ativar modo escuro (Padrão)">
-              <span aria-hidden="true">☾</span>
-              <span>Escuro</span>
-            </button>
+      <!-- 2. Escala de Fonte & Alto Contraste -->
+      <div class="drawer-section">
+        <span class="drawer-section__label mono-tag">LEITURA &amp; ACESSIBILIDADE (WCAG / eMAG)</span>
+        <div class="drawer-a11y-row">
+          <div class="drawer-font-group" role="group" aria-label="Controle de tamanho da fonte">
+            <button type="button" id="btn-font-decrease" class="a11y-btn" title="Diminuir tamanho da fonte" aria-label="Diminuir tamanho da fonte">A−</button>
+            <button type="button" id="btn-font-reset" class="a11y-btn" title="Tamanho padrão da fonte" aria-label="Restaurar tamanho original da fonte">A</button>
+            <button type="button" id="btn-font-increase" class="a11y-btn" title="Aumentar tamanho da fonte" aria-label="Aumentar tamanho da fonte">A+</button>
           </div>
-          <span class="utility-bar__divider" aria-hidden="true">|</span>
-          <button type="button" id="btn-font-decrease" class="a11y-btn" title="Diminuir tamanho da fonte" aria-label="Diminuir tamanho da fonte">A−</button>
-          <button type="button" id="btn-font-reset" class="a11y-btn" title="Tamanho padrão da fonte" aria-label="Restaurar tamanho original da fonte">A</button>
-          <button type="button" id="btn-font-increase" class="a11y-btn" title="Aumentar tamanho da fonte" aria-label="Aumentar tamanho da fonte">A+</button>
-          <span class="utility-bar__divider" aria-hidden="true">|</span>
+
           <button type="button" id="btn-contrast" class="a11y-btn a11y-btn--contrast" aria-pressed="false" title="Alternar modo de alto contraste">
             <span class="contrast-icon" aria-hidden="true">◐</span>
             <span>Alto Contraste</span>
           </button>
         </div>
+      </div>
 
-        <div class="utility-bar__socials">
-          <a href="https://www.instagram.com/astrobiologiaifce/" target="_blank" rel="noopener noreferrer" class="utility-social-link" aria-label="Instagram do Laboratório de Astrobiologia (@astrobiologiaifce)">
-            @astrobiologiaifce ↗
+      <!-- 3. Redes Oficiais no Instagram -->
+      <div class="drawer-section">
+        <span class="drawer-section__label mono-tag">PERFIS OFICIAIS NO INSTAGRAM</span>
+        <div class="drawer-socials">
+          <a href="https://www.instagram.com/astrobiologiaifce/" target="_blank" rel="noopener noreferrer" class="drawer-social-card">
+            <span class="mono-tag">@astrobiologiaifce ↗</span>
+            <small>Laboratório de Astrobiologia do IFCE Acaraú</small>
           </a>
-          <a href="https://www.instagram.com/cav.ifa" target="_blank" rel="noopener noreferrer" class="utility-social-link" aria-label="Instagram do Clube de Astronomia (@cav.ifa)">
-            @cav.ifa ↗
+          <a href="https://www.instagram.com/cav.ifa" target="_blank" rel="noopener noreferrer" class="drawer-social-card">
+            <span class="mono-tag">@cav.ifa ↗</span>
+            <small>Clube de Astronomia do IFCE Campus Acaraú</small>
           </a>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Cabeçalho Principal -->
-  <header class="site-header" id="topo">
-    <div class="container site-header__inner">
-      <a href="#topo" class="brand-lockup" aria-label="Laboratório de Astrobiologia do IFCE Campus Acaraú — Página inicial">
-        <div class="brand-emblem" aria-hidden="true">
-          <img src="assets/logo-ifce-acarau-branca.png" alt="Logo IFCE Campus Acaraú" class="brand-logo brand-logo--ifce brand-logo--dark" width="34" height="48">
-          <img src="assets/logo-ifce-acarau-preta.png" alt="Logo IFCE Campus Acaraú" class="brand-logo brand-logo--ifce brand-logo--light" width="34" height="48">
-          <span class="brand-emblem__sep" aria-hidden="true"></span>
-          <img src="assets/logo-lab-branca.png" alt="Logo Laboratório de Astrobiologia" class="brand-logo brand-logo--dark" width="46" height="43">
-          <img src="assets/logo-lab-preta.png" alt="Logo Laboratório de Astrobiologia" class="brand-logo brand-logo--light" width="46" height="43">
-        </div>
-        <div class="brand-text">
-          <span class="brand-kicker">Instituto Federal do Ceará · Pesquisa &amp; Extensão</span>
-          <span class="brand-title">Astrobiologia <span class="brand-title--sub">IFCE Acaraú</span></span>
-        </div>
-      </a>
-
-      <button type="button" class="mobile-nav-toggle" id="mobile-nav-toggle" aria-expanded="false" aria-controls="navegacao-principal" aria-label="Abrir menu de navegação">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
-
-      <nav class="main-nav" id="navegacao-principal" aria-label="Navegação principal">
-        <ul class="main-nav__list">
-          <li><a href="#sobre-laboratorio" class="main-nav__link">O Laboratório</a></li>
-          <li><a href="#legado-lateb" class="main-nav__link">Herança LaTEB &amp; Bioinformática</a></li>
-          <li><a href="#viagens-nordeste-brasil" class="main-nav__link">Pelo Nordeste e Brasil</a></li>
-          <li><a href="#marco-eneastro" class="main-nav__link">I ENEASTRO &amp; Instagram</a></li>
-          <li><a href="#acervo-pesquisa" class="main-nav__link">Publicações</a></li>
-          <li><a href="#clube-astronomia" class="main-nav__link">Clube @cav.ifa</a></li>
-          <li><a href="#contato" class="main-nav__link main-nav__link--cta">Contato</a></li>
+      <!-- 4. Navegação Rápida pelas Seções -->
+      <div class="drawer-section">
+        <span class="drawer-section__label mono-tag">NAVEGAÇÃO DO PORTAL</span>
+        <ul class="drawer-nav-list">
+          <li><a href="#sobre-laboratorio" class="drawer-nav-link">01. O Laboratório &amp; Frentes de Estudo</a></li>
+          <li><a href="#legado-lateb" class="drawer-nav-link">02. Herança LaTEB &amp; Bioinformática</a></li>
+          <li><a href="#viagens-nordeste-brasil" class="drawer-nav-link">03. Pelo Nordeste e Brasil (Mapa Real)</a></li>
+          <li><a href="#marco-eneastro" class="drawer-nav-link">04. I ENEASTRO &amp; Acervo Instagram</a></li>
+          <li><a href="#acervo-pesquisa" class="drawer-nav-link">05. Catálogo de Publicações e Projetos</a></li>
+          <li><a href="#clube-astronomia" class="drawer-nav-link">06. Clube de Astronomia (@cav.ifa)</a></li>
+          <li><a href="#contato" class="drawer-nav-link">07. Coordenação, Infraestrutura &amp; Contato</a></li>
         </ul>
-      </nav>
+      </div>
     </div>
-  </header>
+  </aside>
 
   <!-- Conteúdo Principal -->
   <main id="conteudo-principal">

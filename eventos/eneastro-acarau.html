@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://vlibras.gov.br https://cdn.jsdelivr.net https://unpkg.com https://www.instagram.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com https://vlibras.gov.br https://unpkg.com https://cdn.jsdelivr.net 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://vlibras.gov.br data:; img-src 'self' data: blob: https://*.fbcdn.net https://*.cdninstagram.com https://www.instagram.com https://portal.ifce.edu.br https://*.ifce.edu.br https://server.arcgisonline.com https://services.arcgisonline.com https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com https://unpkg.com https://vlibras.gov.br https://*.gov.br; connect-src 'self' https://vlibras.gov.br https://*.vlibras.gov.br wss://*.vlibras.gov.br https://server.arcgisonline.com https://services.arcgisonline.com https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com; frame-src https://vlibras.gov.br https://www.instagram.com; object-src 'none'; base-uri 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' blob: https://vlibras.gov.br https://*.vlibras.gov.br https://cdn.jsdelivr.net https://unpkg.com https://www.instagram.com 'unsafe-inline' 'unsafe-eval'; worker-src 'self' blob: https://vlibras.gov.br https://*.vlibras.gov.br; style-src 'self' https://fonts.googleapis.com https://vlibras.gov.br https://*.vlibras.gov.br https://unpkg.com https://cdn.jsdelivr.net 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://vlibras.gov.br https://*.vlibras.gov.br https://cdn.jsdelivr.net data:; img-src 'self' data: blob: https://*.fbcdn.net https://*.cdninstagram.com https://www.instagram.com https://portal.ifce.edu.br https://*.ifce.edu.br https://server.arcgisonline.com https://services.arcgisonline.com https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com https://unpkg.com https://cdn.jsdelivr.net https://vlibras.gov.br https://*.vlibras.gov.br https://*.gov.br; media-src 'self' data: blob: https://vlibras.gov.br https://*.vlibras.gov.br https://cdn.jsdelivr.net; connect-src 'self' blob: https://vlibras.gov.br https://*.vlibras.gov.br wss://*.vlibras.gov.br https://cdn.jsdelivr.net https://server.arcgisonline.com https://services.arcgisonline.com https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com; frame-src https://vlibras.gov.br https://*.vlibras.gov.br https://www.instagram.com; object-src 'none'; base-uri 'self';">
 
   <title>I ENEASTRO (Nosso 1º Evento com o Grupo Atual), LaTEB &amp; BRAMON | IFCE Campus Acaraú</title>
   <meta name="description" content="Dossiê completo do I Encontro de Ensino de Astronomia do Ceará (I ENEASTRO — 14 a 17 de outubro de 2026, tema Vida e Universo), nosso primeiro grande evento com o grupo atual no IFCE Campus Acaraú, ao lado do legado LaTEB e da rede BRAMON.">
@@ -23,76 +23,117 @@
     <a href="../index.html#viagens-nordeste-brasil" class="skip-link" accesskey="2">Voltar ao mapa principal [2]</a>
   </nav>
 
-  <div class="gov-utility-bar" role="region" aria-label="Barra institucional e controles de acessibilidade">
-    <div class="container utility-bar__inner">
-      <div class="utility-bar__brand">
+  <header class="site-header" id="topo">
+    <div class="container site-header__inner">
+      <a href="../index.html" class="brand-lockup" aria-label="Voltar à página inicial do Laboratório de Astrobiologia do IFCE Campus Acaraú">
+        <div class="brand-emblem" aria-hidden="true">
+          <img src="../assets/logo-ifce-acarau-branca.png" alt="" class="brand-logo brand-logo--ifce brand-logo--dark" width="32" height="45">
+          <img src="../assets/logo-ifce-acarau-preta.png" alt="" class="brand-logo brand-logo--ifce brand-logo--light" width="32" height="45">
+          <span class="brand-emblem__sep" aria-hidden="true"></span>
+          <img src="../assets/logo-lab-branca.png" alt="" class="brand-logo brand-logo--dark" width="42" height="39">
+          <img src="../assets/logo-lab-preta.png" alt="" class="brand-logo brand-logo--light" width="42" height="39">
+        </div>
+        <div class="brand-text">
+          <span class="brand-kicker">IFCE Campus Acaraú · Pesquisa &amp; Extensão</span>
+          <span class="brand-title">Astrobiologia <span class="brand-title--sub">IFCE Acaraú</span></span>
+        </div>
+      </a>
+
+      <div class="site-header__right">
+        <nav class="main-nav" aria-label="Navegação da página de evento">
+          <ul class="main-nav__list">
+            <li><a href="../index.html#viagens-nordeste-brasil" class="main-nav__link">← Voltar ao Mapa</a></li>
+            <li><a href="../index.html#legado-lateb" class="main-nav__link">Herança LaTEB</a></li>
+            <li><a href="../index.html#marco-eneastro" class="main-nav__link">I ENEASTRO</a></li>
+            <li><a href="../index.html#acervo-pesquisa" class="main-nav__link">Publicações</a></li>
+            <li><a href="../index.html#contato" class="main-nav__link main-nav__link--cta">Contato</a></li>
+          </ul>
+        </nav>
+
+        <button type="button" class="drawer-toggle-btn" id="mobile-nav-toggle" aria-expanded="false" aria-controls="options-drawer" aria-label="Abrir barra lateral de opções, tema e acessibilidade" title="Opções, Tema e Acessibilidade">
+          <span class="drawer-toggle-btn__bars" aria-hidden="true">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="options-drawer-backdrop" id="options-drawer-backdrop" hidden></div>
+  <aside class="options-drawer" id="options-drawer" role="dialog" aria-modal="false" aria-labelledby="options-drawer-title" aria-hidden="true">
+    <div class="options-drawer__header">
+      <div class="options-drawer__brand">
         <span class="ifce-sigla" aria-hidden="true">IFCE</span>
-        <span class="utility-bar__divider" aria-hidden="true">/</span>
-        <span class="utility-bar__campus">Instituto Federal do Ceará — <strong>Campus Acaraú</strong></span>
-        <span class="utility-bar__coords mono-tag">DOSSIÊ DA SEDE CIENTÍFICA</span>
+        <div>
+          <strong id="options-drawer-title" class="options-drawer__heading">Opções &amp; Acessibilidade</strong>
+          <span class="options-drawer__sub mono-tag">CAMPUS ACARAÚ · DOSSIÊ CIENTÍFICO</span>
+        </div>
+      </div>
+      <button type="button" class="options-drawer__close" id="options-drawer-close" aria-label="Fechar barra lateral de opções">×</button>
+    </div>
+
+    <div class="options-drawer__body">
+      <div class="drawer-section">
+        <span class="drawer-section__label mono-tag">MODO DE APARÊNCIA (TEMA)</span>
+        <div class="theme-switcher drawer-theme-grid" role="group" aria-label="Alternar modo de cor (Sistema, Claro ou Escuro)">
+          <button type="button" class="a11y-btn theme-btn" data-theme-option="system" aria-pressed="false" title="Seguir tema do sistema">
+            <span aria-hidden="true">◒</span>
+            <span>Sistema</span>
+          </button>
+          <button type="button" class="a11y-btn theme-btn" data-theme-option="light" aria-pressed="false" title="Ativar modo claro">
+            <span aria-hidden="true">☀</span>
+            <span>Claro</span>
+          </button>
+          <button type="button" class="a11y-btn theme-btn is-active" data-theme-option="dark" aria-pressed="true" title="Ativar modo escuro (Padrão)">
+            <span aria-hidden="true">☾</span>
+            <span>Escuro</span>
+          </button>
+        </div>
       </div>
 
-      <div class="utility-bar__actions">
-        <div class="a11y-controls" role="group" aria-label="Preferências de leitura, tema e acessibilidade">
-          <div class="theme-switcher" role="group" aria-label="Alternar modo de cor (Sistema, Claro ou Escuro)">
-            <button type="button" class="a11y-btn theme-btn" data-theme-option="system" aria-pressed="false" title="Seguir tema do sistema">
-              <span aria-hidden="true">◒</span>
-              <span>Sistema</span>
-            </button>
-            <button type="button" class="a11y-btn theme-btn" data-theme-option="light" aria-pressed="false" title="Ativar modo claro">
-              <span aria-hidden="true">☀</span>
-              <span>Claro</span>
-            </button>
-            <button type="button" class="a11y-btn theme-btn is-active" data-theme-option="dark" aria-pressed="true" title="Ativar modo escuro (Padrão)">
-              <span aria-hidden="true">☾</span>
-              <span>Escuro</span>
-            </button>
+      <div class="drawer-section">
+        <span class="drawer-section__label mono-tag">LEITURA &amp; ACESSIBILIDADE</span>
+        <div class="drawer-a11y-row">
+          <div class="drawer-font-group" role="group" aria-label="Controle de tamanho da fonte">
+            <button type="button" id="btn-font-decrease" class="a11y-btn" aria-label="Diminuir tamanho da fonte">A−</button>
+            <button type="button" id="btn-font-reset" class="a11y-btn" aria-label="Restaurar tamanho original da fonte">A</button>
+            <button type="button" id="btn-font-increase" class="a11y-btn" aria-label="Aumentar tamanho da fonte">A+</button>
           </div>
-          <span class="utility-bar__divider" aria-hidden="true">|</span>
-          <button type="button" id="btn-font-decrease" class="a11y-btn" aria-label="Diminuir tamanho da fonte">A−</button>
-          <button type="button" id="btn-font-reset" class="a11y-btn" aria-label="Restaurar tamanho original da fonte">A</button>
-          <button type="button" id="btn-font-increase" class="a11y-btn" aria-label="Aumentar tamanho da fonte">A+</button>
-          <span class="utility-bar__divider" aria-hidden="true">|</span>
           <button type="button" id="btn-contrast" class="a11y-btn a11y-btn--contrast" aria-pressed="false">
             <span class="contrast-icon" aria-hidden="true">◐</span>
             <span>Alto Contraste</span>
           </button>
         </div>
+      </div>
 
-        <div class="utility-bar__socials">
-          <a href="https://www.instagram.com/astrobiologiaifce/" target="_blank" rel="noopener noreferrer" class="utility-social-link">@astrobiologiaifce ↗</a>
-          <a href="https://www.instagram.com/cav.ifa" target="_blank" rel="noopener noreferrer" class="utility-social-link">@cav.ifa ↗</a>
+      <div class="drawer-section">
+        <span class="drawer-section__label mono-tag">PERFIS OFICIAIS NO INSTAGRAM</span>
+        <div class="drawer-socials">
+          <a href="https://www.instagram.com/astrobiologiaifce/" target="_blank" rel="noopener noreferrer" class="drawer-social-card">
+            <span class="mono-tag">@astrobiologiaifce ↗</span>
+            <small>Laboratório de Astrobiologia do IFCE Acaraú</small>
+          </a>
+          <a href="https://www.instagram.com/cav.ifa" target="_blank" rel="noopener noreferrer" class="drawer-social-card">
+            <span class="mono-tag">@cav.ifa ↗</span>
+            <small>Clube de Astronomia do IFCE Campus Acaraú</small>
+          </a>
         </div>
       </div>
-    </div>
-  </div>
 
-  <header class="site-header" id="topo">
-    <div class="container site-header__inner">
-      <a href="../index.html" class="brand-lockup" aria-label="Voltar à página inicial do Laboratório de Astrobiologia do IFCE Campus Acaraú">
-        <div class="brand-emblem" aria-hidden="true">
-          <img src="../assets/logo-ifce-acarau-branca.png" alt="" class="brand-logo brand-logo--ifce brand-logo--dark" width="34" height="48">
-          <img src="../assets/logo-ifce-acarau-preta.png" alt="" class="brand-logo brand-logo--ifce brand-logo--light" width="34" height="48">
-          <span class="brand-emblem__sep" aria-hidden="true"></span>
-          <img src="../assets/logo-lab-branca.png" alt="" class="brand-logo brand-logo--dark" width="46" height="43">
-          <img src="../assets/logo-lab-preta.png" alt="" class="brand-logo brand-logo--light" width="46" height="43">
-        </div>
-        <div class="brand-text">
-          <span class="brand-kicker">Instituto Federal do Ceará · Pesquisa &amp; Extensão</span>
-          <span class="brand-title">Astrobiologia <span class="brand-title--sub">IFCE Acaraú</span></span>
-        </div>
-      </a>
-
-      <nav class="main-nav" aria-label="Navegação da página de evento">
-        <ul class="main-nav__list">
-          <li><a href="../index.html#viagens-nordeste-brasil" class="main-nav__link">← Voltar ao Mapa Geográfico</a></li>
-          <li><a href="../index.html#legado-lateb" class="main-nav__link">Herança LaTEB</a></li>
-          <li><a href="../index.html#acervo-pesquisa" class="main-nav__link">Publicações</a></li>
-          <li><a href="../index.html#contato" class="main-nav__link main-nav__link--cta">Contato</a></li>
+      <div class="drawer-section">
+        <span class="drawer-section__label mono-tag">NAVEGAÇÃO DO PORTAL</span>
+        <ul class="drawer-nav-list">
+          <li><a href="../index.html#viagens-nordeste-brasil" class="drawer-nav-link">← Voltar ao Mapa Geográfico Principal</a></li>
+          <li><a href="../index.html#marco-eneastro" class="drawer-nav-link">I ENEASTRO &amp; Acervo Instagram</a></li>
+          <li><a href="../index.html#legado-lateb" class="drawer-nav-link">Herança LaTEB &amp; Bioinformática</a></li>
+          <li><a href="../index.html#acervo-pesquisa" class="drawer-nav-link">Publicações e Projetos</a></li>
+          <li><a href="../index.html#contato" class="drawer-nav-link">Contato Institucional</a></li>
         </ul>
-      </nav>
+      </div>
     </div>
-  </header>
+  </aside>
 
   <div class="breadcrumb-bar">
     <div class="container breadcrumb-nav">

@@ -474,31 +474,57 @@
   }
 
   /* ========================================================================
-     4. MENU MOBILE ACESSÍVEL
+     4. BARRA LATERAL (DRAWER) DE OPÇÕES, ACESSIBILIDADE E NAVEGAÇÃO (☰)
      ======================================================================== */
   function initMobileNav() {
     const toggleBtn = document.getElementById('mobile-nav-toggle');
-    const nav = document.getElementById('navegacao-principal');
-    if (!toggleBtn || !nav) return;
+    const drawer = document.getElementById('options-drawer');
+    const backdrop = document.getElementById('options-drawer-backdrop');
+    const closeBtn = document.getElementById('options-drawer-close');
+    if (!toggleBtn || !drawer) return;
 
-    function closeMenu() {
-      nav.classList.remove('is-open');
+    function openDrawer() {
+      drawer.classList.add('is-open');
+      drawer.setAttribute('aria-hidden', 'false');
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      if (backdrop) backdrop.hidden = false;
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('is-open');
+      drawer.setAttribute('aria-hidden', 'true');
       toggleBtn.setAttribute('aria-expanded', 'false');
+      if (backdrop) backdrop.hidden = true;
     }
 
     toggleBtn.addEventListener('click', function () {
-      const isOpen = nav.classList.toggle('is-open');
-      toggleBtn.setAttribute('aria-expanded', String(isOpen));
+      const isOpen = drawer.classList.contains('is-open');
+      if (isOpen) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
     });
 
-    const links = nav.querySelectorAll('a');
-    links.forEach(function (link) {
-      link.addEventListener('click', closeMenu);
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        closeDrawer();
+        toggleBtn.focus();
+      });
+    }
+
+    if (backdrop) {
+      backdrop.addEventListener('click', closeDrawer);
+    }
+
+    const drawerLinks = drawer.querySelectorAll('.drawer-nav-link');
+    drawerLinks.forEach(function (link) {
+      link.addEventListener('click', closeDrawer);
     });
 
     document.addEventListener('keydown', function (ev) {
-      if (ev.key === 'Escape' && nav.classList.contains('is-open')) {
-        closeMenu();
+      if (ev.key === 'Escape' && drawer.classList.contains('is-open')) {
+        closeDrawer();
         toggleBtn.focus();
       }
     });
@@ -739,9 +765,22 @@
         openHoverModal(point);
       });
 
-      // Ao clicar no ponto -> Vai direto para a página dedicada ao evento
+      // Ao clicar/tocar no ponto -> Em telas touch abre primeiro o resumo; no desktop (ou 2º toque) abre a página dedicada
       marker.on('click', function () {
-        window.location.href = point.url;
+        const isTouchOrSmall =
+          window.innerWidth <= 820 ||
+          (typeof window.matchMedia === 'function' && window.matchMedia('(hover: none)').matches);
+        const isAlreadyShowingThisPoint =
+          hoverModal &&
+          hoverModal.classList.contains('is-visible') &&
+          elCode &&
+          elCode.textContent === point.code;
+
+        if (isTouchOrSmall && !isAlreadyShowingThisPoint) {
+          openHoverModal(point);
+        } else {
+          window.location.href = point.url;
+        }
       });
 
       // Suporte a teclado no pino
@@ -793,8 +832,14 @@
       });
     });
 
-    // Exibe inicialmente o modal da missão nacional (São Paulo - USP) para demonstrar o funcionamento
-    openHoverModal(GEO_EXPEDITIONS[1]);
+    // Em telas desktop, exibe inicialmente o modal da missão nacional (São Paulo - USP); em telas menores deixa o mapa livre até o toque
+    if (window.innerWidth > 820) {
+      openHoverModal(GEO_EXPEDITIONS[1]);
+    }
+
+    window.addEventListener('resize', function () {
+      map.invalidateSize();
+    });
   }
 
   /* ========================================================================
