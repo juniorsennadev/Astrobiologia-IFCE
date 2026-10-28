@@ -416,13 +416,27 @@ html[data-contrast="high"] .theme-btn.is-active {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.65rem;
+}
+
+.brand-emblem__sep {
+  width: 1px;
+  height: 36px;
+  background-color: var(--border-strong);
+  display: inline-block;
+  flex-shrink: 0;
 }
 
 .brand-logo {
-  width: 46px;
+  width: 44px;
   height: auto;
   object-fit: contain;
   transition: transform 0.2s ease;
+}
+
+.brand-logo--ifce {
+  width: 34px;
+  height: auto;
 }
 
 .brand-lockup:hover .brand-logo {
@@ -796,10 +810,17 @@ html[data-contrast="high"] .btn--ochre {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.7rem;
+}
+
+.specimen-ifce-img {
+  width: 46px;
+  height: auto;
+  object-fit: contain;
 }
 
 .specimen-logo-img {
-  width: 64px;
+  width: 60px;
   height: auto;
   object-fit: contain;
 }
@@ -2556,12 +2577,27 @@ html[data-contrast="high"] .filter-pill.is-active {
 .footer-brand-row {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 0.75rem;
+  gap: 0.9rem;
+  margin-bottom: 0.85rem;
+}
+
+.footer-ifce-img {
+  width: 42px;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.footer-brand-sep {
+  width: 1px;
+  height: 44px;
+  background-color: var(--border-dark-strong);
+  display: inline-block;
+  flex-shrink: 0;
 }
 
 .footer-logo-img {
-  width: 54px;
+  width: 52px;
   height: auto;
   object-fit: contain;
   flex-shrink: 0;
