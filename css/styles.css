@@ -282,9 +282,28 @@ html[data-contrast="high"] .ifce-sigla {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: var(--bg-paper);
+  background-color: rgba(11, 19, 30, 0.85);
   border-bottom: 1px solid var(--border-subtle);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: background-color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+html[data-theme="light"] .site-header,
+html[data-resolved-theme="light"] .site-header {
+  background-color: rgba(247, 245, 240, 0.9);
+}
+
+.site-header.is-scrolled {
+  background-color: rgba(7, 13, 21, 0.95);
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="light"] .site-header.is-scrolled,
+html[data-resolved-theme="light"] .site-header.is-scrolled {
+  background-color: rgba(247, 245, 240, 0.98);
+  box-shadow: 0 10px 28px rgba(12, 22, 34, 0.09);
 }
 
 .site-header__inner {
@@ -416,9 +435,22 @@ html[data-contrast="high"] .brand-logo--light {
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
+  transition: color 0.18s ease, border-color 0.18s ease;
 }
 
 .main-nav__link:hover {
+  color: var(--text-primary);
+  border-bottom-color: var(--color-accent-bio);
+}
+
+.main-nav__link.is-active:not(.main-nav__link--cta) {
+  color: #FFFFFF;
+  border-bottom-color: var(--color-accent-bio-light);
+  font-weight: 600;
+}
+
+html[data-theme="light"] .main-nav__link.is-active:not(.main-nav__link--cta),
+html[data-resolved-theme="light"] .main-nav__link.is-active:not(.main-nav__link--cta) {
   color: var(--text-primary);
   border-bottom-color: var(--color-accent-bio);
 }
@@ -1560,27 +1592,36 @@ html[data-contrast="high"] .real-brazil-map .leaflet-tile-pane {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  width: 395px;
+  width: 410px;
   max-width: calc(100% - 2rem);
   max-height: calc(100% - 2.2rem);
   overflow-y: auto;
-  background-color: var(--bg-surface);
-  border: 2px solid var(--border-strong);
-  border-radius: var(--radius-sm);
-  padding: 1.1rem 1.25rem;
-  box-shadow: 0 14px 32px rgba(12, 22, 34, 0.25);
+  background-color: rgba(15, 27, 42, 0.94);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(74, 143, 212, 0.35);
+  border-radius: var(--radius-md);
+  padding: 1.2rem 1.35rem;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.65), 0 0 25px -4px rgba(74, 143, 212, 0.18);
   z-index: 900;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(8px);
+  transform: translateY(10px) scale(0.98);
   pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s;
+}
+
+html[data-theme="light"] .map-hover-modal,
+html[data-resolved-theme="light"] .map-hover-modal {
+  background-color: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 16px 36px rgba(12, 22, 34, 0.18);
 }
 
 .map-hover-modal.is-visible {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
   pointer-events: auto;
 }
 
@@ -1605,22 +1646,24 @@ html[data-contrast="high"] .map-hover-modal__badge {
 }
 
 .map-hover-modal__close {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.08);
   border: 1px solid var(--border-subtle);
   color: var(--text-primary);
-  width: 26px;
-  height: 26px;
-  border-radius: 2px;
-  font-size: 1rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 1.15rem;
   line-height: 1;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.15s, transform 0.15s, border-color 0.15s;
 }
 
 .map-hover-modal__close:hover {
-  background-color: var(--bg-paper-tinted);
+  background-color: rgba(255, 255, 255, 0.22);
+  transform: scale(1.08);
 }
 
 .map-hover-modal__date {
@@ -3268,5 +3311,415 @@ div[vw-access-button] .access-button {
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+/* ==========================================================================
+   VISUALIZADOR MODAL CINEMATOGRÁFICO (LIGHTBOX RADIX / LINEAR / SHADCN STYLE)
+   ========================================================================== */
+.lightbox-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.24s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.24s;
+}
+
+.lightbox-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.lightbox-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 7, 14, 0.88);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
+
+.lightbox-modal__container {
+  position: relative;
+  z-index: 2;
+  width: min(1180px, 94vw);
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  background: rgba(11, 21, 35, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 35px -5px rgba(47, 162, 104, 0.2);
+  transform: scale(0.96) translateY(8px);
+  transition: transform 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lightbox-modal.is-open .lightbox-modal__container {
+  transform: scale(1) translateY(0);
+}
+
+.lightbox-modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(6, 12, 20, 0.65);
+  gap: 1rem;
+}
+
+.lightbox-modal__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lightbox-modal__tag {
+  background: rgba(47, 162, 104, 0.2);
+  color: #48C083;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.22rem 0.65rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(72, 192, 131, 0.32);
+}
+
+.lightbox-modal__counter {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.lightbox-modal__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.lightbox-modal__action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 0.35rem 0.8rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.lightbox-modal__action-btn:hover {
+  background: rgba(214, 114, 70, 0.25);
+  border-color: #D67246;
+  color: #FFFFFF;
+}
+
+.lightbox-modal__action-btn .ig-icon {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+}
+
+.lightbox-modal__close-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: background-color 0.15s, transform 0.15s, border-color 0.15s;
+}
+
+.lightbox-modal__close-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: scale(1.06);
+}
+
+.lightbox-modal__close-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+}
+
+.lightbox-modal__stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 280px;
+  max-height: calc(82vh - 160px);
+  padding: 1rem;
+  background: #03070E;
+  user-select: none;
+}
+
+.lightbox-modal__media-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.lightbox-modal__img {
+  max-width: 100%;
+  max-height: calc(82vh - 180px);
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
+  transition: opacity 0.18s ease;
+}
+
+.lightbox-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(6, 12, 20, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: background-color 0.15s, transform 0.15s, border-color 0.15s;
+}
+
+.lightbox-nav-btn svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+}
+
+.lightbox-nav-btn--prev {
+  left: 1.25rem;
+}
+
+.lightbox-nav-btn--next {
+  right: 1.25rem;
+}
+
+.lightbox-nav-btn:hover {
+  background: var(--color-accent-bio);
+  border-color: var(--color-accent-bio-light);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.lightbox-modal__footer {
+  padding: 0.95rem 1.35rem;
+  background: rgba(6, 12, 20, 0.72);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.lightbox-modal__title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.lightbox-modal__caption {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.lightbox-modal__hints {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.lightbox-modal__hints kbd {
+  display: inline-block;
+  padding: 0.1rem 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 4px;
+  color: #FFFFFF;
+}
+
+/* Botão Flutuante Voltar ao Topo */
+.floating-back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 850;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(11, 21, 35, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s, background-color 0.18s, border-color 0.18s;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.floating-back-to-top svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}
+
+.floating-back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.floating-back-to-top:hover {
+  background: var(--color-accent-bio);
+  border-color: var(--color-accent-bio-light);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(47, 162, 104, 0.4);
+}
+
+/* Dica de Zoom e Expansão nos Cards de Foto */
+.ig-photo-card {
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.24s ease, border-color 0.24s ease;
+}
+
+.ig-photo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  border-color: rgba(72, 192, 131, 0.32);
+}
+
+.ig-photo-card__media {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.ig-photo-card__zoom-hint,
+.hero-photo-card__zoom-hint {
+  position: absolute;
+  bottom: 0.65rem;
+  right: 0.65rem;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.65rem;
+  border-radius: 9999px;
+  background: rgba(6, 12, 20, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.ig-photo-card:hover .ig-photo-card__zoom-hint,
+.hero-photo-card:hover .hero-photo-card__zoom-hint,
+.eneastro-mini-card:hover .ig-photo-card__zoom-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Modos Especiais de Alto Contraste */
+html[data-contrast="high"] .lightbox-modal__backdrop {
+  background: #000000;
+}
+
+html[data-contrast="high"] .lightbox-modal__container {
+  background: #000000;
+  border: 3px solid #FFFF00;
+}
+
+html[data-contrast="high"] .lightbox-modal__close-btn,
+html[data-contrast="high"] .lightbox-nav-btn,
+html[data-contrast="high"] .lightbox-modal__action-btn,
+html[data-contrast="high"] .floating-back-to-top {
+  background: #000000;
+  border: 2px solid #FFFF00;
+  color: #FFFF00;
+}
+
+/* Responsividade Lightbox */
+@media (max-width: 768px) {
+  .lightbox-modal__container {
+    width: 98vw;
+    max-height: 96vh;
+    border-radius: 12px;
+  }
+
+  .lightbox-modal__header {
+    padding: 0.65rem 0.9rem;
+  }
+
+  .lightbox-modal__stage {
+    padding: 0.5rem;
+    min-height: 220px;
+    max-height: calc(85vh - 180px);
+  }
+
+  .lightbox-nav-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .lightbox-nav-btn--prev {
+    left: 0.5rem;
+  }
+
+  .lightbox-nav-btn--next {
+    right: 0.5rem;
+  }
+
+  .lightbox-modal__hints {
+    display: none;
+  }
+
+  .lightbox-modal__footer {
+    padding: 0.75rem 0.9rem;
+  }
+
+  .floating-back-to-top {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 40px;
+    height: 40px;
   }
 }

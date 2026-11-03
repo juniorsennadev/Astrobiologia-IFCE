@@ -1330,7 +1330,278 @@
   }
 
   /* ========================================================================
-     10. URLs LIMPAS (SEM /index.html OU #HASH) E ROLAGEM SUAVE AO TOPO / SEÇÕES
+     9.5 VISUALIZADOR MODAL CINEMATOGRÁFICO DE FOTOS (LIGHTBOX RADIX / LINEAR)
+     ======================================================================== */
+  function initCinemaLightboxModal() {
+    const modal = document.getElementById('lightbox-modal');
+    if (!modal) return;
+
+    const backdrop = document.getElementById('lightbox-backdrop');
+    const closeBtn = document.getElementById('lightbox-close-btn');
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+    const imgEl = document.getElementById('lightbox-img');
+    const tagEl = document.getElementById('lightbox-tag');
+    const counterEl = document.getElementById('lightbox-counter');
+    const extLink = document.getElementById('lightbox-external-link');
+    const extLabel = document.getElementById('lightbox-external-label');
+    const titleEl = document.getElementById('lightbox-title');
+    const captionEl = document.getElementById('lightbox-caption');
+
+    let isOpen = false;
+    let slides = [];
+    let currentIndex = 0;
+    let previousActiveEl = null;
+
+    function preload(src) {
+      if (!src) return;
+      const img = new Image();
+      img.src = src;
+    }
+
+    function renderSlide() {
+      if (!slides.length) return;
+      const currentSrc = slides[currentIndex];
+      if (imgEl) {
+        imgEl.setAttribute('src', currentSrc);
+      }
+
+      if (counterEl) {
+        counterEl.textContent = String(currentIndex + 1) + ' / ' + String(slides.length);
+      }
+
+      const isSingle = slides.length <= 1;
+      if (prevBtn) prevBtn.hidden = isSingle;
+      if (nextBtn) nextBtn.hidden = isSingle;
+
+      if (!isSingle) {
+        const nextIdx = (currentIndex + 1) % slides.length;
+        const prevIdx = (currentIndex - 1 + slides.length) % slides.length;
+        preload(slides[nextIdx]);
+        preload(slides[prevIdx]);
+      }
+    }
+
+    function openLightbox(config) {
+      previousActiveEl = document.activeElement;
+      slides = (config.slides || []).filter(Boolean);
+      if (!slides.length && config.currentSrc) {
+        slides = [config.currentSrc];
+      }
+      if (!slides.length) return;
+
+      currentIndex = config.initialIndex >= 0 && config.initialIndex < slides.length ? config.initialIndex : 0;
+
+      if (tagEl) {
+        tagEl.textContent = config.tag || 'Foto Oficial';
+      }
+      if (titleEl) {
+        titleEl.textContent = config.title || 'Registro Científico';
+      }
+      if (captionEl) {
+        captionEl.textContent = config.caption || '';
+      }
+
+      if (extLink) {
+        if (config.externalUrl) {
+          extLink.setAttribute('href', config.externalUrl);
+          extLink.hidden = false;
+          if (extLabel) {
+            extLabel.textContent = config.externalUrl.includes('instagram.com') ? 'Ver no Instagram ↗' : 'Ver publicação ↗';
+          }
+        } else {
+          extLink.hidden = true;
+        }
+      }
+
+      renderSlide();
+
+      modal.removeAttribute('hidden');
+      requestAnimationFrame(function () {
+        modal.classList.add('is-open');
+        isOpen = true;
+        document.body.style.overflow = 'hidden';
+        if (closeBtn) {
+          closeBtn.focus();
+        }
+      });
+    }
+
+    function closeLightbox() {
+      if (!isOpen) return;
+      modal.classList.remove('is-open');
+      isOpen = false;
+      document.body.style.overflow = '';
+      window.setTimeout(function () {
+        modal.setAttribute('hidden', '');
+        if (imgEl) imgEl.setAttribute('src', '');
+        if (previousActiveEl && typeof previousActiveEl.focus === 'function') {
+          previousActiveEl.focus();
+        }
+      }, 240);
+    }
+
+    function nextSlide() {
+      if (!isOpen || slides.length <= 1) return;
+      currentIndex = (currentIndex + 1) % slides.length;
+      renderSlide();
+    }
+
+    function prevSlide() {
+      if (!isOpen || slides.length <= 1) return;
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      renderSlide();
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+    if (backdrop) backdrop.addEventListener('click', closeLightbox);
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+
+    window.addEventListener('keydown', function (ev) {
+      if (!isOpen) return;
+      if (ev.key === 'Escape') {
+        ev.preventDefault();
+        closeLightbox();
+      } else if (ev.key === 'ArrowRight' || ev.key === 'Right') {
+        ev.preventDefault();
+        nextSlide();
+      } else if (ev.key === 'ArrowLeft' || ev.key === 'Left') {
+        ev.preventDefault();
+        prevSlide();
+      }
+    });
+
+    let touchStartX = null;
+    modal.addEventListener('touchstart', function (ev) {
+      if (ev.touches && ev.touches.length === 1) {
+        touchStartX = ev.touches[0].clientX;
+      }
+    }, { passive: true });
+
+    modal.addEventListener('touchend', function (ev) {
+      if (touchStartX === null || !ev.changedTouches || !ev.changedTouches.length) return;
+      const deltaX = ev.changedTouches[0].clientX - touchStartX;
+      touchStartX = null;
+      if (Math.abs(deltaX) > 40) {
+        if (deltaX < 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      }
+    }, { passive: true });
+
+    // Vincula todos os cards da galeria do Instagram
+    const cards = document.querySelectorAll('.ig-photo-card');
+    cards.forEach(function (card) {
+      const media = card.querySelector('.ig-photo-card__media');
+      if (!media) return;
+
+      if (!media.querySelector('.ig-photo-card__zoom-hint')) {
+        const hint = document.createElement('span');
+        hint.className = 'ig-photo-card__zoom-hint';
+        hint.setAttribute('aria-hidden', 'true');
+        hint.innerHTML = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg> Ampliar';
+        media.appendChild(hint);
+      }
+
+      media.addEventListener('click', function (ev) {
+        if (ev.target.closest('.ig-carousel__btn, .ig-carousel__dot')) {
+          return;
+        }
+        ev.preventDefault();
+
+        const rawSlides = media.getAttribute('data-ig-slides') || '';
+        const img = media.querySelector('img');
+        const currentSrc = img ? img.getAttribute('src') : '';
+        let slideList = rawSlides.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+        if (!slideList.length && currentSrc) {
+          slideList = [currentSrc];
+        }
+
+        let initialIdx = slideList.indexOf(currentSrc);
+        if (initialIdx === -1) initialIdx = 0;
+
+        const titleElCard = card.querySelector('.ig-photo-card__title');
+        const descElCard = card.querySelector('.ig-photo-card__desc');
+        const tagElCard = card.querySelector('.ig-photo-card__tag');
+        const href = media.getAttribute('href') || '';
+
+        openLightbox({
+          slides: slideList,
+          initialIndex: initialIdx,
+          title: titleElCard ? titleElCard.textContent : (img ? img.getAttribute('alt') : ''),
+          caption: descElCard ? descElCard.textContent : '',
+          tag: tagElCard ? tagElCard.textContent.replace('↗', '').trim() : 'I ENEASTRO',
+          externalUrl: href
+        });
+      });
+    });
+
+    // Vincula o Hero Showcase
+    const heroShowcase = document.querySelector('.hero-photo-card__img-wrap');
+    if (heroShowcase) {
+      if (!heroShowcase.querySelector('.hero-photo-card__zoom-hint')) {
+        const hint = document.createElement('span');
+        hint.className = 'hero-photo-card__zoom-hint';
+        hint.setAttribute('aria-hidden', 'true');
+        hint.innerHTML = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg> Ampliar';
+        heroShowcase.appendChild(hint);
+      }
+
+      heroShowcase.style.cursor = 'pointer';
+      heroShowcase.addEventListener('click', function (ev) {
+        if (ev.target.closest('.ig-carousel__btn, .ig-carousel__dot')) return;
+        const rawSlides = heroShowcase.getAttribute('data-ig-slides') || '';
+        const img = heroShowcase.querySelector('img');
+        const currentSrc = img ? img.getAttribute('src') : '';
+        const slideList = rawSlides.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+        let initialIdx = slideList.indexOf(currentSrc);
+        if (initialIdx === -1) initialIdx = 0;
+
+        openLightbox({
+          slides: slideList,
+          initialIndex: initialIdx,
+          title: 'I ENEASTRO no IFCE Campus Acaraú',
+          caption: 'Prof. Me. Jorge Roberto (Física) e Prof. Dr. João Garcia Alves Filho (Biologia) na solenidade oficial de abertura.',
+          tag: 'Coordenação do Laboratório',
+          externalUrl: 'https://www.instagram.com/p/Dez3J-Mmvgl/'
+        });
+      });
+    }
+
+    // Vincula os mini cards
+    const miniCards = document.querySelectorAll('.eneastro-mini-card__media');
+    miniCards.forEach(function (miniMedia) {
+      miniMedia.style.cursor = 'pointer';
+      miniMedia.addEventListener('click', function (ev) {
+        if (ev.target.closest('.ig-carousel__btn, .ig-carousel__dot')) return;
+        const rawSlides = miniMedia.getAttribute('data-ig-slides') || '';
+        const img = miniMedia.querySelector('img');
+        const currentSrc = img ? img.getAttribute('src') : '';
+        const slideList = rawSlides.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+        let initialIdx = slideList.indexOf(currentSrc);
+        if (initialIdx === -1) initialIdx = 0;
+
+        const parentFig = miniMedia.closest('.eneastro-mini-card');
+        const captionSpan = parentFig ? parentFig.querySelector('figcaption span') : null;
+        const link = parentFig ? parentFig.querySelector('figcaption a') : null;
+
+        openLightbox({
+          slides: slideList,
+          initialIndex: initialIdx,
+          title: captionSpan ? captionSpan.textContent : 'I ENEASTRO',
+          caption: img ? img.getAttribute('alt') : '',
+          tag: 'Identidade & Ensino',
+          externalUrl: link ? link.getAttribute('href') : ''
+        });
+      });
+    });
+  }
+
+  /* ========================================================================
+     10. URLs LIMPAS, ROLAGEM SUAVE, SCROLLSPY E BOTÃO FLUTUANTE AO TOPO
      ======================================================================== */
   function initScrollToTop() {
     // Remove /index.html ou #hash residual da barra de endereços para manter a URL sempre limpa
@@ -1354,12 +1625,79 @@
     }
 
     function scrollToPageTop(ev) {
-      ev.preventDefault();
+      if (ev) ev.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
       if (window.history && typeof window.history.replaceState === 'function') {
         window.history.replaceState(null, '', window.location.pathname + window.location.search);
       }
     }
+
+    // Botão flutuante Voltar ao Topo
+    const floatingBtn = document.getElementById('floating-back-to-top');
+    if (floatingBtn) {
+      floatingBtn.addEventListener('click', scrollToPageTop);
+    }
+
+    // Cabeçalho e Scrollspy de Navegação Ativa
+    const siteHeader = document.querySelector('.site-header');
+    const sectionIds = [
+      'sobre-laboratorio',
+      'legado-lateb',
+      'viagens-nordeste-brasil',
+      'marco-eneastro',
+      'cosmos-explorer',
+      'acervo-pesquisa',
+      'clube-astronomia',
+      'contato'
+    ];
+    const navItems = [];
+    sectionIds.forEach(function (id) {
+      const link = document.querySelector('.main-nav__link[href="#' + id + '"]');
+      const section = document.getElementById(id);
+      if (link && section) {
+        navItems.push({ id: id, link: link, section: section });
+      }
+    });
+
+    let ticking = false;
+    function handleScrollUpdates() {
+      if (!ticking) {
+        window.requestAnimationFrame(function () {
+          const scrollY = window.scrollY || window.pageYOffset;
+
+          if (siteHeader) {
+            siteHeader.classList.toggle('is-scrolled', scrollY > 20);
+          }
+
+          if (floatingBtn) {
+            floatingBtn.classList.toggle('is-visible', scrollY > 380);
+          }
+
+          if (navItems.length) {
+            let activeId = null;
+            const triggerOffset = 150;
+            for (let i = navItems.length - 1; i >= 0; i--) {
+              const item = navItems[i];
+              const rect = item.section.getBoundingClientRect();
+              if (rect.top <= triggerOffset && rect.bottom > 80) {
+                activeId = item.id;
+                break;
+              }
+            }
+
+            navItems.forEach(function (item) {
+              item.link.classList.toggle('is-active', item.id === activeId);
+            });
+          }
+
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', handleScrollUpdates, { passive: true });
+    handleScrollUpdates();
 
     // Todos os links que apontam para #topo (incluindo brand-lockup na home, rodapé e botão Voltar ao topo)
     const topLinks = document.querySelectorAll('a[href="#topo"]');
@@ -1367,7 +1705,7 @@
       link.addEventListener('click', scrollToPageTop);
     });
 
-    // Links de seções internas (#sobre-laboratorio, #viagens-nordeste-brasil, etc.) rolam suavemente sem poluir a URL com #...
+    // Links de seções internas (#sobre-laboratorio, #viagens-nordeste-brasil, etc.) rolam suavemente
     const sectionLinks = document.querySelectorAll('a[href^="#"]:not([href="#topo"]):not([href="#"])');
     sectionLinks.forEach(function (link) {
       link.addEventListener('click', function (ev) {
@@ -1384,7 +1722,7 @@
       });
     });
 
-    // Em páginas internas, se o usuário já rolou a página e clicar na logo, sobe para o topo primeiro; se já estiver no topo, vai para "/"
+    // Em páginas internas, se o usuário já rolou a página e clicar na logo, sobe para o topo primeiro
     const brandLockups = document.querySelectorAll('.brand-lockup');
     brandLockups.forEach(function (lockup) {
       if (lockup.getAttribute('href') !== '#topo') {
@@ -1422,6 +1760,7 @@
     initRealGeographicMap();
     initEventVenueMiniMap();
     initInstagramDirectGallery();
+    initCinemaLightboxModal();
     initPublicationsCatalog();
   });
 })();
