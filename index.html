@@ -65,8 +65,9 @@
   <nav class="skip-links" aria-label="Atalhos de acessibilidade">
     <a href="#conteudo-principal" class="skip-link" accesskey="1">Ir para o conteúdo principal [1]</a>
     <a href="#navegacao-principal" class="skip-link" accesskey="2">Ir para o menu de navegação [2]</a>
-    <a href="#acervo-pesquisa" class="skip-link" accesskey="3">Ir para os projetos e publicações [3]</a>
-    <a href="#rodape-institucional" class="skip-link" accesskey="4">Ir para o rodapé e contato [4]</a>
+    <a href="#cosmos-explorer" class="skip-link" accesskey="3">Ir para o Cosmos Explorer [3]</a>
+    <a href="#acervo-pesquisa" class="skip-link" accesskey="4">Ir para os projetos e publicações [4]</a>
+    <a href="#rodape-institucional" class="skip-link" accesskey="5">Ir para o rodapé e contato [5]</a>
   </nav>
 
   <!-- Cabeçalho Principal (Linha Única, Limpo e com 1 Logo de Cada acordo com o Tema) -->
@@ -107,6 +108,7 @@
             <li><a href="#legado-lateb" class="main-nav__link">Bioinformática &amp; LaTEB</a></li>
             <li><a href="#viagens-nordeste-brasil" class="main-nav__link">Viagens &amp; Mapa</a></li>
             <li><a href="#marco-eneastro" class="main-nav__link">I ENEASTRO &amp; Fotos</a></li>
+            <li><a href="#cosmos-explorer" class="main-nav__link">Cosmos Explorer</a></li>
             <li><a href="#acervo-pesquisa" class="main-nav__link">Projetos &amp; Publicações</a></li>
             <li><a href="#clube-astronomia" class="main-nav__link">Clube @cav.ifa</a></li>
             <li><a href="#contato" class="main-nav__link main-nav__link--cta">Contato</a></li>
@@ -204,6 +206,7 @@
           <li><a href="#legado-lateb" class="drawer-nav-link">Bioinformática e Legado LaTEB</a></li>
           <li><a href="#viagens-nordeste-brasil" class="drawer-nav-link">Viagens e Mapa pelo Brasil</a></li>
           <li><a href="#marco-eneastro" class="drawer-nav-link">I ENEASTRO e Galeria de Fotos</a></li>
+          <li><a href="#cosmos-explorer" class="drawer-nav-link">Cosmos Explorer (Plataforma 3D)</a></li>
           <li><a href="#acervo-pesquisa" class="drawer-nav-link">Projetos e Publicações</a></li>
           <li><a href="#clube-astronomia" class="drawer-nav-link">Clube de Astronomia (@cav.ifa)</a></li>
           <li><a href="#contato" class="drawer-nav-link">Equipe e Contato</a></li>
@@ -372,10 +375,10 @@
           <div class="workbench-header">
             <div>
               <span class="workbench-kicker">Temas Investigados pela Equipe</span>
-              <h3 id="workbench-title" class="workbench-title">Conheça três linhas práticas do nosso laboratório</h3>
+              <h3 id="workbench-title" class="workbench-title">Conheça quatro linhas práticas do nosso laboratório</h3>
             </div>
             <p class="workbench-subtitle">
-              Clique em uma das abas abaixo para ver como aliamos bioinformática, experimentação e formação de estudantes no dia a dia:
+              Clique em uma das abas abaixo para ver como aliamos bioinformática, experimentação, simulação 3D e formação de estudantes no dia a dia:
             </p>
           </div>
 
@@ -392,6 +395,10 @@
               <span class="tab-code">Linha 03</span>
               <span class="tab-name">Fotossíntese com Arduino e Ensino</span>
             </button>
+            <button type="button" class="workbench-tab" role="tab" aria-selected="false" aria-controls="panel-bioinfo" id="tab-cosmos" data-target="cosmos">
+              <span class="tab-code">Linha 04</span>
+              <span class="tab-name">Cosmos Explorer (Simulação 3D &amp; BNCC)</span>
+            </button>
           </div>
 
           <div id="panel-bioinfo" class="workbench-panel" role="tabpanel" aria-labelledby="tab-uv" aria-live="polite">
@@ -402,6 +409,11 @@
                 <p class="workbench-item-desc" id="bio-description">
                   Microrganismos expostos ao sol forte do semiárido e de salinas costeiras dependem de enzimas como as fotoliases para reparar danos no DNA causados pela radiação ultravioleta. No laboratório, comparamos a estrutura tridimensional e a evolução dessas proteínas para entender como a vida resiste a ambientes extremos.
                 </p>
+                <div id="bio-action-wrap" class="workbench-action-row" hidden>
+                  <a id="bio-action-btn" href="https://cosmosexplorer.com.br" target="_blank" rel="noopener noreferrer" class="btn btn--ochre">
+                    Explorar Plataforma Online (cosmosexplorer.com.br) ↗
+                  </a>
+                </div>
               </div>
 
               <div class="workbench-side-summary">
@@ -879,7 +891,112 @@
       </div>
     </section>
 
-    <!-- 6. PROJETOS E PUBLICAÇÕES -->
+    <!-- 6. COSMOS EXPLORER (NOSSA PLATAFORMA EDUCACIONAL) -->
+    <section id="cosmos-explorer" class="section-block section-block--dark" aria-labelledby="cosmos-heading">
+      <div class="container">
+        <div class="section-header-grid">
+          <div>
+            <span class="section-index">Plataforma Educacional Interativa</span>
+            <h2 id="cosmos-heading" class="section-title">Cosmos Explorer: O Universo em 3D e Gamificação</h2>
+          </div>
+          <div>
+            <p class="section-lead">
+              Desenvolvido pelos estudantes <strong>Vitória Lima</strong> (Licenciatura em Física) e <strong>Júnior Senna</strong> (Licenciatura em Ciências Biológicas) do <strong>IFCE Campus Acaraú</strong>, o <strong>Cosmos Explorer</strong> é um ambiente virtual de aprendizagem gamificado com simulações físicas em 3D, alinhado à BNCC e com acessibilidade integral em Libras.
+            </p>
+          </div>
+        </div>
+
+        <div class="cosmos-spotlight">
+          <div class="eneastro-spotlight__main">
+            <div class="eneastro-spotlight__badges">
+              <span class="eneastro-badge eneastro-badge--primary">Disponível em: cosmosexplorer.com.br</span>
+              <span class="eneastro-badge">Modelos Oficiais NASA Science (VTAD)</span>
+              <span class="eneastro-badge">Alinhado à BNCC (Fund. II e Médio)</span>
+              <span class="eneastro-badge">Acessibilidade com VLibras</span>
+            </div>
+
+            <h3 class="eneastro-spotlight__title">
+              Tecnologia, ciência e criatividade conectadas para levar o cosmos às escolas
+            </h3>
+            <p class="eneastro-spotlight__text">
+              O projeto nasceu da colaboração interdisciplinar entre as licenciaturas em Física e Ciências Biológicas do IFCE Acaraú. Combinando computação gráfica acelerada em WebGL (Three.js), modelos tridimensionais da NASA e metodologias ativas, a plataforma permite aos alunos manipular órbitas, explorar fenômenos dinâmicos e participar de quizzes síncronos em sala de aula.
+            </p>
+
+            <div class="eneastro-pillars-grid">
+              <div class="eneastro-pillar-item">
+                <span class="eneastro-pillar-item__kicker">Simulador 3D &amp; Mecânica Orbital</span>
+                <h4>Mecânica Celeste e Fases Lunares</h4>
+                <p>Órbitas keplerianas, gravidade newtoniana, eclipses solares/lunares com cones de sombra (umbra e penumbra) e 42 modelos 3D com texturas oficiais da NASA.</p>
+              </div>
+
+              <div class="eneastro-pillar-item">
+                <span class="eneastro-pillar-item__kicker">Cultura Científica Nacional</span>
+                <h4>Astronomia Cultural &amp; BINGO</h4>
+                <p>Módulo pioneiro com as constelações indígenas dos povos originários Tupi-Guarani (Leis 10.639/03 e 11.645/08) e destaque ao radiotelescópio BINGO na Paraíba.</p>
+              </div>
+
+              <div class="eneastro-pillar-item">
+                <span class="eneastro-pillar-item__kicker">Metodologias Ativas</span>
+                <h4>Salas Síncronas &amp; Peer Instruction</h4>
+                <p>Salas multijogador em tempo real ("Batalha da Frota") para mediação docente, quizzes formativos adaptativos e mural colaborativo de astrofotografia.</p>
+              </div>
+
+              <div class="eneastro-pillar-item">
+                <span class="eneastro-pillar-item__kicker">Inclusão &amp; Pesquisa</span>
+                <h4>Acessibilidade &amp; Validação Pedagógica</h4>
+                <p>Integração com VLibras para pessoas surdas, alto contraste, modo daltonismo e desenho metodológico para avaliação de aprendizagem com Ganho de Hake (<em>g</em>).</p>
+              </div>
+            </div>
+
+            <div class="eneastro-spotlight__actions">
+              <a href="https://cosmosexplorer.com.br" target="_blank" rel="noopener noreferrer" class="btn btn--ochre">
+                <span>Acessar Cosmos Explorer (cosmosexplorer.com.br) ↗</span>
+              </a>
+              <a href="#acervo-pesquisa" class="btn btn--secondary">
+                <span>Ver nos Trabalhos Submetidos ↓</span>
+              </a>
+            </div>
+          </div>
+
+          <aside class="cosmos-preview-col" aria-label="Cartão da plataforma Cosmos Explorer">
+            <div class="cosmos-preview-card">
+              <span class="cosmos-preview-card__badge">IFCE Campus Acaraú · TDIC</span>
+              <img
+                src="assets/cosmos-explorer-logo.png"
+                alt="Logotipo oficial da Plataforma Cosmos Explorer"
+                class="cosmos-preview-card__logo"
+                width="96"
+                height="96"
+              >
+              <h4 class="cosmos-preview-card__title">Cosmos Explorer</h4>
+              <span class="cosmos-preview-card__url">cosmosexplorer.com.br</span>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.5;">
+                Ambiente Virtual de Aprendizagem Gamificado e Simulador Astronômico Interativo Web (PWA).
+              </p>
+              <div class="cosmos-preview-card__meta">
+                <div>
+                  <span>Desenvolvimento: </span>
+                  <strong>Vitória Lima (Física) &amp; Júnior Senna (Biologia)</strong>
+                </div>
+                <div>
+                  <span>Orientação: </span>
+                  <strong>Prof. Me. Jorge Roberto &amp; Prof. Dr. João Garcia</strong>
+                </div>
+                <div>
+                  <span>Instituição: </span>
+                  <strong>IFCE Campus Acaraú</strong>
+                </div>
+              </div>
+              <a href="https://cosmosexplorer.com.br" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="margin-top: 1.25rem; width: 100%;">
+                Explorar Online ↗
+              </a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. PROJETOS E PUBLICAÇÕES -->
     <section id="acervo-pesquisa" class="section-block section-block--tinted" aria-labelledby="acervo-heading">
       <div class="container">
         <div class="section-header-grid">
@@ -1099,6 +1216,7 @@
             <li><a href="#legado-lateb">Bioinformática e LaTEB</a></li>
             <li><a href="#viagens-nordeste-brasil">Viagens e Mapa</a></li>
             <li><a href="#marco-eneastro">I ENEASTRO e Fotos</a></li>
+            <li><a href="#cosmos-explorer">Cosmos Explorer</a></li>
             <li><a href="#acervo-pesquisa">Projetos e Publicações</a></li>
             <li><a href="#clube-astronomia">Clube de Astronomia (@cav.ifa)</a></li>
           </ul>
@@ -1107,6 +1225,11 @@
         <div class="footer-col">
           <h3 class="footer-heading">Links Oficiais</h3>
           <ul class="footer-links">
+            <li>
+              <a href="https://cosmosexplorer.com.br" target="_blank" rel="noopener noreferrer">
+                <span>Cosmos Explorer (cosmosexplorer.com.br) ↗</span>
+              </a>
+            </li>
             <li>
               <a href="https://www.instagram.com/astrobiologiaifce/" target="_blank" rel="noopener noreferrer">
                 <svg class="ig-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>

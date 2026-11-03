@@ -54,6 +54,21 @@
         'Algoritmo em Python para triagem de exoplanetas (projeto PIBIC Jr CNPq).',
         'Materiais didáticos abertos e oficinas para escolas públicas do Baixo Acaraú.'
       ]
+    },
+    cosmos: {
+      tools: 'Three.js (WebGL) · Modelos 3D NASA Science (VTAD) · React · TypeScript · VLibras',
+      education: 'Licenciatura em Física e Ciências Biológicas (IFCE Acaraú)',
+      category: 'Tecnologia Educacional, Simulação 3D & Gamificação',
+      title: 'Plataforma Cosmos Explorer: Simulação 3D, Gamificação e Ensino de Astronomia (BNCC)',
+      description:
+        'Desenvolvido pelos estudantes Vitória Lima (Física) e Júnior Senna (Biologia) do IFCE Campus Acaraú, o Cosmos Explorer é um ecossistema digital que une simulação física interativa em 3D, os 42 modelos oficiais da NASA (VTAD), mecânica orbital kepleriana, ciclo de fases lunares e eclipses, resgate da astronomia cultural indígena Tupi-Guarani, radiotelescópio BINGO e acessibilidade plena em Libras (VLibras).',
+      deliverables: [
+        'Simulador 3D do Sistema Solar com órbitas keplerianas proporcionais e modelos oficiais da NASA Science.',
+        'Módulo pioneiro de Astronomia Cultural Brasileira (constelações Tupi-Guarani e Radiotelescópio BINGO).',
+        'Salas síncronas colaborativas ("Batalha da Frota") para dinâmicas de Peer Instruction mediadas pelo docente.',
+        'Plataforma aberta e disponível online para escolas públicas e comunidade em cosmosexplorer.com.br.'
+      ],
+      siteUrl: 'https://cosmosexplorer.com.br'
     }
   });
 
@@ -279,6 +294,18 @@
       abstract:
         'Frentes integradas de divulgação científica e análise bibliométrica: produção de HQs didáticas sobre o Sistema Solar (PIBITI, Coord. Prof. Me. Jorge Roberto) e estudo documental sobre autoria e visibilidade feminina nas Ciências Biológicas (PIBIC AF, Coord. Prof. Dr. João Garcia).',
       authors: 'Silva, J. R. P.; Alves Filho, J. G.; Discentes Bolsistas PIBITI e PIBIC AF'
+    },
+    {
+      id: 'pub-11',
+      category: 'astronomia',
+      categoryLabel: 'Ambiente Virtual & TDIC (BNCC)',
+      venue: 'Plataforma Cosmos Explorer · IFCE Campus Acaraú',
+      location: 'Acaraú · CE (cosmosexplorer.com.br)',
+      title: 'Cosmos Explorer: Ambiente Virtual de Aprendizagem Gamificado com Simulações 3D, Astronomia Cultural e Alinhamento à BNCC',
+      abstract:
+        'Ambiente interativo desenvolvido por discentes dos cursos de Física e Ciências Biológicas do IFCE Campus Acaraú. Integra simulações tridimensionais aceleradas por WebGL com modelos oficiais da NASA (VTAD), mecânica celeste kepleriana, ciclo de fases lunares e eclipses, módulo pioneiro de Astronomia Cultural Brasileira (etnoastronomia Tupi-Guarani e Radiotelescópio BINGO), acessibilidade com VLibras e salas síncronas para mediação docente.',
+      authors: 'Lima, V. M.; Senna, J.; Roberto, J. P. S.; Alves Filho, J. G.',
+      siteUrl: 'https://cosmosexplorer.com.br'
     }
   ]);
 
@@ -564,6 +591,17 @@
           return li;
         });
         elDeliverables.replaceChildren(...items);
+      }
+
+      const elActionWrap = document.getElementById('bio-action-wrap');
+      const elActionBtn = document.getElementById('bio-action-btn');
+      if (elActionWrap && elActionBtn) {
+        if (data.siteUrl) {
+          elActionBtn.href = data.siteUrl;
+          elActionWrap.hidden = false;
+        } else {
+          elActionWrap.hidden = true;
+        }
       }
     }
 
@@ -1024,6 +1062,17 @@
       footerDiv.append(authorsSpan, locSpan);
 
       article.append(topDiv, titleEl, abstractEl, footerDiv);
+
+      if (pub.siteUrl) {
+        const linkEl = document.createElement('a');
+        linkEl.href = pub.siteUrl;
+        linkEl.target = '_blank';
+        linkEl.rel = 'noopener noreferrer';
+        linkEl.className = 'pub-card__link btn btn--ochre';
+        linkEl.textContent = 'Explorar Plataforma Online (' + pub.siteUrl.replace(/^https?:\/\//, '') + ') ↗';
+        article.append(linkEl);
+      }
+
       return article;
     }
 
