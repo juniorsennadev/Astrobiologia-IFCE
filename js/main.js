@@ -1598,6 +1598,26 @@
         });
       });
     });
+
+    // Vincula os cartões da seção "Quem Somos?"
+    const memberPhotoWraps = document.querySelectorAll('.team-member-card__photo-wrap');
+    memberPhotoWraps.forEach(function (photoWrap) {
+      const img = photoWrap.querySelector('img');
+      if (!img) return;
+      photoWrap.addEventListener('click', function () {
+        const card = photoWrap.closest('.team-member-card');
+        const nameEl = card ? card.querySelector('.team-member-card__name') : null;
+        const quoteEl = card ? card.querySelector('.team-member-card__quote') : null;
+        openLightbox({
+          slides: [img.getAttribute('src')],
+          initialIndex: 0,
+          title: nameEl ? nameEl.textContent : 'Membro do Laboratório',
+          caption: quoteEl ? quoteEl.textContent.trim() : (img.getAttribute('alt') || ''),
+          tag: 'Quem Somos · Equipe do Laboratório',
+          externalUrl: ''
+        });
+      });
+    });
   }
 
   /* ========================================================================
@@ -1648,6 +1668,7 @@
       'cosmos-explorer',
       'acervo-pesquisa',
       'clube-astronomia',
+      'quem-somos',
       'contato'
     ];
     const navItems = [];
