@@ -3942,7 +3942,8 @@ html[data-contrast="high"] .floating-back-to-top {
 }
 
 /* ==========================================================================
-   Navegação por Abas Independentes (Cada Seção em sua Própria Página)
+   Navegação por Abas Independentes e Estilo Institucional Acadêmico
+   (Referências: IAG-USP, Academia Brasileira de Letras, SEA e CAB CSIC-INTA)
    ========================================================================== */
 body.is-tabbed-page #conteudo-principal {
   min-height: calc(100vh - 18rem);
@@ -3954,24 +3955,277 @@ body.is-tabbed-page #conteudo-principal > section {
 
 body.is-tabbed-page #conteudo-principal > section.is-active-tab {
   display: block;
-  animation: tabPageFadeIn 0.26s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: tabPageFadeIn 0.22s ease-out;
 }
 
 @keyframes tabPageFadeIn {
   from {
     opacity: 0;
-    transform: translateY(8px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
-/* Barra de Navegação entre Abas (Aba Anterior / Próxima Aba) no fim de cada página */
-.tab-page-pager {
+/* Remove tipografia robótica monoespaçada em rótulos editoriais */
+.section-index,
+.pillar-domain,
+.workbench-kicker,
+.tab-code,
+.inst-card__kicker,
+.eneastro-pillar-item__kicker,
+.brand-kicker,
+.mono-tag {
+  font-family: var(--font-sans) !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+}
+
+/* Trilha de Navegação Institucional (Padrão IAG-USP e ABL) */
+.institutional-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.institutional-breadcrumb a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.institutional-breadcrumb a:hover {
+  color: var(--color-accent-bio-light);
+  text-decoration: underline;
+}
+
+.institutional-breadcrumb strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.institutional-breadcrumb--dark {
+  border-bottom-color: rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.institutional-breadcrumb--dark a {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.institutional-breadcrumb--dark strong {
+  color: #FFFFFF;
+}
+
+.hero-institutional-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 1.75rem;
+}
+
+/* Quadro Lexicográfico e Conceitual (Padrão ABL, SEA e IAG-USP) */
+.lexicon-editorial-box {
+  margin-top: 3rem;
+  padding: 2rem 2.25rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-left: 4px solid var(--color-accent-bio);
+  border-radius: var(--radius-sm);
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 2.5rem;
+}
+
+.lexicon-editorial-box__source {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-accent-bio-light);
+  margin-bottom: 0.45rem;
+}
+
+html[data-theme="light"] .lexicon-editorial-box__source,
+html[data-resolved-theme="light"] .lexicon-editorial-box__source {
+  color: var(--color-accent-bio);
+}
+
+.lexicon-editorial-box__term {
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.lexicon-editorial-box__term small {
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-left: 0.35rem;
+}
+
+.lexicon-editorial-box__related {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.lexicon-editorial-box__subhead {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.65rem;
+}
+
+.lexicon-editorial-box__def {
+  font-size: 0.95rem;
+  line-height: 1.68;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Glossário Científico de Astrobiologia (Padrão SEA & CAB CSIC-INTA) */
+.astrobio-glossary {
   margin-top: 3.25rem;
-  padding-top: 1.75rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.astrobio-glossary__header {
+  margin-bottom: 1.75rem;
+}
+
+.astrobio-glossary__title {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.astrobio-glossary__subtitle {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+.astrobio-glossary__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.glossary-item {
+  padding: 1.35rem 1.5rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.glossary-item dt {
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.45rem;
+}
+
+.glossary-item dd {
+  font-size: 0.92rem;
+  line-height: 1.62;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Linha de Metadados Sóbria (substitui pílulas artificiais) */
+.institutional-meta-line {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  padding-bottom: 0.85rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.institutional-meta-line--dark {
+  color: rgba(255, 255, 255, 0.78);
+  border-bottom-color: rgba(255, 255, 255, 0.14);
+}
+
+/* Diretório de Docentes e Pesquisadores (Padrão IAG-USP) */
+.researchers-directory {
+  margin-bottom: 2rem;
+}
+
+.researchers-directory__heading {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.15rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.researchers-directory__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.researcher-entry {
+  padding: 1.35rem 1.5rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.researcher-entry h4 {
+  font-family: var(--font-serif);
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.researcher-entry__affiliation {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-accent-bio-light);
+  margin-bottom: 0.65rem;
+}
+
+html[data-theme="light"] .researcher-entry__affiliation,
+html[data-resolved-theme="light"] .researcher-entry__affiliation {
+  color: var(--color-accent-bio);
+}
+
+.researcher-entry__bio {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .lexicon-editorial-box,
+  .astrobio-glossary__grid,
+  .researchers-directory__grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* Barra Discreta de Navegação entre Seções (Rodapé de cada aba) */
+.tab-page-pager {
+  margin-top: 3rem;
+  padding-top: 1.35rem;
   border-top: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
@@ -3987,77 +4241,47 @@ body.is-tabbed-page #conteudo-principal > section.is-active-tab {
 
 .tab-pager-btn {
   display: inline-flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  padding: 0.78rem 1.15rem;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.95rem;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--border-strong);
-  background-color: var(--bg-surface);
-  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  background-color: transparent;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
   text-decoration: none;
-  min-width: 210px;
-  transition: border-color 0.18s ease, transform 0.18s ease, background-color 0.18s ease;
+  transition: border-color 0.15s ease, color 0.15s ease;
 }
 
 .tab-pager-btn--next {
-  text-align: right;
-  align-items: flex-end;
   margin-left: auto;
 }
 
 .tab-pager-btn:hover {
   border-color: var(--color-accent-bio-light);
-  transform: translateY(-2px);
+  color: var(--text-primary);
 }
 
 .section-block--dark .tab-pager-btn,
 .section-block--cosmos .tab-pager-btn {
-  background-color: rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.18);
-  color: #FFFFFF;
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .section-block--dark .tab-pager-btn:hover,
 .section-block--cosmos .tab-pager-btn:hover {
-  background-color: rgba(255, 255, 255, 0.1);
   border-color: var(--color-accent-bio-light);
-}
-
-.tab-pager-btn__kicker {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-muted);
-}
-
-.section-block--dark .tab-pager-btn__kicker,
-.section-block--cosmos .tab-pager-btn__kicker {
-  color: rgba(255, 255, 255, 0.68);
+  color: #FFFFFF;
 }
 
 .tab-pager-btn__label {
-  font-size: 0.92rem;
   font-weight: 600;
-  color: var(--color-accent-bio-light);
+  color: var(--text-primary);
 }
 
-html[data-theme="light"] .section-block:not(.section-block--dark):not(.section-block--cosmos) .tab-pager-btn__label,
-html[data-resolved-theme="light"] .section-block:not(.section-block--dark):not(.section-block--cosmos) .tab-pager-btn__label,
-html[data-theme="light"] .hero-editorial .tab-pager-btn__label,
-html[data-resolved-theme="light"] .hero-editorial .tab-pager-btn__label {
-  color: var(--color-accent-bio);
-}
-
-.tab-pager-step {
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  color: var(--text-muted);
-}
-
-.section-block--dark .tab-pager-step,
-.section-block--cosmos .tab-pager-step {
-  color: rgba(255, 255, 255, 0.65);
+.section-block--dark .tab-pager-btn__label,
+.section-block--cosmos .tab-pager-btn__label {
+  color: #FFFFFF;
 }
 
 @media (max-width: 640px) {
@@ -4069,11 +4293,6 @@ html[data-resolved-theme="light"] .hero-editorial .tab-pager-btn__label {
   .tab-pager-btn,
   .tab-pager-btn--next {
     width: 100%;
-    min-width: 0;
-  }
-
-  .tab-pager-step {
-    text-align: center;
-    order: -1;
+    justify-content: center;
   }
 }

@@ -1662,32 +1662,32 @@
         {
           id: 'inicio',
           path: '/',
-          label: 'Início',
+          label: 'Apresentação',
           title: 'Laboratório de Astrobiologia | IFCE Campus Acaraú'
         },
         {
           id: 'sobre-laboratorio',
           path: '/o-que-fazemos',
-          label: 'O Que Fazemos',
-          title: 'O Que Fazemos | Laboratório de Astrobiologia — IFCE Acaraú'
+          label: 'Linhas de Pesquisa',
+          title: 'Linhas de Pesquisa e Glossário | Laboratório de Astrobiologia — IFCE Acaraú'
         },
         {
           id: 'legado-lateb',
           path: '/bioinformatica-lateb',
-          label: 'Bioinformática & LaTEB',
-          title: 'Bioinformática & LaTEB | Laboratório de Astrobiologia — IFCE Acaraú'
+          label: 'LaTEB & Projetos',
+          title: 'LaTEB e Projetos de Ensino | Laboratório de Astrobiologia — IFCE Acaraú'
         },
         {
           id: 'viagens-nordeste-brasil',
           path: '/viagens-mapa',
-          label: 'Viagens & Mapa',
-          title: 'Viagens & Mapa | Laboratório de Astrobiologia — IFCE Acaraú'
+          label: 'Atuação & Mapa',
+          title: 'Atuação Científica e Mapa | Laboratório de Astrobiologia — IFCE Acaraú'
         },
         {
           id: 'marco-eneastro',
           path: '/eneastro-fotos',
-          label: 'I ENEASTRO & Fotos',
-          title: 'I ENEASTRO & Fotos | Laboratório de Astrobiologia — IFCE Acaraú'
+          label: 'I ENEASTRO',
+          title: 'I ENEASTRO e Acervo | Laboratório de Astrobiologia — IFCE Acaraú'
         },
         {
           id: 'cosmos-explorer',
@@ -1698,26 +1698,26 @@
         {
           id: 'acervo-pesquisa',
           path: '/projetos-publicacoes',
-          label: 'Projetos & Publicações',
-          title: 'Projetos & Publicações | Laboratório de Astrobiologia — IFCE Acaraú'
+          label: 'Publicações',
+          title: 'Produção Científica e Publicações | Laboratório de Astrobiologia — IFCE Acaraú'
         },
         {
           id: 'clube-astronomia',
           path: '/clube-astronomia',
           label: 'Clube @cav.ifa',
-          title: 'Clube @cav.ifa | Laboratório de Astrobiologia — IFCE Acaraú'
+          title: 'Clube de Astronomia (@cav.ifa) | Laboratório de Astrobiologia — IFCE Acaraú'
         },
         {
           id: 'quem-somos',
           path: '/quem-somos',
-          label: 'Quem Somos?',
-          title: 'Quem Somos? | Laboratório de Astrobiologia — IFCE Acaraú'
+          label: 'Quem Somos',
+          title: 'Quem Somos | Laboratório de Astrobiologia — IFCE Acaraú'
         },
         {
           id: 'contato',
           path: '/contato',
           label: 'Contato',
-          title: 'Contato | Laboratório de Astrobiologia — IFCE Acaraú'
+          title: 'Coordenação e Contato | Laboratório de Astrobiologia — IFCE Acaraú'
         }
       ];
 
@@ -1729,7 +1729,7 @@
         tabByPath[t.path] = t;
       });
 
-      // Injeta a barra de navegação "Aba Anterior / Próxima Aba" no rodapé de cada seção
+      // Injeta a barra discreta de navegação entre seções no rodapé de cada página
       TAB_PAGES.forEach(function (tab, idx) {
         const sec = document.getElementById(tab.id);
         if (!sec) return;
@@ -1738,7 +1738,7 @@
 
         const pager = document.createElement('nav');
         pager.className = 'tab-page-pager';
-        pager.setAttribute('aria-label', 'Navegação entre abas do portal');
+        pager.setAttribute('aria-label', 'Navegação entre seções do portal');
 
         const prevTab = idx > 0 ? TAB_PAGES[idx - 1] : null;
         const nextTab = idx < TAB_PAGES.length - 1 ? TAB_PAGES[idx + 1] : TAB_PAGES[0];
@@ -1747,33 +1747,26 @@
           const prevLink = document.createElement('a');
           prevLink.href = '#' + prevTab.id;
           prevLink.className = 'tab-pager-btn tab-pager-btn--prev';
-          const prevKicker = document.createElement('span');
-          prevKicker.className = 'tab-pager-btn__kicker';
-          prevKicker.textContent = '← Aba anterior';
+          const prevArrow = document.createElement('span');
+          prevArrow.textContent = '← Anterior: ';
           const prevLabel = document.createElement('span');
           prevLabel.className = 'tab-pager-btn__label';
           prevLabel.textContent = prevTab.label;
-          prevLink.append(prevKicker, prevLabel);
+          prevLink.append(prevArrow, prevLabel);
           pager.appendChild(prevLink);
         }
-
-        const stepIndicator = document.createElement('span');
-        stepIndicator.className = 'tab-pager-step';
-        stepIndicator.textContent = 'Aba ' + (idx + 1) + ' de ' + TAB_PAGES.length;
-        pager.appendChild(stepIndicator);
 
         if (nextTab) {
           const nextLink = document.createElement('a');
           nextLink.href = '#' + nextTab.id;
           nextLink.className = 'tab-pager-btn tab-pager-btn--next';
-          const nextKicker = document.createElement('span');
-          nextKicker.className = 'tab-pager-btn__kicker';
-          nextKicker.textContent =
-            idx < TAB_PAGES.length - 1 ? 'Próxima aba →' : 'Voltar ao início ↺';
+          const nextPrefix = document.createElement('span');
+          nextPrefix.textContent =
+            idx < TAB_PAGES.length - 1 ? 'Próxima seção: ' : 'Voltar para: ';
           const nextLabel = document.createElement('span');
           nextLabel.className = 'tab-pager-btn__label';
-          nextLabel.textContent = nextTab.label;
-          nextLink.append(nextKicker, nextLabel);
+          nextLabel.textContent = nextTab.label + ' →';
+          nextLink.append(nextPrefix, nextLabel);
           pager.appendChild(nextLink);
         }
 
