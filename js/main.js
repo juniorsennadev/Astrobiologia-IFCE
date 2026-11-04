@@ -16,32 +16,6 @@
 
   /** Modelos da Bancada Computacional LaTEB & Astrobiologia */
   const BIOINFO_MODELS = Object.freeze({
-    uv: {
-      tools: 'MEGA · IQ-TREE · AutoDock Vina · PyMOL',
-      education: 'Iniciação Científica e Licenciatura',
-      category: 'Astrobiologia e Genômica Evolutiva',
-      title: 'Análise de Fotoliases em Microrganismos Resistentes à Radiação UV',
-      description:
-        'Microrganismos expostos ao sol forte do semiárido e de salinas costeiras dependem de enzimas como as fotoliases para reparar danos no DNA causados pela radiação ultravioleta. No laboratório, comparamos a estrutura tridimensional e a evolução dessas proteínas para entender como a vida resiste a ambientes extremos.',
-      deliverables: [
-        'Reconstrução de árvores filogenéticas e estudo de proteínas em microrganismos extremófilos.',
-        'Modelagem molecular 3D nas estações de trabalho do projeto Biologando em Acaraú (FINEP).',
-        'Produção de e-books e oficinas práticas de bioinformática para estudantes do ensino médio e licenciatura.'
-      ]
-    },
-    halo: {
-      tools: 'Clustal Omega · Modeller · ChimeraX · BioPython',
-      education: 'Pesquisa Aplicada em Ambientes Costeiros e Salinas',
-      category: 'Bioinformática Estrutural (Legado LaTEB)',
-      title: 'Estabilidade de Proteínas em Bactérias e Arqueias de Salinas Costeiras',
-      description:
-        'As salinas do litoral norte cearense funcionam como laboratórios naturais para estudar como microrganismos sobrevivem à alta concentração de sal e baixa disponibilidade de água. A partir dos protocolos do LaTEB, analisamos no computador a estrutura de proteínas adaptadas a essas condições.',
-      deliverables: [
-        'Estudo da superfície de proteínas que mantêm sua função em ambientes com alta concentração de sal.',
-        'Análise computacional de pigmentos microbianos como potenciais biossinais.',
-        'Treinamento de estudantes de Biologia no uso dos bancos de dados públicos NCBI e PDB.'
-      ]
-    },
     edu: {
       tools: 'Arduino · Sensores e LEDs · Python (ESI) · E-books LaTEB',
       education: 'Licenciatura em Física, Biologia e PIBID',

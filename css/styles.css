@@ -1228,7 +1228,7 @@ html[data-contrast="high"] .btn--ochre {
 
 .workbench-tabs {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   border-bottom: 1px solid var(--border-dark-subtle);
   background-color: rgba(0, 0, 0, 0.22);
 }
