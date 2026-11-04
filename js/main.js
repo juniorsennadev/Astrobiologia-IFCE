@@ -315,7 +315,7 @@
     const btnInc = document.getElementById('btn-font-increase');
 
     const SCALES = ['90', '100', '110', '120'];
-    const THEMES = ['system', 'light', 'dark'];
+    const THEMES = ['system', 'light', 'dark', 'black'];
 
     const systemLightMedia =
       typeof window.matchMedia === 'function'
@@ -324,6 +324,7 @@
 
     function resolveTheme(themeOption) {
       if (themeOption === 'light') return 'light';
+      if (themeOption === 'black') return 'black';
       if (themeOption === 'dark') return 'dark';
       if (systemLightMedia && systemLightMedia.matches) return 'light';
       return 'dark';
