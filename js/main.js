@@ -1396,7 +1396,13 @@
           extLink.setAttribute('href', config.externalUrl);
           extLink.hidden = false;
           if (extLabel) {
-            extLabel.textContent = config.externalUrl.includes('instagram.com') ? 'Ver no Instagram ↗' : 'Ver publicação ↗';
+            if (config.externalUrl.includes('instagram.com')) {
+              extLabel.textContent = 'Ver no Instagram ↗';
+            } else if (config.externalUrl.includes('drive.google.com')) {
+              extLabel.textContent = 'Ver pasta no Google Drive ↗';
+            } else {
+              extLabel.textContent = 'Ver publicação ↗';
+            }
           }
         } else {
           extLink.hidden = true;
