@@ -885,6 +885,21 @@
       openHoverModal(GEO_EXPEDITIONS[1]);
     }
 
+    let hasInvalidatedOnTabOpen = false;
+    window.__refreshAstroGeoMap = function () {
+      map.invalidateSize({ animate: false });
+      if (!hasInvalidatedOnTabOpen) {
+        hasInvalidatedOnTabOpen = true;
+        map.setView([-13.2, -31.5], 4, { animate: false });
+        if (window.innerWidth > 820) {
+          openHoverModal(GEO_EXPEDITIONS[1]);
+        }
+      }
+      window.setTimeout(function () {
+        map.invalidateSize({ animate: false });
+      }, 160);
+    };
+
     window.addEventListener('resize', function () {
       map.invalidateSize();
     });
@@ -1595,96 +1610,43 @@
   }
 
   /* ========================================================================
-     10. URLs LIMPAS, ROLAGEM SUAVE, SCROLLSPY E BOTÃO FLUTUANTE AO TOPO
+     10. NAVEGAÇÃO POR ABAS EM PÁGINAS INDEPENDENTES, URLs LIMPAS E TOPO
      ======================================================================== */
   function initScrollToTop() {
-    // Remove /index.html ou #hash residual da barra de endereços para manter a URL sempre limpa
+    const isTabbedPage = document.body.classList.contains('is-tabbed-page');
+    const siteHeader = document.querySelector('.site-header');
+    const floatingBtn = document.getElementById('floating-back-to-top');
+
+    // Remove /index.html residual da barra de endereços para manter a URL sempre limpa
     if (window.history && typeof window.history.replaceState === 'function') {
       const currentPath = window.location.pathname || '/';
       if (currentPath.endsWith('/index.html') && window.location.protocol !== 'file:') {
         const cleanPath = currentPath.replace(/\/index\.html$/, '/') || '/';
         window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
       }
-
-      if (window.location.hash && window.location.protocol !== 'file:') {
-        const targetId = window.location.hash.slice(1);
-        const targetEl = targetId ? document.getElementById(targetId) : null;
-        if (targetEl) {
-          window.setTimeout(function () {
-            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            window.history.replaceState(null, '', window.location.pathname + window.location.search);
-          }, 80);
-        }
-      }
     }
 
     function scrollToPageTop(ev) {
       if (ev) ev.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      if (window.history && typeof window.history.replaceState === 'function') {
-        window.history.replaceState(null, '', window.location.pathname + window.location.search);
-      }
     }
 
-    // Botão flutuante Voltar ao Topo
-    const floatingBtn = document.getElementById('floating-back-to-top');
     if (floatingBtn) {
       floatingBtn.addEventListener('click', scrollToPageTop);
     }
 
-    // Cabeçalho e Scrollspy de Navegação Ativa
-    const siteHeader = document.querySelector('.site-header');
-    const sectionIds = [
-      'sobre-laboratorio',
-      'legado-lateb',
-      'viagens-nordeste-brasil',
-      'marco-eneastro',
-      'cosmos-explorer',
-      'acervo-pesquisa',
-      'clube-astronomia',
-      'quem-somos',
-      'contato'
-    ];
-    const navItems = [];
-    sectionIds.forEach(function (id) {
-      const link = document.querySelector('.main-nav__link[href="#' + id + '"]');
-      const section = document.getElementById(id);
-      if (link && section) {
-        navItems.push({ id: id, link: link, section: section });
-      }
-    });
-
+    // Controle de sombra do cabeçalho e visibilidade do botão Voltar ao Topo
     let ticking = false;
     function handleScrollUpdates() {
       if (!ticking) {
         window.requestAnimationFrame(function () {
           const scrollY = window.scrollY || window.pageYOffset;
-
           if (siteHeader) {
             siteHeader.classList.toggle('is-scrolled', scrollY > 20);
           }
-
           if (floatingBtn) {
             floatingBtn.classList.toggle('is-visible', scrollY > 380);
           }
-
-          if (navItems.length) {
-            let activeId = null;
-            const triggerOffset = 150;
-            for (let i = navItems.length - 1; i >= 0; i--) {
-              const item = navItems[i];
-              const rect = item.section.getBoundingClientRect();
-              if (rect.top <= triggerOffset && rect.bottom > 80) {
-                activeId = item.id;
-                break;
-              }
-            }
-
-            navItems.forEach(function (item) {
-              item.link.classList.toggle('is-active', item.id === activeId);
-            });
-          }
-
           ticking = false;
         });
         ticking = true;
@@ -1694,42 +1656,251 @@
     window.addEventListener('scroll', handleScrollUpdates, { passive: true });
     handleScrollUpdates();
 
-    // Todos os links que apontam para #topo (incluindo brand-lockup na home, rodapé e botão Voltar ao topo)
+    // Se estivermos na página principal com layout por abas independentes
+    if (isTabbedPage) {
+      const TAB_PAGES = [
+        {
+          id: 'inicio',
+          path: '/',
+          label: 'Início',
+          title: 'Laboratório de Astrobiologia | IFCE Campus Acaraú'
+        },
+        {
+          id: 'sobre-laboratorio',
+          path: '/o-que-fazemos',
+          label: 'O Que Fazemos',
+          title: 'O Que Fazemos | Laboratório de Astrobiologia — IFCE Acaraú'
+        },
+        {
+          id: 'legado-lateb',
+          path: '/bioinformatica-lateb',
+          label: 'Bioinformática & LaTEB',
+          title: 'Bioinformática & LaTEB | Laboratório de Astrobiologia — IFCE Acaraú'
+        },
+        {
+          id: 'viagens-nordeste-brasil',
+          path: '/viagens-mapa',
+          label: 'Viagens & Mapa',
+          title: 'Viagens & Mapa | Laboratório de Astrobiologia — IFCE Acaraú'
+        },
+        {
+          id: 'marco-eneastro',
+          path: '/eneastro-fotos',
+          label: 'I ENEASTRO & Fotos',
+          title: 'I ENEASTRO & Fotos | Laboratório de Astrobiologia — IFCE Acaraú'
+        },
+        {
+          id: 'cosmos-explorer',
+          path: '/cosmos-explorer',
+          label: 'Cosmos Explorer',
+          title: 'Cosmos Explorer | Laboratório de Astrobiologia — IFCE Acaraú'
+        },
+        {
+          id: 'acervo-pesquisa',
+          path: '/projetos-publicacoes',
+          label: 'Projetos & Publicações',
+          title: 'Projetos & Publicações | Laboratório de Astrobiologia — IFCE Acaraú'
+        },
+        {
+          id: 'clube-astronomia',
+          path: '/clube-astronomia',
+          label: 'Clube @cav.ifa',
+          title: 'Clube @cav.ifa | Laboratório de Astrobiologia — IFCE Acaraú'
+        },
+        {
+          id: 'quem-somos',
+          path: '/quem-somos',
+          label: 'Quem Somos?',
+          title: 'Quem Somos? | Laboratório de Astrobiologia — IFCE Acaraú'
+        },
+        {
+          id: 'contato',
+          path: '/contato',
+          label: 'Contato',
+          title: 'Contato | Laboratório de Astrobiologia — IFCE Acaraú'
+        }
+      ];
+
+      const tabById = {};
+      const tabByPath = {};
+      TAB_PAGES.forEach(function (t, index) {
+        t.index = index;
+        tabById[t.id] = t;
+        tabByPath[t.path] = t;
+      });
+
+      // Injeta a barra de navegação "Aba Anterior / Próxima Aba" no rodapé de cada seção
+      TAB_PAGES.forEach(function (tab, idx) {
+        const sec = document.getElementById(tab.id);
+        if (!sec) return;
+        const container = sec.querySelector('.container');
+        if (!container) return;
+
+        const pager = document.createElement('nav');
+        pager.className = 'tab-page-pager';
+        pager.setAttribute('aria-label', 'Navegação entre abas do portal');
+
+        const prevTab = idx > 0 ? TAB_PAGES[idx - 1] : null;
+        const nextTab = idx < TAB_PAGES.length - 1 ? TAB_PAGES[idx + 1] : TAB_PAGES[0];
+
+        if (prevTab) {
+          const prevLink = document.createElement('a');
+          prevLink.href = '#' + prevTab.id;
+          prevLink.className = 'tab-pager-btn tab-pager-btn--prev';
+          const prevKicker = document.createElement('span');
+          prevKicker.className = 'tab-pager-btn__kicker';
+          prevKicker.textContent = '← Aba anterior';
+          const prevLabel = document.createElement('span');
+          prevLabel.className = 'tab-pager-btn__label';
+          prevLabel.textContent = prevTab.label;
+          prevLink.append(prevKicker, prevLabel);
+          pager.appendChild(prevLink);
+        }
+
+        const stepIndicator = document.createElement('span');
+        stepIndicator.className = 'tab-pager-step';
+        stepIndicator.textContent = 'Aba ' + (idx + 1) + ' de ' + TAB_PAGES.length;
+        pager.appendChild(stepIndicator);
+
+        if (nextTab) {
+          const nextLink = document.createElement('a');
+          nextLink.href = '#' + nextTab.id;
+          nextLink.className = 'tab-pager-btn tab-pager-btn--next';
+          const nextKicker = document.createElement('span');
+          nextKicker.className = 'tab-pager-btn__kicker';
+          nextKicker.textContent =
+            idx < TAB_PAGES.length - 1 ? 'Próxima aba →' : 'Voltar ao início ↺';
+          const nextLabel = document.createElement('span');
+          nextLabel.className = 'tab-pager-btn__label';
+          nextLabel.textContent = nextTab.label;
+          nextLink.append(nextKicker, nextLabel);
+          pager.appendChild(nextLink);
+        }
+
+        container.appendChild(pager);
+      });
+
+      function activateTab(tabId, options) {
+        const opts = options || {};
+        const targetTab = tabById[tabId] || tabById['inicio'];
+        if (!targetTab) return;
+
+        // 1. Alterna a visibilidade das seções
+        TAB_PAGES.forEach(function (t) {
+          const sec = document.getElementById(t.id);
+          if (sec) {
+            sec.classList.toggle('is-active-tab', t.id === targetTab.id);
+          }
+        });
+
+        // 2. Atualiza estado ativo nos links do cabeçalho e da barra lateral
+        const navLinks = document.querySelectorAll('.main-nav__link');
+        navLinks.forEach(function (link) {
+          const isMatch = link.getAttribute('href') === '#' + targetTab.id;
+          link.classList.toggle('is-active', isMatch);
+          if (isMatch) {
+            link.setAttribute('aria-current', 'page');
+            const navContainer = link.closest('.main-nav');
+            if (navContainer && navContainer.scrollWidth > navContainer.clientWidth) {
+              const targetLeft =
+                link.offsetLeft - navContainer.clientWidth / 2 + link.offsetWidth / 2;
+              navContainer.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
+            }
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+
+        const drawerLinks = document.querySelectorAll('.drawer-nav-link');
+        drawerLinks.forEach(function (link) {
+          const isMatch = link.getAttribute('href') === '#' + targetTab.id;
+          link.classList.toggle('is-active', isMatch);
+        });
+
+        // 3. Atualiza título da página e URL limpa no navegador
+        document.title = targetTab.title;
+
+        if (opts.updateHistory !== false && window.history && window.location.protocol !== 'file:') {
+          const method = opts.replaceHistory ? 'replaceState' : 'pushState';
+          if (typeof window.history[method] === 'function') {
+            window.history[method]({ tabId: targetTab.id }, '', targetTab.path);
+          }
+        }
+
+        // 4. Sobe suavemente para o topo da nova aba
+        if (opts.scrollTop !== false) {
+          window.scrollTo({ top: 0, behavior: 'auto' });
+        }
+
+        // 5. Se for a aba do mapa geográfico, recalcula as dimensões do Leaflet
+        if (targetTab.id === 'viagens-nordeste-brasil' && typeof window.__refreshAstroGeoMap === 'function') {
+          window.__refreshAstroGeoMap();
+        }
+      }
+
+      // Determina qual aba deve abrir inicialmente (via hash #... ou caminho limpo /...)
+      function resolveInitialTabId() {
+        if (window.location.hash) {
+          const rawHash = window.location.hash.slice(1);
+          if (rawHash === 'topo') return 'inicio';
+          if (tabById[rawHash]) return rawHash;
+        }
+        const cleanPath = (window.location.pathname || '/').replace(/\/+$/, '') || '/';
+        if (tabByPath[cleanPath]) {
+          return tabByPath[cleanPath].id;
+        }
+        return 'inicio';
+      }
+
+      // Ativa a aba inicial imediatamente
+      activateTab(resolveInitialTabId(), {
+        updateHistory: true,
+        replaceHistory: true,
+        scrollTop: false
+      });
+
+      // Suporte aos botões Voltar / Avançar do navegador
+      window.addEventListener('popstate', function (ev) {
+        const stateTabId = ev.state && ev.state.tabId ? ev.state.tabId : resolveInitialTabId();
+        activateTab(stateTabId, { updateHistory: false, scrollTop: true });
+      });
+
+      // Intercepta cliques em todos os links de abas (#inicio, #sobre-laboratorio, etc.)
+      const allHashLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
+      allHashLinks.forEach(function (link) {
+        link.addEventListener('click', function (ev) {
+          const hash = link.getAttribute('href') || '';
+          const rawId = hash.slice(1);
+
+          // Botão "Voltar ao topo ↑" no rodapé apenas sobe para o topo da aba atual
+          if (link.classList.contains('back-to-top')) {
+            scrollToPageTop(ev);
+            return;
+          }
+
+          // Clique na logo do cabeçalho ou rodapé volta para a aba Início
+          if (rawId === 'topo') {
+            ev.preventDefault();
+            activateTab('inicio', { updateHistory: true, scrollTop: true });
+            return;
+          }
+
+          if (tabById[rawId]) {
+            ev.preventDefault();
+            activateTab(rawId, { updateHistory: true, scrollTop: true });
+          }
+        });
+      });
+
+      return;
+    }
+
+    // Comportamento para as subpáginas de dossiês de eventos (eventos/*.html)
     const topLinks = document.querySelectorAll('a[href="#topo"]');
     topLinks.forEach(function (link) {
       link.addEventListener('click', scrollToPageTop);
     });
 
-    // Links de seções internas (#sobre-laboratorio, #viagens-nordeste-brasil, etc.) rolam suavemente
-    const sectionLinks = document.querySelectorAll('a[href^="#"]:not([href="#topo"]):not([href="#"])');
-    sectionLinks.forEach(function (link) {
-      link.addEventListener('click', function (ev) {
-        const hash = link.getAttribute('href') || '';
-        const id = hash.slice(1);
-        const sectionEl = id ? document.getElementById(id) : null;
-        if (sectionEl) {
-          ev.preventDefault();
-          sectionEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          if (window.history && typeof window.history.replaceState === 'function') {
-            window.history.replaceState(null, '', window.location.pathname + window.location.search);
-          }
-        }
-      });
-    });
-
-    // Em páginas internas, se o usuário já rolou a página e clicar na logo, sobe para o topo primeiro
-    const brandLockups = document.querySelectorAll('.brand-lockup');
-    brandLockups.forEach(function (lockup) {
-      if (lockup.getAttribute('href') !== '#topo') {
-        lockup.addEventListener('click', function (ev) {
-          if (window.scrollY > 120) {
-            scrollToPageTop(ev);
-          }
-        });
-      }
-    });
-
-    // Clique nas logos do rodapé em páginas internas também sobe para o topo
     const footerLogos = document.querySelectorAll('.footer-ifce-img, .footer-logo-img');
     footerLogos.forEach(function (img) {
       if (!img.closest('a')) {

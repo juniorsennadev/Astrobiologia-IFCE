@@ -21,6 +21,42 @@
   ],
   "rewrites": [
     {
+      "source": "/o-que-fazemos",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/bioinformatica-lateb",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/viagens-mapa",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/eneastro-fotos",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/cosmos-explorer",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/projetos-publicacoes",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/clube-astronomia",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/quem-somos",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/contato",
+      "destination": "/index.html"
+    },
+    {
       "source": "/eneastro-acarau",
       "destination": "/eventos/eneastro-acarau.html"
     },
