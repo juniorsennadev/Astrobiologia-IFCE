@@ -9,51 +9,7 @@ html[data-theme="dark"],
 html[data-resolved-theme="dark"] {
   color-scheme: dark;
 
-  /* Paleta Padrão: Modo Escuro Sóbrio / Grafite Profundo (Sem tom azulado artificial) */
-  --bg-paper: #09090B;
-  --bg-paper-tinted: #101013;
-  --bg-surface: #151519;
-  --bg-abyss: #040405;
-  --bg-abyss-elevated: #0E0E11;
-  --bg-cosmos: #060608;
-
-  --text-primary: #F3F2EE;
-  --text-secondary: #C8C7C2;
-  --text-muted: #92918C;
-  --text-on-dark: #F4F3EF;
-  --text-on-dark-muted: #C2C1BC;
-
-  /* Cores de Acento Científico Calibradas */
-  --color-accent-bio: #2FA268;       /* Verde Institucional IFCE / Biologia */
-  --color-accent-bio-light: #48C083;
-  --color-accent-ochre: #D67246;     /* Terracota / Ocre Caatinga & Sol */
-  --color-accent-ochre-light: #E6895F;
-  --color-accent-astro: #5B9BD5;     /* Azul Institucional */
-
-  /* Bordas e Linhas Editoriais */
-  --border-subtle: rgba(255, 255, 255, 0.14);
-  --border-strong: rgba(255, 255, 255, 0.36);
-  --border-dark-subtle: rgba(255, 255, 255, 0.14);
-  --border-dark-strong: rgba(255, 255, 255, 0.36);
-
-  /* Tipografia */
-  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
-
-  /* Escala e Espaçamento */
-  --container-max: 1560px;
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --shadow-editorial: 0 8px 24px rgba(0, 0, 0, 0.45);
-  --focus-ring: 3px solid #E6895F;
-}
-
-/* Tema Preto Puro (OLED / Editorial Preto Absoluto) */
-html[data-theme="black"],
-html[data-resolved-theme="black"] {
-  color-scheme: dark;
-
+  /* Paleta Padrão: Modo Escuro em Preto Puro (OLED / Editorial Preto Absoluto) */
   --bg-paper: #000000;
   --bg-paper-tinted: #070708;
   --bg-surface: #0D0D0F;
@@ -67,16 +23,30 @@ html[data-resolved-theme="black"] {
   --text-on-dark: #F5F5F3;
   --text-on-dark-muted: #C6C6C0;
 
-  --color-accent-bio: #2FA268;
+  /* Cores de Acento Científico Calibradas */
+  --color-accent-bio: #2FA268;       /* Verde Institucional IFCE / Biologia */
   --color-accent-bio-light: #48C083;
-  --color-accent-ochre: #D67246;
+  --color-accent-ochre: #D67246;     /* Terracota / Ocre Caatinga & Sol */
   --color-accent-ochre-light: #E6895F;
-  --color-accent-astro: #5B9BD5;
+  --color-accent-astro: #5B9BD5;     /* Azul Institucional */
 
+  /* Bordas e Linhas Editoriais */
   --border-subtle: rgba(255, 255, 255, 0.16);
   --border-strong: rgba(255, 255, 255, 0.42);
   --border-dark-subtle: rgba(255, 255, 255, 0.16);
   --border-dark-strong: rgba(255, 255, 255, 0.42);
+
+  /* Tipografia */
+  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+  /* Escala e Espaçamento */
+  --container-max: 1560px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --shadow-editorial: 0 8px 24px rgba(0, 0, 0, 0.55);
+  --focus-ring: 3px solid #E6895F;
 }
 
 /* Modo Claro Editorial Científico */
@@ -312,16 +282,11 @@ html[data-contrast="high"] .ifce-sigla {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: rgba(8, 8, 10, 0.9);
+  background-color: rgba(0, 0, 0, 0.94);
   border-bottom: 1px solid var(--border-subtle);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   transition: background-color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
-}
-
-html[data-theme="black"] .site-header,
-html[data-resolved-theme="black"] .site-header {
-  background-color: rgba(0, 0, 0, 0.95);
 }
 
 html[data-theme="light"] .site-header,
@@ -330,14 +295,9 @@ html[data-resolved-theme="light"] .site-header {
 }
 
 .site-header.is-scrolled {
-  background-color: rgba(3, 3, 4, 0.96);
-  border-bottom-color: rgba(255, 255, 255, 0.14);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
-}
-
-html[data-theme="black"] .site-header.is-scrolled,
-html[data-resolved-theme="black"] .site-header.is-scrolled {
   background-color: #000000;
+  border-bottom-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
 }
 
 html[data-theme="light"] .site-header.is-scrolled,
@@ -671,7 +631,7 @@ html[data-contrast="high"] .main-nav__link--cta {
 
 .drawer-theme-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 0.45rem;
 }
 
