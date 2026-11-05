@@ -1123,7 +1123,7 @@ html[data-contrast="high"] .btn--ochre {
    ========================================================================== */
 .pillars-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.75rem;
 }
 
@@ -1144,7 +1144,7 @@ html[data-contrast="high"] .btn--ochre {
 }
 
 .pillar-card:nth-child(2) {
-  border-top-color: var(--color-accent-astro);
+  border-top-color: var(--color-accent-ochre);
 }
 
 .pillar-card:nth-child(3) {
@@ -1159,6 +1159,7 @@ html[data-contrast="high"] .btn--ochre {
   margin-bottom: 0.5rem;
 }
 
+.pillar-card:nth-child(2) .pillar-domain,
 .pillar-card:nth-child(3) .pillar-domain {
   color: var(--color-accent-ochre);
 }
