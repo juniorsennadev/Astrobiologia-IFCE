@@ -1,6 +1,6 @@
 /**
  * Laboratório de Astrobiologia — IFCE Campus Acaraú
- * Script Principal: Acessibilidade (WCAG/eMAG), Bancada LaTEB,
+ * Script Principal: Acessibilidade (WCAG/eMAG), Bancada de Projetos,
  * Mapa Geográfico Real (Leaflet + OpenStreetMap) com Modal de Hover
  * e Redirecionamento para Páginas Dedicadas dos Eventos.
  *
@@ -14,20 +14,22 @@
      1. DADOS CIENTÍFICOS E GEORREFERENCIADOS (IMUTÁVEIS)
      ======================================================================== */
 
-  /** Modelos da Bancada Computacional LaTEB & Astrobiologia */
+  /** Modelos da Bancada de Projetos do Laboratório de Astrobiologia */
   const BIOINFO_MODELS = Object.freeze({
     edu: {
-      tools: 'Arduino · Sensores e LEDs · Python (ESI) · E-books LaTEB',
-      education: 'Licenciatura em Física, Biologia e PIBID',
-      category: 'Tecnologias Educacionais e Ensino de Ciências',
-      title: 'Fotossíntese sob Diferentes Espectros de Luz com Arduino e Seleção de Exoplanetas',
+      tools: 'Arduino · Sensores e LEDs · Python (ESI) · Futuras Cientistas (CETENE/CNPq)',
+      education: 'Licenciaturas em Física e Biologia, PIBID e Escolas Públicas de Acaraú',
+      category: 'Astrobiologia Experimental, Instrumentação e Ensino',
+      title: 'Explorando a Fotossíntese com Arduino e LEDs: Modelo Didático em Astrobiologia',
       description:
-        'Unindo a tradição do LaTEB em ensino de ciências à instrumentação da Física, estudantes e professores montam experimentos com Arduino e LEDs para testar a fotossíntese em diferentes comprimentos de onda, além de desenvolver scripts em Python para cálculo do Índice de Similaridade com a Terra (ESI) em exoplanetas.',
+        'Coordenado pela Prof.ª Camila Bim e pelo Prof. Dr. João Garcia no Laboratório de Astrobiologia do IFCE Campus Acaraú, o projeto integra biologia, física, química, informática e robótica em experimentos com Arduino e LEDs sob diferentes comprimentos de onda, além de rotinas em Python para cálculo do Índice de Similaridade com a Terra (ESI) em exoplanetas. Em janeiro de 2026, envolveu estudantes das escolas públicas EEMTI Vicente de Paulo da Costa, EEEP Marta Maria Giffoni e EEMTI Maria Alice Ramos Gomes, representando o Nordeste no programa Futuras Cientistas (CETENE/CNPq).',
       deliverables: [
-        'Experimentos didáticos com Arduino apresentados no EANE e no I ENEASTRO.',
-        'Algoritmo em Python para triagem de exoplanetas (projeto PIBIC Jr CNPq).',
-        'Materiais didáticos abertos e oficinas para escolas públicas do Baixo Acaraú.'
-      ]
+        'Projeto apresentado em live nacional representando a Região Nordeste no programa Futuras Cientistas (CETENE / CNPq, 29/01/2026).',
+        'Parceria com o projeto Biologando em Acaraú (FINEP) e os laboratórios LABIAM, Informática, Física e LABEV do IFCE Acaraú.',
+        'Algoritmo em Python para triagem de exoplanetas (PIBIC Jr CNPq) e oficinas para escolas públicas do Baixo Acaraú.'
+      ],
+      siteUrl: 'https://portal.ifce.edu.br/campus/acarau/noticias/campus-de-acarau-inicia-2026-com-projeto-de-astrobiologia-voltado-a-formacao-cientifica-de-estudantes/',
+      siteLabel: 'Ler matéria oficial no Portal IFCE ↗'
     },
     cosmos: {
       tools: 'Three.js (WebGL) · Modelos 3D NASA Science (VTAD) · React · TypeScript · VLibras',
@@ -42,7 +44,8 @@
         'Salas síncronas colaborativas ("Batalha da Frota") para dinâmicas de Peer Instruction mediadas pelo docente.',
         'Plataforma aberta e disponível online para escolas públicas e comunidade em cosmosexplorer.com.br.'
       ],
-      siteUrl: 'https://cosmosexplorer.com.br'
+      siteUrl: 'https://cosmosexplorer.com.br',
+      siteLabel: 'Explorar Plataforma Online (cosmosexplorer.com.br) ↗'
     }
   });
 
@@ -60,13 +63,13 @@
       coordsText: '02°53\'09"S 40°07\'12"W',
       code: 'Sede · Acaraú-CE',
       date: 'I ENEASTRO: 14 a 17 Out 2026 · Atuação Permanente',
-      title: 'I ENEASTRO ("Vida e Universo"), LaTEB e Estação BRAMON',
+      title: 'I ENEASTRO ("Vida e Universo"), Pesquisa e Estação BRAMON',
       venue: 'IFCE Campus Acaraú — Litoral Oeste do Ceará',
       summary:
-        'Sede do Laboratório de Astrobiologia e palco do I ENEASTRO (14 a 17/10/2026, integrado à VIII Semana da Biologia e ao PIBID, com apoio CAPES e FINEP), nosso primeiro grande evento organizado com o grupo atual.',
+        'Sede do Laboratório de Astrobiologia e palco do I ENEASTRO (14 a 17/10/2026, integrado à VIII Semana da Biologia e ao PIBID, com apoio CAPES e FINEP), reunindo palestras, oficinas, telescópios e pesquisa interdisciplinar.',
       highlights: [
-        'I ENEASTRO ("Vida e Universo"): palestras com Dra. Evelyn Sanchez (SBAstrobio), Tatiane Peters, Prof. Heliomárzio Moreira, Prof. Saulo Machado e Planetário ECO.',
-        'Pesquisa computacional no LaTEB: filogenia, modelagem 3D e algoritmo em Python para exoplanetas (PIBIC Jr CNPq).',
+        'I ENEASTRO ("Vida e Universo"): palestras com Dra. Evelyn Sanchez (SBAstrobio), Tatiane Peters, Prof. Heliomárzio Moreira, Prof. Saulo Machado, Prof. Antônio Nunes e Planetário ECO.',
+        'Pesquisa em bioinformática, evolução molecular, química pré-biótica e algoritmo em Python para exoplanetas (PIBIC Jr CNPq / FINEP).',
         'Monitoramento de meteoros (BRAMON) e observações do Clube de Astronomia (@cav.ifa) nas escolas.'
       ],
       url: '/eneastro-acarau'
@@ -80,15 +83,15 @@
       lng: -46.7314,
       coordsText: '23°33\'38"S 46°43\'53"W',
       code: 'São Paulo · USP',
-      date: 'Novembro de 2025 · São Paulo, SP',
+      date: '13 e 14 de Novembro de 2025 · São Paulo, SP',
       title: 'Reunião da Sociedade Brasileira de Astrobiologia (SBAstrobio) — USP',
       venue: 'Instituto Oceanográfico da USP (Cidade Universitária)',
       summary:
-        'Em São Paulo, o Prof. Dr. João Garcia Alves Filho apresentou à comunidade científica nacional o projeto de criação do primeiro Laboratório de Astrobiologia do Ceará, sediado no IFCE Campus Acaraú.',
+        'Em São Paulo, o Prof. Dr. João Garcia Alves Filho (IFCE Acaraú) e o estudante Erick (IFCE Acopiara) apresentaram à comunidade científica nacional o projeto de criação do primeiro Laboratório de Astrobiologia do Ceará.',
       highlights: [
-        'Apresentação das pesquisas com microrganismos da Caatinga e de salinas costeiras.',
-        'Demonstração da estrutura de bioinformática construída no LaTEB.',
-        'Diálogo e cooperação com pesquisadores da USP e da SBAstrobio.'
+        'Recepção oficial conduzida pelo Prof. Dr. Gustavo F. Porto de Mello, presidente da SBAstrobio.',
+        'Apresentação das pesquisas com microrganismos extremófilos da Caatinga e de salinas costeiras.',
+        'Análises computacionais e bioinformática aplicada à astrobiologia.'
       ],
       url: '/sbastrobio-usp'
     },
@@ -109,7 +112,7 @@
       highlights: [
         'Aprovação de Acaraú na plenária final como cidade-sede do EANE 2029.',
         'Apresentação de trabalhos sobre fotossíntese com Arduino/LEDs e ensino de astronomia.',
-        'Integração com clubes de astronomia de todo o Nordeste.'
+        'Integração com pesquisadores e clubes de astronomia de todo o Nordeste.'
       ],
       url: '/xxiv-eane-satuba'
     },
@@ -122,11 +125,11 @@
       lng: -37.0978,
       coordsText: '06°27\'30"S 37°05\'52"W',
       code: 'Caicó · Rio Grande do Norte',
-      date: 'Edição 2025 · Caicó, RN',
+      date: 'Junho de 2025 · Caicó, RN',
       title: 'XXIII EANE — Encontro de Astronomia do Nordeste no Seridó',
       venue: 'Caicó — Região do Seridó, Rio Grande do Norte',
       summary:
-        'Primeira viagem da comitiva do laboratório ao Encontro de Astronomia do Nordeste, levando os primeiros trabalhos de astrobiologia, astroquímica e bioinformática feitos no campus.',
+        'Primeira viagem da comitiva do laboratório ao Encontro de Astronomia do Nordeste, levando os primeiros trabalhos de astrobiologia, astroquímica e ensino de ciências feitos no campus.',
       highlights: [
         'Apresentação dos projetos iniciais de astrobiologia e ensino de ciências.',
         'Troca de experiências com professores e divulgadores científicos do Nordeste.',
@@ -143,143 +146,171 @@
       lng: -38.5356,
       coordsText: '03°44\'37"S 38°32\'08"W',
       code: 'Fortaleza · Reitoria IFCE',
-      date: '14 de Setembro de 2026 · Fortaleza, CE',
-      title: 'Reunião na Reitoria do IFCE e Projeto Biologando em Acaraú (FINEP)',
+      date: '15 de Setembro de 2026 · Fortaleza, CE',
+      title: 'Reunião na Reitoria do IFCE para Fortalecer o Laboratório de Astrobiologia',
       venue: 'Reitoria do Instituto Federal do Ceará — Fortaleza/CE',
       summary:
-        'Encontro com o Reitor Prof. Wally Menezes, a Pró-Reitora de Pesquisa Prof.ª Joélia Marques, o Diretor Prof. Rubens, o Prof. Jorge Roberto e o Prof. Dr. João Garcia para fortalecimento do laboratório e apoio ao I ENEASTRO.',
+        'Encontro com o Reitor Prof. Wally Menezes, a Pró-Reitora de Pesquisa Prof.ª Joélia Marques, o Diretor-Geral Prof. Rubens Galdino Feijó, o Prof. Jorge Roberto e o Prof. Dr. João Garcia para fortalecimento do laboratório.',
       highlights: [
-        'Articulação institucional com o Reitor Prof. Wally Menezes e a PRPI.',
-        'Infraestrutura de computadores de alto desempenho via projeto Biologando em Acaraú (FINEP).',
-        'Apoio institucional para realização do I ENEASTRO no Campus Acaraú.'
+        'Articulação institucional com o Reitor Prof. Wally Menezes e a PRPI (Prof.ª Joélia Marques).',
+        'Estação de alto desempenho adquirida via projeto Biologando em Acaraú (FINEP Convênio nº 0498/23).',
+        'Apoio institucional para ampliação da pesquisa, ensino, extensão e do I ENEASTRO.'
       ],
       url: '/reitoria-fortaleza'
     }
   ]);
 
-  /** Acervo de Trabalhos Publicados, Apresentações em Congressos e Produções LaTEB */
+  /** Acervo Oficial de Pesquisas, Projetos e Notícias do Laboratório de Astrobiologia (Portal IFCE & @ifacarau) */
   const PUBLICATIONS_CATALOG = Object.freeze([
     {
       id: 'pub-01',
       category: 'astrobiologia',
-      categoryLabel: 'Astrobiologia & Extremófilos',
-      venue: 'Reunião Oficial SBAstrobio · IO-USP',
-      location: 'São Paulo · SP',
-      title: 'Implementação do Laboratório de Astrobiologia no IFCE Campus Acaraú: Extremófilos da Caatinga e Zonas Costeiras sob Abordagem In Silico',
+      categoryLabel: 'Articulação Institucional · Portal IFCE (15/09/2026)',
+      venue: 'Reitoria do IFCE & Campus Acaraú',
+      location: 'Fortaleza & Acaraú · CE',
+      title: 'IFCE debate novas parcerias e perspectivas para fortalecer Laboratório de Astrobiologia',
       abstract:
-        'Apresentação institucional e científica na Universidade de São Paulo detalhando o pioneirismo do laboratório no Ceará, voltado à prospecção e análise evolutiva de microrganismos adaptados a altos índices de radiação UV e salinidade.',
-      authors: 'Alves Filho, J. G.; Equipe Lab. Astrobiologia IFCE Acaraú'
+        'Reunião institucional com o Reitor do IFCE, Prof. Wally Menezes, a Pró-Reitora de Pesquisa, Prof.ª Joélia Marques, o Diretor-Geral do Campus Acaraú, Prof. Rubens Galdino Feijó, e os professores Jorge Roberto e João Garcia para ampliar projetos científicos, cooperações e ações de pesquisa, ensino e extensão do Laboratório de Astrobiologia.',
+      authors: 'Alves Filho, J. G.; Silva, J. R. P.; Feijó, R. G.; Marques, J.; Menezes, W.',
+      siteUrl: 'https://portal.ifce.edu.br/campus/acarau/noticias/ifce-debate-novas-parcerias-e-perspectivas-para-fortalecer-laboratorio-de-astrobiologia/',
+      siteLabel: 'Ler notícia oficial no Portal IFCE ↗'
     },
     {
       id: 'pub-02',
-      category: 'astrobiologia',
-      categoryLabel: 'Astrobiologia & Ensino',
-      venue: 'XXIV EANE · IFAL Satuba',
-      location: 'Satuba / Maceió · AL',
-      title: 'Modelagem Didática de Fotossíntese e Habitabilidade com Arduino e LEDs: Conectando Física e Biologia na Astrobiologia',
+      category: 'computacao',
+      categoryLabel: 'Infraestrutura & Computação · Portal IFCE (17/06/2026)',
+      venue: 'Projeto Biologando em Acaraú · IFCE / FAIFCE / FINEP (Convênio nº 0498/23)',
+      location: 'Acaraú · CE',
+      title: 'Laboratório de Astrobiologia do IFCE Acaraú recebe computador de alto desempenho para ampliar pesquisas científicas',
       abstract:
-        'Desenvolvimento de aparato experimental controlado por microcontrolador para simular espectros luminosos e avaliar respostas fotossintéticas, promovendo a aprendizagem ativa de conceitos astrobiológicos na licenciatura e ensino médio.',
-      authors: 'Discentes de Física e Biologia; Roberto, J.; Alves Filho, J. G.'
+        'Aquisição de estação de trabalho com processador Intel Core i9 de 14ª geração, 32 GB de RAM, GPU NVIDIA GeForce RTX 5060 (8 GB dedicados), SSD NVMe e resfriamento líquido via projeto Biologando em Acaraú (Coord. Prof. José Gerardo Carneiro / FINEP). O equipamento impulsiona pesquisas em bioinformática, análises evolutivas, sequências genômicas, meteoros, exoplanetas, química pré-biótica, origem da vida e ambientes extremos.',
+      authors: 'Alves Filho, J. G.; Carneiro, J. G.; Silva, J. R. P.; Equipe Lab. Astrobiologia',
+      siteUrl: 'https://portal.ifce.edu.br/campus/acarau/noticias/laboratorio-de-astrobiologia-do-ifce-acarau-recebe-computador-de-alto-desempenho-para-ampliar-pesquisas-cientificas/',
+      siteLabel: 'Ler notícia oficial no Portal IFCE ↗'
     },
     {
       id: 'pub-03',
-      category: 'lateb',
-      categoryLabel: 'Bioinformática & Legado LaTEB',
-      venue: 'Acervo Científico LaTEB · IFCE',
-      location: 'Acaraú · CE',
-      title: 'Inferência Filogenética, Alinhamento de Sequências e Docagem Molecular 3D Aplicados ao Estudo de Adaptação Microbiana',
+      category: 'astronomia',
+      categoryLabel: 'Congresso Regional & Sede 2029 · Portal IFCE (17/06/2026)',
+      venue: 'XXIV Encontro de Astronomia do Nordeste (EANE 2026) · IFAL Satuba',
+      location: 'Satuba · AL',
+      title: 'Equipe do Laboratório de Astrobiologia do IFCE Acaraú participou do XXIV EANE e garantiu Acaraú como sede de 2029',
       abstract:
-        'Pipeline computacional estruturado no Laboratório de Tecnologias Educacionais e Bioinformática (LaTEB) para anotação funcional de genes, predição tridimensional de proteínas e análise de conservação evolutiva.',
-      authors: 'Alves Filho, J. G.; Grupo de Pesquisa LaTEB / IFCE Acaraú'
+        'Comitiva formada pelo Prof. Jorge Roberto e pelos estudantes Jeferson, Luma, Vitória, Ana Clara e Ailton (Licenciatura em Física) e Junior e Luzia (Licenciatura em Ciências Biológicas) apresentou trabalhos científicos do Laboratório de Astrobiologia em Alagoas e aprovou, na plenária final, o município de Acaraú como sede oficial do EANE 2029.',
+      authors: 'Silva, J. R. P.; Discentes de Física e Ciências Biológicas — IFCE Acaraú',
+      siteUrl: 'https://portal.ifce.edu.br/campus/acarau/noticias/equipe-do-laboratorio-de-astrobiologia-do-ifce-acarau-participou-do-xxiv-encontro-de-astronomia-do-nordeste/',
+      siteLabel: 'Ler notícia oficial no Portal IFCE ↗'
     },
     {
       id: 'pub-04',
       category: 'astrobiologia',
-      categoryLabel: 'Astrobiologia & Astroquímica',
-      venue: 'XXIII EANE · Seridó',
-      location: 'Caicó · RN',
-      title: 'Astrobiologia e Bioinformática no Norte Cearense: Perspectivas de Pesquisa Interdisciplinar e Divulgação Científica no IFCE Acaraú',
+      categoryLabel: 'Iniciação Científica & Extensão · Portal IFCE (30/01/2026)',
+      venue: 'Programa Futuras Cientistas (CETENE / CNPq) & Biologando em Acaraú (FINEP)',
+      location: 'Acaraú · CE',
+      title: 'Explorando a Fotossíntese com Arduino e LEDs: um modelo didático para investigações em Astrobiologia',
       abstract:
-        'Trabalho apresentado na vigésima terceira edição do Encontro de Astronomia do Nordeste, articulando os fundamentos da origem da vida, evolução molecular e estratégias de interiorização da pesquisa astronômica.',
-      authors: 'Comitiva IFCE Acaraú; Alves Filho, J. G.; Roberto, J.'
+        'Coordenado pela Prof.ª Camila Bim e pelo Prof. Dr. João Garcia no Laboratório de Astrobiologia, o projeto reuniu estudantes das escolas públicas EEMTI Vicente de Paulo da Costa, EEEP Marta Maria Giffoni e EEMTI Maria Alice Ramos Gomes em experimentos interdisciplinares (biologia, física, química, informática e robótica), representando a Região Nordeste em live nacional do programa Futuras Cientistas em 29/01/2026.',
+      authors: 'Bim, C.; Alves Filho, J. G.; Carneiro, G.; Ferraz, J.; Silva, J. R. P.; Viana, K.; Diogo, I.',
+      siteUrl: 'https://portal.ifce.edu.br/campus/acarau/noticias/campus-de-acarau-inicia-2026-com-projeto-de-astrobiologia-voltado-a-formacao-cientifica-de-estudantes/',
+      siteLabel: 'Ler notícia oficial no Portal IFCE ↗'
     },
     {
       id: 'pub-05',
-      category: 'lateb',
-      categoryLabel: 'Tecnologias Educacionais (LaTEB)',
-      venue: 'Produção Didática & Extensão LaTEB',
-      location: 'Baixo Acaraú · CE',
-      title: 'Produção de E-books Educacionais e Sequências Didáticas de Biologia Celular, Molecular e Bioinformática para o Ensino Médio',
+      category: 'astrobiologia',
+      categoryLabel: 'Destaque Científico Nacional · Portal IFCE (25/11/2025)',
+      venue: 'Reunião Oficial da Sociedade Brasileira de Astrobiologia (SBAstrobio) · IO-USP',
+      location: 'São Paulo · SP',
+      title: 'Docente de Acaraú participa de reunião oficial da Sociedade Brasileira de Astrobiologia na USP',
       abstract:
-        'Conjunto de materiais didáticos digitais abertos e ações preparatórias (incluindo suporte a aulões ENEM) desenvolvidos pelo LaTEB para fortalecer o ensino público de ciências na microrregião do litoral oeste cearense.',
-      authors: 'Equipe LaTEB — Laboratório de Tecnologias Educacionais e Bioinformática'
+        'Nos dias 13 e 14 de novembro de 2025, no Instituto Oceanográfico da USP (recepcionados pelo presidente da SBAstrobio, Prof. Dr. Gustavo F. Porto de Mello), o Prof. Dr. João Garcia (IFCE Acaraú) e o estudante Erick (IFCE Acopiara) apresentaram o projeto do primeiro Laboratório de Astrobiologia do Ceará, com foco em extremófilos da Caatinga e do litoral sob análises computacionais e bioinformática aplicada.',
+      authors: 'Alves Filho, J. G.; Erick (IFCE Acopiara); Equipe Lab. Astrobiologia IFCE Acaraú',
+      siteUrl: 'https://portal.ifce.edu.br/campus/acarau/noticias/docente-de-acarau-participa-de-reuniao-oficial-da-sociedade-brasileira-de-astrobiologia-na-usp/',
+      siteLabel: 'Ler notícia oficial no Portal IFCE ↗'
     },
     {
       id: 'pub-06',
       category: 'astronomia',
-      categoryLabel: '1º Evento do Grupo Atual (@astrobiologiaifce)',
-      venue: 'I ENEASTRO & VIII Semana da Biologia (CAPES / FINEP)',
+      categoryLabel: 'I ENEASTRO · Portal IFCE (20/10/2026)',
+      venue: 'I Encontro de Ensino de Astronomia do Ceará (ENEASTRO) · IFCE Acaraú',
       location: 'Acaraú · CE',
-      title: 'I Encontro de Ensino de Astronomia do Ceará (I ENEASTRO — "Vida e Universo"): Nosso Primeiro Evento com o Grupo Atual',
+      title: 'IFCE Campus Acaraú recebe palestra sobre Astronomia e Astrofotografia no I ENEASTRO',
       abstract:
-        'Realizado de 14 a 17 de outubro de 2026 no IFCE Campus Acaraú com apoio da CAPES (PAEP-EB) e Biologando em Acaraú (FINEP), reunindo Dra. Evelyn Sanchez (SBAstrobio), Tatiane Peters, Prof. Heliomárzio Moreira, Prof. Saulo Machado, Planetário ECO, PIBID e @cav.ifa.',
-      authors: 'Alves Filho, J. G.; Silva, J. R. P.; Comissão Organizadora I ENEASTRO'
+        'Atividade integrante da programação de encerramento do I ENEASTRO (17/10/2026), ministrada pelo Prof. Heliomárzio Moreira (RENOEN/IFCE, reconhecido como Outstanding Educator pela University of Chicago), abordando observação do céu, astrofotografia como instrumento científico e pedagógico e divulgação astronômica.',
+      authors: 'Moreira, H.; Silva, J. R. P.; Alves Filho, J. G.; Comissão I ENEASTRO',
+      siteUrl: 'https://portal.ifce.edu.br/campus/acarau/noticias/ifce-campus-acarau-recebe-palestra-sobre-astronomia-e-astrofotografia-no-eneastro/',
+      siteLabel: 'Ler notícia oficial no Portal IFCE ↗'
     },
     {
       id: 'pub-07',
       category: 'astronomia',
-      categoryLabel: 'Monitoramento Astronômico (PIBIC)',
-      venue: 'Edital PIBIC · Rede BRAMON & IFCE Acaraú',
+      categoryLabel: 'I ENEASTRO · Portal IFCE (16/10/2026)',
+      venue: 'I ENEASTRO, VIII Semana da Biologia & Encontro do PIBID · IFCE Acaraú',
       location: 'Acaraú · CE',
-      title: 'Monitoramento Sistemático de Meteoros no Litoral Oeste do Ceará em Parceria com a Rede BRAMON',
+      title: 'ENEASTRO debate trajetória e futuro das associações astronômicas no Ceará no IFCE Acaraú',
       abstract:
-        'Projeto de iniciação científica (PIBIC) voltado à captura astrométrica contínua de meteoros e bólidos a partir do Campus Acaraú, determinando trajetórias atmosféricas, órbitas heliocêntricas e fluxos de matéria interplanetária.',
-      authors: 'Silva, J. R. P. (Coord.); Bolsistas PIBIC IFCE · Estação BRAMON / @cav.ifa'
+        'Palestra "Associações Astronômicas no Ceará: passado, presente e futuro", ministrada pelo Prof. Saulo Machado Filho (coordenador do Museu do Eclipse e astrônomo do Observatório Henrique Morize, em Sobral), integrando a programação conjunta do I ENEASTRO, da VIII Semana da Biologia e do Encontro do PIBID.',
+      authors: 'Machado Filho, S.; Silva, J. R. P.; Alves Filho, J. G.; Licenciaturas em Física e Biologia',
+      siteUrl: 'https://portal.ifce.edu.br/campus/acarau/noticias/eneastro-debate-trajetoria-e-futuro-das-associacoes-astronomicas-no-ceara-no-ifce-acarau/',
+      siteLabel: 'Ler notícia oficial no Portal IFCE ↗'
     },
     {
       id: 'pub-08',
-      category: 'lateb',
-      categoryLabel: 'Infraestrutura & Computação Científica',
-      venue: 'Projeto Biologando em Acaraú · FAIFCE / FINEP',
-      location: 'Acaraú & Fortaleza · CE',
-      title: 'Modelagem Tridimensional e Simulações Computacionais de Alto Desempenho para Popularização da Biologia e Astrobiologia',
+      category: 'astronomia',
+      categoryLabel: 'I ENEASTRO · Portal IFCE (15/10/2026)',
+      venue: 'I Encontro de Ensino de Astronomia do Ceará (ENEASTRO) · IFCE Acaraú',
+      location: 'Acaraú · CE',
+      title: 'ENEASTRO no IFCE Acaraú: Palestra discute perspectivas de trabalho no ensino de Ciências',
       abstract:
-        'Implementação de infraestrutura computacional avançada financiada via edital FINEP, permitindo processamento local de dinâmicas moleculares, filogenias extensas e visualização científica 3D no Campus Acaraú.',
-      authors: 'Alves Filho, J. G.; Silva, J. R. P.; Equipe Biologando em Acaraú'
+        'Palestra de abertura ministrada pelo Prof. Me. Antônio Nunes (IFCE Campus Cedro) no auditório do IFCE Campus Acaraú, discutindo formação acadêmica continuada, pesquisa, divulgação científica e inserção profissional de licenciandos em Física e Ciências Biológicas.',
+      authors: 'Nunes, A.; Silva, J. R. P.; Alves Filho, J. G.; PIBID IFCE Acaraú',
+      siteUrl: 'https://portal.ifce.edu.br/campus/acarau/noticias/eneastro-no-ifce-acarau-palestra-discute-perspectivas-de-trabalho-no-ensino-de-ciencias/',
+      siteLabel: 'Ler notícia oficial no Portal IFCE ↗'
     },
     {
       id: 'pub-09',
-      category: 'lateb',
+      category: 'computacao',
       categoryLabel: 'Astrobiologia Computacional (PIBIC Jr CNPq)',
-      venue: 'Edital PIBIC Jr CNPq · LaTEB / Lab. Astrobiologia',
+      venue: 'Edital PIBIC Jr CNPq · Laboratório de Astrobiologia IFCE Acaraú',
       location: 'Acaraú · CE',
       title: 'Desenvolvimento e Aprimoramento de um Algoritmo Python para Seleção de Exoplanetas com Base no Índice de Similaridade com a Terra (ESI)',
       abstract:
-        'Desenvolvimento de ferramenta computacional em linguagem Python no âmbito do LaTEB e Laboratório de Astrobiologia para triagem automatizada de catálogos exoplanetários segundo parâmetros astrofísicos de habitabilidade e ESI.',
-      authors: 'Alves Filho, J. G. (Coord.); Bolsista PIBIC Jr CNPq · LaTEB / IFCE Acaraú'
+        'Desenvolvimento de ferramenta computacional em linguagem Python no Laboratório de Astrobiologia para triagem automatizada de catálogos exoplanetários segundo parâmetros astrofísicos de habitabilidade, fluxo estelar, raio planetário e Índice de Similaridade com a Terra (ESI).',
+      authors: 'Alves Filho, J. G. (Coord.); Bolsista PIBIC Jr CNPq · Lab. Astrobiologia IFCE Acaraú'
     },
     {
       id: 'pub-10',
       category: 'astronomia',
-      categoryLabel: 'Inovação Didática & Equidade (PIBITI / PIBIC AF)',
-      venue: 'Editais PIBITI & PIBIC AF · IFCE Acaraú',
+      categoryLabel: 'Monitoramento Astronômico (PIBIC & Rede BRAMON)',
+      venue: 'Edital PIBIC · Estação BRAMON & Clube @cav.ifa',
       location: 'Acaraú · CE',
-      title: 'Ensino de Astronomia a partir de Histórias em Quadrinhos sobre o Sistema Solar & Representatividade Feminina na Biologia',
+      title: 'Monitoramento Sistemático de Meteoros no Litoral Oeste do Ceará em Parceria com a Rede BRAMON',
       abstract:
-        'Frentes integradas de divulgação científica e análise bibliométrica: produção de HQs didáticas sobre o Sistema Solar (PIBITI, Coord. Prof. Me. Jorge Roberto) e estudo documental sobre autoria e visibilidade feminina nas Ciências Biológicas (PIBIC AF, Coord. Prof. Dr. João Garcia).',
-      authors: 'Silva, J. R. P.; Alves Filho, J. G.; Discentes Bolsistas PIBITI e PIBIC AF'
+        'Projeto de iniciação científica (PIBIC) e ciência cidadã dedicado à captura astrométrica contínua de meteoros a partir do Campus Acaraú (Convênio BRAMON firmado em 19/12/2024), determinando trajetórias atmosféricas, órbitas heliocêntricas e fluxos de matéria interplanetária.',
+      authors: 'Silva, J. R. P.; Alves Filho, J. G.; Bolsistas PIBIC IFCE · Estação BRAMON / @cav.ifa'
     },
     {
       id: 'pub-11',
       category: 'astronomia',
+      categoryLabel: 'Inovação Didática & Equidade (PIBITI / PIBIC AF)',
+      venue: 'Editais PIBITI & PIBIC AF · IFCE Campus Acaraú',
+      location: 'Acaraú · CE',
+      title: 'Ensino de Astronomia a partir de Histórias em Quadrinhos sobre o Sistema Solar & Representatividade Feminina na Biologia',
+      abstract:
+        'Frentes integradas de divulgação científica e análise bibliométrica no laboratório: produção de HQs didáticas sobre o Sistema Solar (PIBITI, Coord. Prof. Me. Jorge Roberto) e estudo documental sobre autoria e visibilidade feminina nas Ciências Biológicas (PIBIC AF, Coord. Prof. Dr. João Garcia).',
+      authors: 'Silva, J. R. P.; Alves Filho, J. G.; Discentes Bolsistas PIBITI e PIBIC AF'
+    },
+    {
+      id: 'pub-12',
+      category: 'computacao',
       categoryLabel: 'Ambiente Virtual & TDIC (BNCC)',
       venue: 'Plataforma Cosmos Explorer · IFCE Campus Acaraú',
       location: 'Acaraú · CE (cosmosexplorer.com.br)',
       title: 'Cosmos Explorer: Ambiente Virtual de Aprendizagem Gamificado com Simulações 3D, Astronomia Cultural e Alinhamento à BNCC',
       abstract:
         'Ambiente interativo desenvolvido por discentes dos cursos de Física e Ciências Biológicas do IFCE Campus Acaraú. Integra simulações tridimensionais aceleradas por WebGL com modelos oficiais da NASA (VTAD), mecânica celeste kepleriana, ciclo de fases lunares e eclipses, módulo pioneiro de Astronomia Cultural Brasileira (etnoastronomia Tupi-Guarani e Radiotelescópio BINGO), acessibilidade com VLibras e salas síncronas para mediação docente.',
-      authors: 'Lima, V. M.; Senna, J.; Roberto, J. P. S.; Alves Filho, J. G.',
-      siteUrl: 'https://cosmosexplorer.com.br'
+      authors: 'Lima, V. M.; Senna, J.; Silva, J. R. P.; Alves Filho, J. G.',
+      siteUrl: 'https://cosmosexplorer.com.br',
+      siteLabel: 'Explorar Plataforma Online (cosmosexplorer.com.br) ↗'
     }
   ]);
 
@@ -514,7 +545,7 @@
   }
 
   /* ========================================================================
-     5. BANCADA INTERATIVA DE BIOINFORMÁTICA (LEGADO LaTEB)
+     5. BANCADA INTERATIVA DE PROJETOS DE PESQUISA E ENSINO
      ======================================================================== */
   function initBioinformaticsWorkbench() {
     const tabs = document.querySelectorAll('.workbench-tab');
@@ -572,6 +603,7 @@
       if (elActionWrap && elActionBtn) {
         if (data.siteUrl) {
           elActionBtn.href = data.siteUrl;
+          elActionBtn.textContent = data.siteLabel || 'Acessar link oficial ↗';
           elActionWrap.hidden = false;
         } else {
           elActionWrap.hidden = true;
@@ -1058,7 +1090,7 @@
         linkEl.target = '_blank';
         linkEl.rel = 'noopener noreferrer';
         linkEl.className = 'pub-card__link btn btn--ochre';
-        linkEl.textContent = 'Explorar Plataforma Online (' + pub.siteUrl.replace(/^https?:\/\//, '') + ') ↗';
+        linkEl.textContent = pub.siteLabel || ('Acessar Link Oficial (' + pub.siteUrl.replace(/^https?:\/\//, '') + ') ↗');
         article.append(linkEl);
       }
 
@@ -1678,10 +1710,10 @@
           title: 'Linhas de Pesquisa e Glossário | Laboratório de Astrobiologia — IFCE Acaraú'
         },
         {
-          id: 'legado-lateb',
-          path: '/bioinformatica-lateb',
-          label: 'LaTEB & Projetos',
-          title: 'LaTEB e Projetos de Ensino | Laboratório de Astrobiologia — IFCE Acaraú'
+          id: 'projetos-ensino',
+          path: '/projetos-ensino',
+          label: 'Projetos & Ensino',
+          title: 'Projetos de Pesquisa e Ensino | Laboratório de Astrobiologia — IFCE Acaraú'
         },
         {
           id: 'viagens-nordeste-brasil',
@@ -1704,8 +1736,8 @@
         {
           id: 'acervo-pesquisa',
           path: '/projetos-publicacoes',
-          label: 'Publicações',
-          title: 'Produção Científica e Publicações | Laboratório de Astrobiologia — IFCE Acaraú'
+          label: 'Pesquisas & Portal IFCE',
+          title: 'Pesquisas e Notícias Oficiais | Laboratório de Astrobiologia — IFCE Acaraú'
         },
         {
           id: 'clube-astronomia',
